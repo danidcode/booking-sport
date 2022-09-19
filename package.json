@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "aos": "^2.3.4",
+        "sass": "^1.54.9",
         "sweetalert2": "^11.4.33"
     }
 }
