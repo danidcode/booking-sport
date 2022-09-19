@@ -10,5 +10,9 @@
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "vite": "^3.0.0"
+    },
+    "dependencies": {
+        "aos": "^2.3.4",
+        "sweetalert2": "^11.4.33"
     }
 }
