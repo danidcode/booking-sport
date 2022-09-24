@@ -1,9 +1,11 @@
 @import "variables";
 @import "home";
-@import "navbar";
+@import "header";
 @import "login";
 
+
 * {
+  font-family: $poppins;
     box-sizing: border-box;
 }
 html, body{
