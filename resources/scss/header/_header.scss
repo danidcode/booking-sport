@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(73 139 201);
+    background-color: $principal;
     padding: 0 25px;
     transition: 0.3s;
 
@@ -149,7 +149,7 @@
         position: fixed;
         top: 0;
         right: -300px;
-        background: rgb(73 139 201);
+        background: $principal;
         width: 300px;
         height: 100%;
         padding-top: 65px;
@@ -185,7 +185,7 @@
         position: fixed;
         top: 0;
         right: -300px;
-        background: rgb(73 139 201);
+        background: $principal;
         width: 300px;
         height: 100%;
         padding-top: 65px;
@@ -223,7 +223,7 @@
         position: fixed;
         top: 0;
         right: -300px;
-        background: rgb(73 139 201);
+        background: $principal;
         width: 300px;
         height: 100%;
         padding-top: 65px;
