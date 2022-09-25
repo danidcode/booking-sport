@@ -13,10 +13,13 @@
         <li> <a href="#">Actividades</a></li>
         @auth
         <div class="dropdown" onclick="showUserOptions()">
-            <i class="fa-regular fa-user fa-lg dropdownbtn" ></i>
+            <i class="fa-regular fa-user fa-lg dropdownbtn"></i>
             <div id="dropdown-list" class="dropdown-content">
                 <a href="dashboard">Panel de cliente</a>
-                <a href="#">Cerrar sesión <i class="fa-solid fa-right-from-bracket"></i> </a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="logout-btn">Cerrar sesión <i class="fa-solid fa-right-from-bracket"></i> </button>
+                </form>
             </div>
         </div>
         @else
