@@ -26,4 +26,6 @@
     </footer>
 </body>
 
+@include('global-scripts.index')
+@yield('scripts')
 </html>
