@@ -8,7 +8,7 @@ const showUserOptions = () => {
   dropdownbtn.classList.add('active');
 }
 window.onclick = (e) => {
-  if (!e.target.matches('.dropdownbtn')) {   
+  if (!e.target.matches('.dropdownbtn')) {
     let dropdowns = document.getElementsByClassName("dropdown-content");
     let i;
     for (i = 0; i < dropdowns.length; i++) {
@@ -21,10 +21,3 @@ window.onclick = (e) => {
     }
   }
 }
-
-// $('.toggle-menu').on('click',() =>{
-//     $('.dropdown').hide();
-    
-//     if()
-// })
-

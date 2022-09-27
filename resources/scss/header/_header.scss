@@ -132,6 +132,14 @@
 
 // Medium
 @media (min-width: $md-min) and (max-width: $md-max) {
+    
+    //Cuando es aparece el menu desplegable escondo el icono de usuario y muestro los elementos de la lista
+    .for-mobile{
+        display: block!important;
+    }
+    .dropdown{
+        display: none;
+    }
 
     .burger,
     .toggle-menu {
@@ -168,6 +176,14 @@
 
 // Small
 @media (min-width: $sm-min) and (max-width: $sm-max) {
+    
+    //Cuando es aparece el menu desplegable escondo el icono de usuario y muestro los elementos de la lista
+    .for-mobile{
+        display: block!important;
+    }
+    .dropdown{
+        display: none;
+    }
 
     .burger,
     .toggle-menu {
@@ -206,6 +222,14 @@
 
 // Extra small
 @media (max-width: $xs-max) {
+
+     //Cuando es aparece el menu desplegable escondo el icono de usuario y muestro los elementos de la lista
+    .for-mobile{
+        display: block!important;
+    }
+    .dropdown{
+        display: none;
+    }
 
     .burger,
     .toggle-menu {
