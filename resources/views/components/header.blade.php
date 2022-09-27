@@ -16,10 +16,12 @@
             <i class="fa-regular fa-user fa-lg dropdownbtn"></i>
             <div id="dropdown-list" class="dropdown-content">
                 <a href="dashboard">Panel de usuario</a>
-                <form method="POST" action="{{ route('logout') }}">
+                <button type="submit" form="form-logout" class="logout-btn">Cerrar sesión <i class="fa-solid fa-right-from-bracket"></i> </button>
+                <form style="display: none" action="{{ route('logout') }}" method="POST" id="form-logout">
                     @csrf
-                    <button type="submit" class="logout-btn">Cerrar sesión <i class="fa-solid fa-right-from-bracket"></i> </button>
                 </form>
+
+
             </div>
         </div>
         @else

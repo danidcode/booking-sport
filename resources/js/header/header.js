@@ -22,3 +22,9 @@ window.onclick = (e) => {
   }
 }
 
+// $('.toggle-menu').on('click',() =>{
+//     $('.dropdown').hide();
+    
+//     if()
+// })
+
