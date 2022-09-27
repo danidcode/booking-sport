@@ -11,8 +11,8 @@
         <li> <a href="/">Home</a></li>
         <li> <a href="#">Eventos</a></li>
         <li> <a href="#">Actividades</a></li>
-        <li><a href="dashboard">Panel de usuario</a></li>
-        <li class="for-mobile" style="display:none;">
+        <li><a href="dashboard" class="for-mobile">Panel de usuario</a></li>
+        <li class="for-mobile">
             <button type="submit" form="form-logout" class="logout-btn">Cerrar sesión
                 <i class="fa-solid fa-right-from-bracket"></i>
             </button>
