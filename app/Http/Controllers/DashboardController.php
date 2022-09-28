@@ -10,4 +10,5 @@ class DashboardController extends Controller
     public function show(Request $request){
         return $request->user()->is_admin ? view('panel-user.index') : view('panel-user.index');
     }
+
 }

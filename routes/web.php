@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActividadController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -18,5 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomeController::class, 'show']);
 
 Route::get('/dashboard',[DashboardController::class, 'show'])->middleware('auth');
+
+Route::group(['prefix' => 'admin',  'middleware' => ['auth','isAdmin']], function()
+{
+    Route::post('/actividad',[ActividadController::class, 'show']);
+});
 
 require __DIR__.'/auth.php';
