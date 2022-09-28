@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ActividadController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EventoController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +23,29 @@ Route::get('/dashboard',[DashboardController::class, 'show'])->middleware('auth'
 
 Route::group(['prefix' => 'admin',  'middleware' => ['auth','isAdmin']], function()
 {
-    Route::post('/actividad',[ActividadController::class, 'show']);
+    //Actividades
+    Route::group(['prefix' => 'actividades'], function()
+    {
+    Route::get('/',[ActividadController::class, 'index']);
+    Route::get('/crear',[ActividadController::class, 'create']);
+    Route::post('/guardar',[ActividadController::class, 'store']);
+    Route::get('/{actividad}',[ActividadController::class, 'show']);
+    Route::get('/{actividad}/editar',[ActividadController::class, 'edit']);
+    Route::put('/{actividad}',[ActividadController::class, 'update']);
+    Route::delete('/{actividad}',[ActividadController::class, 'destroy']);
+    });
+
+    //Eventos
+    Route::group(['prefix' => 'eventos'], function()
+    { 
+    Route::get('/',[EventoController::class, 'index']);
+    Route::get('/crear',[EventoController::class, 'create']);
+    Route::post('/guardar',[EventoController::class, 'store']);
+    Route::get('/{evento}',[EventoController::class, 'show']);
+    Route::get('/{evento}/editar',[EventoController::class, 'edit']);
+    Route::put('/{evento}',[EventoController::class, 'update']);
+    Route::delete('/{evento}',[EventoController::class, 'destroy']);
+    });
 });
 
 require __DIR__.'/auth.php';
