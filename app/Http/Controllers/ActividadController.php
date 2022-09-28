@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ActividadController extends Controller
 {
     public function index(){
-
+        
     }
 
     public function create(){
