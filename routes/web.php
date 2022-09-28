@@ -17,6 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class, 'show']);
 
-Route::get('/dashboard',[DashboardController::class, 'show', 'middleware' => ['auth']]);
+Route::get('/dashboard',[DashboardController::class, 'show'])->middleware('auth');
 
 require __DIR__.'/auth.php';
