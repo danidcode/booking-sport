@@ -21,12 +21,12 @@ Route::get('/',[HomeController::class, 'show']);
 
 Route::get('/dashboard',[DashboardController::class, 'show'])->middleware('auth');
 
-Route::group(['prefix' => 'admin',  'middleware' => ['auth','isAdmin']], function()
+Route::group(['prefix' => 'admin', 'as'=>'admin.',  'middleware' => ['auth','isAdmin']], function()
 {
     //Actividades
-    Route::group(['prefix' => 'actividades'], function()
+    Route::group(['prefix' => 'actividades','as'=>'actividades.'], function()
     {
-    Route::get('/',[ActividadController::class, 'index']);
+    Route::get('/',[ActividadController::class, 'index'])->name('index');
     Route::get('/crear',[ActividadController::class, 'create']);
     Route::post('/guardar',[ActividadController::class, 'store']);
     Route::get('/{actividad}',[ActividadController::class, 'show']);

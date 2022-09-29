@@ -8,15 +8,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <title>Booking Sport</title>
 
-      <!-- Scripts -->
-      @vite(['resources/css/app.css','resources/scss/main.scss', 'resources/js/app.js'])
+    <!-- Scripts -->
+    @vite(['resources/css/app.css','resources/scss/main.scss', 'resources/js/app.js'])
 </head>
+@php
+$routeName = Route::current()->getName()
+@endphp
+
 
 <body>
     <header class="header">
     </header>
-
     <div id="main" class="main">
+        <div class="sidebar">
+            <a class="" href="/dashboard">Home</a>
+            <a class="@if(strpos($routeName, 'admin.actividades.') === 0) active  @endif" href="/admin/actividades">Configurar Actividades</a>
+            <a class="" href="/admin/eventos">Configurar Eventos</a>
+            <a class="" href="/admin/reservas">Configurar Reservas</a>
+            <a class="" href="/admin/inscripciones">Configurar Inscripciones</a>
+            <a class="" href="#about">Modificar datos</a>
+            <a class="" href="/">Volver a la página principal</a>
+            <a class="" href="#about">Cerrar sesión <i class="fa-solid fa-right-from-bracket"></i></a>
+        </div>
         @yield('content')
     </div>
 
@@ -27,4 +40,5 @@
 
 @include('global-scripts.index')
 @yield('scripts')
+
 </html>
