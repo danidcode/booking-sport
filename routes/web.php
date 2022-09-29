@@ -27,22 +27,22 @@ Route::group(['prefix' => 'admin', 'as'=>'admin.',  'middleware' => ['auth','isA
     Route::group(['prefix' => 'actividades','as'=>'actividades.'], function()
     {
     Route::get('/',[ActividadController::class, 'index'])->name('index');
-    Route::get('/crear',[ActividadController::class, 'create']);
+    Route::get('/crear',[ActividadController::class, 'create'])->name('create');
     Route::post('/guardar',[ActividadController::class, 'store']);
-    Route::get('/{actividad}',[ActividadController::class, 'show']);
-    Route::get('/{actividad}/editar',[ActividadController::class, 'edit']);
+    Route::get('/{actividad}',[ActividadController::class, 'show'])->name('show');
+    Route::get('/{actividad}/editar',[ActividadController::class, 'edit'])->name('edit');
     Route::put('/{actividad}',[ActividadController::class, 'update']);
     Route::delete('/{actividad}',[ActividadController::class, 'destroy']);
     });
 
     //Eventos
-    Route::group(['prefix' => 'eventos'], function()
+    Route::group(['prefix' => 'eventos', 'as'=>'eventos.'], function()
     { 
-    Route::get('/',[EventoController::class, 'index']);
-    Route::get('/crear',[EventoController::class, 'create']);
+    Route::get('/',[EventoController::class, 'index'])->name('index');
+    Route::get('/crear',[EventoController::class, 'create'])->name('create');
     Route::post('/guardar',[EventoController::class, 'store']);
-    Route::get('/{evento}',[EventoController::class, 'show']);
-    Route::get('/{evento}/editar',[EventoController::class, 'edit']);
+    Route::get('/{evento}',[EventoController::class, 'show'])->name('show');
+    Route::get('/{evento}/editar',[EventoController::class, 'edit'])->name('edit');
     Route::put('/{evento}',[EventoController::class, 'update']);
     Route::delete('/{evento}',[EventoController::class, 'destroy']);
     });
