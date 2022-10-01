@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ActividadRequest;
 use App\Models\Actividad;
 use Illuminate\Http\Request;
 
@@ -16,8 +17,9 @@ class ActividadController extends Controller
     public function create()
     {
     }
-    public function store()
+    public function store(ActividadRequest $request)
     {
+
     }
     public function show()
     {
@@ -25,7 +27,7 @@ class ActividadController extends Controller
     public function edit()
     {
     }
-    public function update()
+    public function update(ActividadRequest $request, Actividad $actividad)
     {
     }
     public function destroy()
