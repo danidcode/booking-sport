@@ -5,7 +5,7 @@
 @import "home";
 @import "header/header";
 @import "login";
-@import "panel-user/index";
+@import "back-panel/index";
 
 
 * {
@@ -13,7 +13,8 @@
     box-sizing: border-box;
 }
 html, body{
-  min-height:100vh;
+  // min-height:100vh;
+  height: 100%;
   width: 100%;
   margin: 0!important;
 }
@@ -24,4 +25,8 @@ html, body{
 img,
 svg {
     vertical-align: middle;
+}
+
+.main{
+  height: 100%;
 }
