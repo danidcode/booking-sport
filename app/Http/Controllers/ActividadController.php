@@ -8,10 +8,17 @@ use Illuminate\Http\Request;
 
 class ActividadController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $actividades = Actividad::All();
-        return view('panel-admin.actividades.index')->with('actividades', $actividades);
+
+        if($request->ajax()){
+            return response()->json([
+                'status' => true,
+                'actividades' => $actividades,
+            ], 200);
+        }
+        return view('panel-admin.actividades.index');
     }
 
     public function create()
@@ -37,6 +44,7 @@ class ActividadController extends Controller
     }
     public function show()
     {
+
     }
     public function edit()
     {
