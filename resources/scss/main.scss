@@ -1,48 +1,35 @@
-
-@import "node_modules/font-awesome/scss/font-awesome.scss";  
+@import "node_modules/font-awesome/scss/font-awesome.scss";
 
 @import "variables";
 @import "home";
 @import "header/header";
 @import "login";
 @import "back-panel/index";
-
+@import "spinner";
 
 * {
   font-family: $poppins;
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-html, body{
+
+html,
+body {
   // min-height:100vh;
   height: 100%;
   width: 100%;
-  margin: 0!important;
+  margin: 0 !important;
 }
 
-#root{
-  min-height:100vh;
+#root {
+  min-height: 100vh;
 }
+
 img,
 svg {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
-.main{
+.main {
   height: 100%;
 }
 
-#spinner-loading {
-  position:fixed;
-  top:0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 99999999999;
-  background-color: rgb(0,0,0,0.2);
-  .spinner-border {
-    display: block;
-    position: fixed;
-    top: calc(50% - (58px / 2));  
-    right: calc(50% - (58px / 2));
-    color: black;
-  }
-}
