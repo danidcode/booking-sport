@@ -47,4 +47,9 @@
         </div>
     </div>
 </div>
+
+@endsection
+
+@section('scripts')
+<script src={{ Vite::asset('resources/js/panel-admin/actividades/pizarra.js') }}></script>
 @endsection

@@ -22,8 +22,8 @@ window.onclick = (e) => {
 $.ajax({
   url: "actividades",
   beforeSend: () => {
-  $('#spinner-loading').fadeIn();
-},
+    $('#spinner-loading').fadeIn();
+  },
 }).done((res) => {
   $('#spinner-loading').fadeOut();
   const actividades = res.actividades;

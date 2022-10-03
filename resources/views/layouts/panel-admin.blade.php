@@ -39,7 +39,7 @@ $routeName = Route::current()->getName()
 </body>
 
 @include('global-scripts.index')
-<script src={{ Vite::asset('resources/js/panel-admin/actividades/pizarra.js') }}></script>
+
 @yield('scripts')
 
 </html>
