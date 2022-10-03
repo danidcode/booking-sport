@@ -2,7 +2,7 @@
 
 let dropdownbtn = document.getElementsByClassName("dropdownbtn")[0];
 
-//Función que muestra el dropdown en el navbar
+//Función que muestra el dropdown
 const showUserOptions = () => {
   document.getElementById("dropdown-list").classList.toggle("show");
   dropdownbtn.classList.add('active');

@@ -30,3 +30,19 @@ svg {
 .main{
   height: 100%;
 }
+
+#spinner-loading {
+  position:fixed;
+  top:0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999999999;
+  background-color: rgb(0,0,0,0.2);
+  .spinner-border {
+    display: block;
+    position: fixed;
+    top: calc(50% - (58px / 2));  
+    right: calc(50% - (58px / 2));
+    color: black;
+  }
+}

@@ -40,7 +40,7 @@
                         </th>
                         <th>Acciones</th>
                     </tr>
-
+                    
 
                 </table>
             </div>
