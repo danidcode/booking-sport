@@ -1,23 +1,4 @@
-let dropdown_actions = document.getElementsByClassName("dropdown-actions")[0];
-//Función que muestra el dropdown
-const showActividadesActions = () => {
-  document.getElementById("dropdown-list").classList.toggle("show");
-  dropdown_actions.classList.add('active');
-}
-window.onclick = (e) => {
-  if (!e.target.matches('.dropdown_actions')) {
-    let dropdowns = document.getElementsByClassName("dropdown-content");
-    let i;
-    for (i = 0; i < dropdowns.length; i++) {
-      let openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-        dropdown_actions.classList.remove('active');
 
-      }
-    }
-  }
-}
 
 $.ajax({
   url: "actividades",
@@ -40,11 +21,12 @@ $.ajax({
     const td_created_at = `<td> ${created_at} </td>`;
 
     actividad_row += td_nombre + td_limite_usuarios + td_horario + td_destacado + td_destacado_principal + td_activo + td_created_at;
-    actividad_row += `<td> <div class="dropdown" onclick="showActividadesActions()">
-    <i class="fa-solid fa-ellipsis-vertical dropdown_actions"></i>
-    <div id="dropdown-list" class="dropdown-content">
-        <a href="dashboard">Panel de usuario</a>
-        <button type="submit" form="form-logout" class="logout-btn">Cerrar sesión <i class="fa-solid fa-right-from-bracket"></i> </button>
+    actividad_row += `<td> <div class="dropdown-pizarra" onclick="dropdownOptions('dropdownbtn-pizarra')">
+    <i class="fa-solid fa-ellipsis-vertical dropdownbtn-pizarra"></i>
+    <div id="dropdown-list" class="dropdown-content-pizarra">
+        <a href="dashboard"><i class="fa-regular fa-file fa-lg"></i> Ver </a> 
+        <a href="dashboard"> <i class="fa-regular fa-pen-to-square fa-lg"></i> Editar</a>
+        <a href="dashboard"><i class="fa-regular fa-trash-can fa-lg"></i> Borrar </a>
     </div>
     </div></td>`
     actividad_row += '</tr>'

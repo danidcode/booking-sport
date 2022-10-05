@@ -18,7 +18,7 @@
                 <i class="fa-solid fa-right-from-bracket"></i>
             </button>
         </li>
-        <div class="dropdown" onclick="showUserOptions()">
+        <div class="dropdown" onclick="dropdownOptions('dropdownbtn-header')">
             <i class="fa-regular fa-user fa-lg dropdownbtn"></i>
             <div id="dropdown-list" class="dropdown-content">
                 <a href="dashboard">Panel de usuario</a>
