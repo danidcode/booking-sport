@@ -1,4 +1,4 @@
-#spinner-loading {
+#spinner-custom {
     position: fixed;
     top: 0;
     width: 100vw;
@@ -6,7 +6,7 @@
     z-index: 99999999999;
     background-color: rgb(0, 0, 0, 0.2);
   
-    .spinner-border {
+    .spinner-border-custom {
       display: block;
       position: fixed;
       top: calc(50% - (58px / 2));
@@ -15,7 +15,7 @@
     }
   }
   
-  .loader {
+  .loader-custom {
     width: 48px;
     height: 48px;
     border: 3px solid $primary;

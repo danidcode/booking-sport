@@ -2,10 +2,10 @@
 $.ajax({
   url: "actividades",
   beforeSend: () => {
-    $('#spinner-loading').fadeIn();
+    $('#spinner-custom').fadeIn();
   },
 }).done((res) => {
-  $('#spinner-loading').fadeOut();
+  $('#spinner-custom').fadeOut();
   const actividades = res.actividades;
 
   actividades.forEach(actividad => {
@@ -39,7 +39,7 @@ const getActividad = async () =>{
   $.ajax({
     url: "actividades/1",
     beforeSend: () => {
-      // $('#spinner-loading').fadeIn();
+      // $('#spinner-loading-main').fadeIn();
     },
   }).done((actividad) => {
 
@@ -55,6 +55,6 @@ const getActividad = async () =>{
 
 const showActividad = (actividad) => {
 
-    
+
 
 }
