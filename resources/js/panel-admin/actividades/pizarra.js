@@ -1,5 +1,4 @@
 
-
 $.ajax({
   url: "actividades",
   beforeSend: () => {
@@ -24,7 +23,7 @@ $.ajax({
     actividad_row += `<td> <div class="dropdown-pizarra" onclick="dropdownOptions('dropdownbtn-pizarra')">
     <i class="fa-solid fa-ellipsis-vertical dropdownbtn-pizarra"></i>
     <div id="dropdown-list" class="dropdown-content-pizarra">
-        <a href="dashboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-regular fa-file fa-lg"></i> Ver </a> 
+        <a href="#" onclick="getActividad()"><i class="fa-regular fa-file fa-lg"></i> Ver </a> 
         <a href="dashboard"> <i class="fa-regular fa-pen-to-square fa-lg"></i> Editar</a>
         <a href="dashboard"><i class="fa-regular fa-trash-can fa-lg"></i> Borrar </a>
     </div>
@@ -34,3 +33,28 @@ $.ajax({
   });
 });
 
+
+const getActividad = async () =>{
+
+  $.ajax({
+    url: "actividades/1",
+    beforeSend: () => {
+      // $('#spinner-loading').fadeIn();
+    },
+  }).done((actividad) => {
+
+    showActividad(actividad);
+
+  }).fail((error)=>{
+    console.log(error);
+  })
+
+  $('#modal-actividades-ver').modal('toggle');
+}
+
+
+const showActividad = (actividad) => {
+
+    
+
+}

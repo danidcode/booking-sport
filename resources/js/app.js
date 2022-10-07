@@ -8,5 +8,4 @@ import.meta.glob([
   
 window.Alpine = Alpine;
 
-
 Alpine.start();

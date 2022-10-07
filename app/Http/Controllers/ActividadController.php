@@ -42,9 +42,13 @@ class ActividadController extends Controller
             ], 500);
         }
     }
-    public function show()
+    public function show(Actividad $actividad)
     {
-
+        return response()->json([
+            'status' => true,
+            'actividad' => $actividad,
+        ], 200);
+        
     }
     public function edit()
     {
