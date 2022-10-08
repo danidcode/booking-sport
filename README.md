@@ -2,4 +2,5 @@ Repositorio de mi trabajo de fin de curso, estará terminado y subido para el 5 
 
 Se tratará de una aplicación de reservas de actividades deportivas.
 Debido a las restricciones de poder usar determinadas tecnologías, solamente estoy trabajando con Laravel, Jquery y Sass, sin poder usar plugins como datatables.
+La aplicación solo estará disponible en español, ya que no tengo otros lenguajes permitidos
 
