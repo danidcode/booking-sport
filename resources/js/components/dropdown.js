@@ -1,8 +1,8 @@
 
 
 //Función que muestra el dropdown
-const dropdownOptions = (btnClass) => {
-  document.getElementById("dropdown-list").classList.toggle("show");
+const dropdownOptions = (btnClass,idList) => {
+  document.getElementById("dropdown-list-"+ idList).classList.toggle("show");
   let dropdownbtn = document.getElementsByClassName(btnClass)[0];
   dropdownbtn.classList.add('active');
 }

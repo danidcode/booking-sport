@@ -12,7 +12,7 @@ class ActividadController extends Controller
     {
         $actividades = Actividad::All();
 
-        if($request->ajax()){
+        if ($request->ajax()) {
             return response()->json([
                 'status' => true,
                 'actividades' => $actividades,
@@ -42,16 +42,18 @@ class ActividadController extends Controller
             ], 500);
         }
     }
-    public function show(Actividad $actividad)
+    public function show(Actividad $actividad, Request $request)
     {
-        return response()->json([
-            'status' => true,
-            'actividad' => $actividad,
-        ], 200);
-        
+        if ($request->ajax()) {
+            return response()->json([
+                'status' => true,
+                'actividad' => $actividad,
+            ], 200);
+        }
     }
-    public function edit()
+    public function edit(Actividad $actividad, Request $request)
     {
+        
     }
     public function update(ActividadRequest $request, Actividad $actividad)
     {
