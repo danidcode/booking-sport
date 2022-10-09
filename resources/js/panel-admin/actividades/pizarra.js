@@ -24,14 +24,14 @@ $.ajax({
                             <div class="dropdown ">
                               <i class="fa-solid fa-ellipsis-vertical dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></i>
                                   <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-start" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#"><i class="fa-regular fa-file fa-lg"></i> Ver </a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="fa-regular fa-pen-to-square fa-lg"></i> Editar</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="getActividad(${id},'ver')"><i class="fa-regular fa-file fa-lg"></i> Ver </a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="getActividad(${id},'editar')"><i class="fa-regular fa-pen-to-square fa-lg"></i> Editar</a></li>
                                     <li><a class="dropdown-item" href="#"><i class="fa-regular fa-trash-can fa-lg"></i> Borrar </a></li>
                                  </ul>
                             </div> 
                           </div> 
                       </td>`;
-                      
+
     actividad_row += '</tr>';
 
 
