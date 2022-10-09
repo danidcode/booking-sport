@@ -2,8 +2,8 @@
     position: relative;
     display: inline-block;
 
-    .active{
-        background-color: #FFFFFF!important;
+    .active {
+        background-color: #FFFFFF !important;
     }
 }
 
@@ -41,8 +41,8 @@
     display: block;
 }
 
-.logout-btn{
-    background: none!important;
+.logout-btn {
+    background: none !important;
     border: none;
     cursor: pointer;
     display: block;
@@ -53,7 +53,28 @@
     font-size: 100%;
 }
 
-.logout-btn:hover{
-    background-color: #ddd!important;
+.logout-btn:hover {
+    background-color: #ddd !important;
 }
 
+//dropdown de bootstrap
+.dropdown-toggle::after {
+    display: none;
+}
+
+
+//Arreglando problema de posición del dropdown
+.dropdown-menu {
+    right: auto !important;
+    left: 0 !important;
+    top: 0;
+}
+
+.dropdown {
+    position: static !important;
+}
+
+.wrapper-dropdown {
+    position: relative;
+    width: 80%;
+}
