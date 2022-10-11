@@ -10,14 +10,6 @@ class ActividadController extends Controller
 {
     public function index(Request $request)
     {
-        $actividades = Actividad::All();
-
-        if ($request->ajax()) {
-            return response()->json([
-                'status' => true,
-                'actividades' => $actividades,
-            ], 200);
-        }
         return view('panel-admin.actividades.index');
     }
 
@@ -87,6 +79,16 @@ class ActividadController extends Controller
                 'status' => false,
                 'message' => $th->getMessage()
             ], 500);
+        }
+    }
+
+    public function getActividadesJson(Request $request){
+        $actividades = Actividad::All();
+        if ($request->ajax()) {
+            return response()->json([
+                'status' => true,
+                'actividades' => $actividades,
+            ], 200);
         }
     }
 }

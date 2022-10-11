@@ -9,8 +9,8 @@
     <div class="burger"></div>
     <ul class="menu">
         <li> <a href="/">Home</a></li>
-        <li> <a href="#">Eventos</a></li>
-        <li> <a href="#">Actividades</a></li>
+        <li> <a href="/eventos">Eventos</a></li>
+        <li> <a href="/actividades">Actividades</a></li>
         @auth
         <li><a href="dashboard" class="for-mobile">Panel de usuario</a></li>
         <li class="for-mobile">

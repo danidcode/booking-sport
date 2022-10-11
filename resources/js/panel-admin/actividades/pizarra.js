@@ -6,7 +6,9 @@ $(document).ready(function () {
 const initTable = () => {
 
   $.ajax({
-    url: "actividades",
+    url: "actividades/json/getActividades",
+    method: 'get',
+    dataType: 'json',
     beforeSend: () => {
       $('#spinner-custom').fadeIn();
     },
@@ -92,9 +94,9 @@ const destroyActividad = (id) => {
     },
   }).done((res) => {
     Swal.fire({
-      title: 'Success!',
-      text: 'borrado',
-      icon: '',
+      title: 'Éxito!',
+      text: 'La actividad se ha borrado correctamente',
+      icon: 'success',
       confirmButtonText: 'Aceptar'
     });
     initTable();

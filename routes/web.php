@@ -33,6 +33,7 @@ Route::group(['prefix' => 'admin', 'as'=>'admin.',  'middleware' => ['auth','isA
     Route::get('/{actividad}/editar',[ActividadController::class, 'edit'])->name('edit');
     Route::put('/{actividad}',[ActividadController::class, 'update']);
     Route::delete('/{actividad}',[ActividadController::class, 'destroy']);
+    Route::get('/json/getActividades',[ActividadController::class, 'getActividadesJson']);
     });
 
     //Eventos
