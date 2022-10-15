@@ -24,6 +24,9 @@
     background-color: black;
 }
 
+.actividades-table{
+    table-layout: fixed;
+}
 .actividades-table-wrap {
     display: flex;
     width: 100%;
@@ -69,9 +72,17 @@
     td{
         font-size: .857rem;
         color: #6E6B7B;
+        border-bottom: 3px #F7F7F7 solid;
+
+        img{
+            width: 100%;
+        }
     }
 
     .fa-solid{
         cursor: pointer;
+    }
+    .actividades-row{
+        height: 135px;
     }
 }

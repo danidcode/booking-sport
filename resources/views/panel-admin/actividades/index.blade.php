@@ -9,6 +9,11 @@
             <div class="actividades-table-wrap">
                 <table class="actividades-table">
                     <tr>
+                        <th>Imagen
+                                <i class="fa-solid fa-arrow-up-wide-short"></i>
+                                <i class="fa-solid fa-arrow-down-wide-short"></i>
+                        
+                        </th>
                         <th>Nombre
                                 <i class="fa-solid fa-arrow-up-wide-short"></i>
                                 <i class="fa-solid fa-arrow-down-wide-short"></i>
@@ -34,10 +39,10 @@
                                 <i class="fa-solid fa-arrow-up-wide-short"></i>
                                 <i class="fa-solid fa-arrow-down-wide-short"></i>
                         </th>
-                        <th>Creada
+                        {{-- <th>Creada
                                 <i class="fa-solid fa-arrow-up-wide-short"></i>
                                 <i class="fa-solid fa-arrow-down-wide-short"></i>
-                        </th>
+                        </th> --}}
                         <th>Acciones</th>
                     </tr>
                     

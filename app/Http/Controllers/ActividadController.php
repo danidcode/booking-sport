@@ -23,6 +23,8 @@ class ActividadController extends Controller
             $actividad = $request->validated();
             $imagen = imageInStorage($request->imagen);
             $actividad['imagen'] = $imagen;
+            $actividad['hora_desde'] = '2022/11/10';
+            $actividad['hora_hasta'] = '2022/11/10';
             Actividad::create($actividad);
             return response()->json([
                 'status' => true,

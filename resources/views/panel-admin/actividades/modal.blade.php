@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modal-actividades-ver">Ver actividad</h5>
+                <h5 class="modal-title" id="modal-actividades-titulo">Ver actividad</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -45,7 +45,7 @@
                             <textarea class="form-control" id="actividad-descripcion"></textarea>
                         </div>
                     </div>
-                    <div class="form-row mt-2  d-flex justify-content-center">
+                    <div class="form-row mt-3  d-flex justify-content-center">
                         <div class="col-6">
                             <label>Imagen</label>
                             @include('components.input-file', ['name' => "actividad"])
