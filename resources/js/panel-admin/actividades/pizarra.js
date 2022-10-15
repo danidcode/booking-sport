@@ -72,13 +72,13 @@ const getActividad = async (id, action) => {
 
 const showActividad = (actividad, action) => {
   $("#actividades-form :input").attr("disabled", action == 'ver' ? true : false);
-  const { nombre, description, imagen, limite_usuarios, hora_desde, hora_hasta, destacado, destacado_principal, activo, created_at } = actividad;
+  const { nombre, descripcion, imagen, limite_usuarios, hora_desde, hora_hasta, destacado, destacado_principal, activo, created_at } = actividad;
   $('#spinner-custom').fadeOut();
   $('#actividad-nombre').val(nombre);
   action == 'ver' ? $('.btn-actualizar').hide() : $('.btn-actualizar').show();
   $('#actividad-limite').val(limite_usuarios);
   $('#actividad-horario').val(`desde ${hora_desde} hasta ${hora_hasta}`);
-  $('#actividad-descripcion').val(description);
+  $('#actividad-descripcion').val(descriction);
   $('#actividad-activo').prop('checked', activo);
   $('#actividad-destacado').prop('checked', destacado);
   $('#actividad-destacado-principal').prop('checked', destacado_principal);
@@ -117,7 +117,7 @@ const updateActividad = (id) =>
   nombre: $('#actividad-nombre').val(),
   limite_usuarios: $('#actividad-limite').val(),
   horario: $('#actividad-horario').val(),
-  description: $('#actividad-descripcion').val(),
+  descripcion: $('#actividad-descripcion').val(),
   activo: $('#actividad-activo').val(),
   destacado:  $('#actividad-destacado').val(),
   destacado_principal: $('#actividad-destacado-principal').val(),

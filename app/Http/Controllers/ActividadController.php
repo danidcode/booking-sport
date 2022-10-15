@@ -22,7 +22,6 @@ class ActividadController extends Controller
         try {
             $actividad = $request->validated();
             $imagen = imageInStorage($request->imagen);
-            dd($imagen);
             $actividad['imagen'] = $imagen;
             Actividad::create($actividad);
             return response()->json([
