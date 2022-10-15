@@ -47,9 +47,9 @@ class ActividadController extends Controller
     {
         
     }
-    public function update(ActividadRequest $request, Actividad $actividad)
+    public function update(Request $request)
     {
-
+            dd($request);
         try {
             $actividad = $request->validated();
             $imagen = imageInStorage($request->imagen);

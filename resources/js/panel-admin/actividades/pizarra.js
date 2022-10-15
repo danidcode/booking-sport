@@ -1,4 +1,5 @@
 
+
 $(document).ready(function () {
   initTable();
 });
@@ -69,6 +70,7 @@ const getActividad = async (id, action) => {
 
 
 const showActividad = (actividad, action) => {
+  initInputFile('edit_actividad')
   $("#actividades-form :input").attr("disabled", action == 'ver' ? true : false);
   const { nombre, description, imagen, limite_usuarios, hora_desde, hora_hasta, destacado, destacado_principal, activo, created_at } = actividad;
   $('#spinner-custom').fadeOut();
@@ -99,8 +101,8 @@ const destroyActividad = (id) => {
       icon: 'success',
       confirmButtonText: 'Aceptar'
     });
+
     initTable();
-    console.log(res);
 
   }).fail((error) => {
     console.log(error);
@@ -109,10 +111,44 @@ const destroyActividad = (id) => {
   })
 }
 
-const updateActividad = (id) => {
+const updateActividad = (id) => 
+{
+  const data = {
+  nombre: $('#actividad-nombre').val(),
+  limite_usuarios: $('#actividad-limite').val(),
+  // horario: $('#actividad-horario').val(),
+  description: $('#actividad-descripcion').val(),
+  activo: $('#actividad-activo').val(),
+  destacado:  $('#actividad-destacado').val(),
+  // destacado_principal: $('#actividad-destacado-principal').val(),
+  // imagen: ('#actividad-imagen').val(),
+  }
 
-  console.log(id);
+  $.ajax({
+    url: `actividades/${id}`,
+    method: 'put',
+    data: data,
+    beforeSend: () => {
+      $('#spinner-custom').fadeIn();
+    },
+  }).done((res) => {
+    Swal.fire({
+      title: 'Éxito!',
+      text: 'La actividad se ha actualizado correctamente',
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    });
+
+    initTable();
+
+  }).fail((error) => {
+    console.log(error);
+  }).always(() => {
+    $('#spinner-custom').fadeOut();
+  })
 }
+
+
 $('.nueva-actividad-button').on('click', () => {
   $('#modal-actividades').modal('toggle');
 })
