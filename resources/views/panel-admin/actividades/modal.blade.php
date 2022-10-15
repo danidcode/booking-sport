@@ -48,12 +48,13 @@
                     <div class="form-row mt-2  d-flex justify-content-center">
                         <div class="col-6">
                             <label>Imagen</label>
-                            @include('components.input-file', ['name' => "edit_actividad"])
+                            @include('components.input-file', ['name' => "actividad"])
                           
                         </div>
                     </div>
                     <div class="form-row mt-4  d-flex justify-content-center">
                         <button type="button" class="btn-actualizar" onclick="updateActividad(this)"> Actualizar</button>
+                        <button type="button" class="btn-crear" onclick="createActividad(this)"> Crear</button>
                     </div>
                 </form>
             </div>

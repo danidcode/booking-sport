@@ -2,6 +2,7 @@
 
 $(document).ready(function () {
   initTable();
+  initInputFile('actividad')
 });
 
 const initTable = () => {
@@ -70,7 +71,6 @@ const getActividad = async (id, action) => {
 
 
 const showActividad = (actividad, action) => {
-  initInputFile('edit_actividad')
   $("#actividades-form :input").attr("disabled", action == 'ver' ? true : false);
   const { nombre, description, imagen, limite_usuarios, hora_desde, hora_hasta, destacado, destacado_principal, activo, created_at } = actividad;
   $('#spinner-custom').fadeOut();
@@ -116,12 +116,12 @@ const updateActividad = (id) =>
   const data = {
   nombre: $('#actividad-nombre').val(),
   limite_usuarios: $('#actividad-limite').val(),
-  // horario: $('#actividad-horario').val(),
+  horario: $('#actividad-horario').val(),
   description: $('#actividad-descripcion').val(),
   activo: $('#actividad-activo').val(),
   destacado:  $('#actividad-destacado').val(),
-  // destacado_principal: $('#actividad-destacado-principal').val(),
-  // imagen: ('#actividad-imagen').val(),
+  destacado_principal: $('#actividad-destacado-principal').val(),
+  imagen: ('#actividad-imagen').val(),
   }
 
   $.ajax({
@@ -139,15 +139,50 @@ const updateActividad = (id) =>
       confirmButtonText: 'Aceptar'
     });
 
+  }).fail((error) => {
+    console.log(error);
+  }).always(() => {
+    $('#spinner-custom').fadeOut();
     initTable();
+  })
+}
+
+const createActividad = () => 
+{
+
+  const data = {
+  nombre: $('#actividad-nombre').val(),
+  limite_usuarios: $('#actividad-limite').val(),
+  horario: $('#actividad-horario').val(),
+  descripcion: $('#actividad-descripcion').val(),
+  activo: $('#actividad-activo').prop('checked') ? 1 : 0,
+  destacado:  $('#actividad-destacado').prop('checked') ? 1 : 0,
+  destacado_principal: $('#actividad-destacado-principal').prop('checked') ? 1 : 0,
+  imagen: $('#actividad_display_uploaded').attr('src'),
+  }
+
+  $.ajax({
+    url: `actividades/guardar`,
+    method: 'post',
+    data: data,
+    beforeSend: () => {
+      $('#spinner-custom').fadeIn();
+    },
+  }).done((res) => {
+    Swal.fire({
+      title: 'Éxito!',
+      text: 'La actividad se ha creado correctamente',
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    });
 
   }).fail((error) => {
     console.log(error);
   }).always(() => {
     $('#spinner-custom').fadeOut();
+    initTable();
   })
 }
-
 
 $('.nueva-actividad-button').on('click', () => {
   $('#modal-actividades').modal('toggle');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ActividadRequest;
 use App\Models\Actividad;
 use Illuminate\Http\Request;
+use Faker\Extension\Helper;
 
 class ActividadController extends Controller
 {
@@ -21,6 +22,7 @@ class ActividadController extends Controller
         try {
             $actividad = $request->validated();
             $imagen = imageInStorage($request->imagen);
+            dd($imagen);
             $actividad['imagen'] = $imagen;
             Actividad::create($actividad);
             return response()->json([
