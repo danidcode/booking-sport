@@ -25,9 +25,9 @@ const initTable = () => {
       const td_nombre = `<td> ${nombre} </td>`;
       const td_limite_usuarios = `<td> ${limite_usuarios} </td>`;
       const td_horario = `<td> ${hora_desde}  / ${hora_hasta} </td>`;
-      const td_destacado = `<td> ${destacado} </td>`;
-      const td_destacado_principal = `<td> ${destacado_principal} </td>`;
-      const td_activo = `<td> ${activo} </td>`;
+      const td_destacado = `<td> <span> ${destacado ? ("<span> SI </span>") : ("<span> NO </span>")} </span></td>`;
+      const td_destacado_principal = `<td> ${destacado_principal ? ("<span> SI </span>") : ("<span> NO </span>")} </td>`;
+      const td_activo = `<td> ${activo ? ("<span class='activo'> activo </span>") : ("<span class='inactivo'> inactivo </span>")} </td>`;
       // const td_created_at = `<td> ${created_at} </td>`;
 
       actividad_row += td_imagen + td_nombre + td_limite_usuarios + td_horario + td_destacado + td_destacado_principal + td_activo;

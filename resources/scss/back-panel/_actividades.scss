@@ -42,47 +42,60 @@
             }
         }
 
-    }
-
+        td,
+        th {
+            // border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
     
-    td,
-    th {
-        // border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-
-    th{
-        font-size: .957rem;
-        background-color: #F3F2F7;
-        border-block: 2px solid #ebe9f1;
-        border-block-width: 2px;
-        border-block-style: solid;
-        border-block-color: rgb(235, 233, 241);
-        color: #6E6B7B;
-        text-transform: uppercase;
-        letter-spacing: .5px;
-        font-weight: bold;
-        
-        i{
+        th{
+            font-size: .957rem;
+            background-color: #F3F2F7;
+            border-block: 2px solid #ebe9f1;
+            border-block-width: 2px;
+            border-block-style: solid;
+            border-block-color: rgb(235, 233, 241);
+            color: #6E6B7B;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            font-weight: bold;
+            
+            i{
+                cursor: pointer;
+            }
+            
+        }
+        td{
+            font-size: .857rem;
+            color: #6E6B7B;
+            border-bottom: 3px #F7F7F7 solid;
+    
+            img{
+                width: 100%;
+            }
+        }
+    
+        .fa-solid{
             cursor: pointer;
         }
-        
-    }
-    td{
-        font-size: .857rem;
-        color: #6E6B7B;
-        border-bottom: 3px #F7F7F7 solid;
-
-        img{
-            width: 100%;
+        .actividades-row{
+            height: 135px;
         }
-    }
+    
+        .activo{
+            border-radius: 9999px;
+            padding: 7px 20px 7px 20px;
+            color: #F7F7F7;
+            background-color: rgb(65 179 65);
+        }
+        .inactivo{
+            border-radius: 9999px;
+            padding: 7px 20px 7px 20px;
+            color: #F7F7F7;
+            background-color: rgb(233 78 78);
+        }
 
-    .fa-solid{
-        cursor: pointer;
     }
-    .actividades-row{
-        height: 135px;
-    }
+   
 }
