@@ -48,7 +48,6 @@ class ActividadController extends Controller
     }
     public function edit(Actividad $actividad, Request $request)
     {
-        
     }
     public function update(Actividad $actividad, ActividadRequest $request)
     {
@@ -87,8 +86,13 @@ class ActividadController extends Controller
         }
     }
 
-    public function getActividadesJson(Request $request){
-        $actividades = Actividad::All();
+    public function getActividadesJson(Request $request)
+    {
+        $column = $request->column;
+        $order = $request->order;
+        $actividades = Actividad::when(isset($order) && isset($column), function ($q) use ($column, $order) {
+            $q->orderBy($column, $order);
+        })->get();
         if ($request->ajax()) {
             return response()->json([
                 'status' => true,

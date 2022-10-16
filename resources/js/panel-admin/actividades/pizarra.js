@@ -7,49 +7,24 @@ $(document).ready(async function () {
   initInputFile('actividad')
 });
 
-const initTable = () => {
+const getJsonActividades = 'actividades/json/getActividades';
+const initTable = (actividades = null) => {
+  if (actividades == null) {
 
-  return new Promise((resolve, reject) => {
-    
-  $.ajax({
-    url: "actividades/json/getActividades",
-    method: 'get',
-    dataType: 'json',
-  }).done((res) => {
-    $('.actividades-row').remove();
-    const actividades = res.actividades;
-    actividades.forEach(actividad => {
-      let actividad_row = `<tr class="actividades-row">`;
-      const { id, nombre, imagen, limite_usuarios, hora_desde, hora_hasta, destacado, destacado_principal, activo, created_at } = actividad;
-      const td_imagen = `<td colspan='1'><img src='${imagen}'></img></td>`
-      const td_nombre = `<td> ${nombre} </td>`;
-      const td_limite_usuarios = `<td> ${limite_usuarios} </td>`;
-      const td_horario = `<td> ${hora_desde}  / ${hora_hasta} </td>`;
-      const td_destacado = `<td> <span> ${destacado ? ("<span> SI </span>") : ("<span> NO </span>")} </span></td>`;
-      const td_destacado_principal = `<td> ${destacado_principal ? ("<span> SI </span>") : ("<span> NO </span>")} </td>`;
-      const td_activo = `<td> ${activo ? ("<span class='activo'> activo </span>") : ("<span class='inactivo'> inactivo </span>")} </td>`;
-      // const td_created_at = `<td> ${created_at} </td>`;
-
-      actividad_row += td_imagen + td_nombre + td_limite_usuarios + td_horario + td_destacado + td_destacado_principal + td_activo;
-      actividad_row += `<td> <div class="wrapper-dropdown container"> 
-                              <div class="dropdown ">
-                                <i class="fa-solid fa-ellipsis-vertical dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                                    <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-start" aria-labelledby="dropdownMenuButton1">
-                                      <li><a class="dropdown-item" href="#" onclick="getActividad(${id},'ver')"><i class="fa-regular fa-file fa-lg"></i> Ver </a></li>
-                                      <li><a class="dropdown-item" href="#" onclick="getActividad(${id},'editar')"><i class="fa-regular fa-pen-to-square fa-lg"></i> Editar</a></li>
-                                      <li><a class="dropdown-item" href="#" onclick="destroyActividad(${id})"><i class="fa-regular fa-trash-can fa-lg"></i> Borrar </a></li>
-                                   </ul>
-                              </div> 
-                            </div> 
-                        </td>`;
-
-      actividad_row += '</tr>'
-
-      $('.actividades-table').append(actividad_row)
-    });
-  });
-  resolve();
-})
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        url: getJsonActividades,
+        method: 'get',
+        dataType: 'json',
+      }).done((res) => {
+        const actividades = res.actividades;
+        setRegistros(actividades);
+      });
+      resolve();
+    })
+  } else {
+    setRegistros(actividades);
+  }
 }
 
 
@@ -87,7 +62,7 @@ const showActividad = (actividad, action) => {
     $('.btn-crear').hide();
     $('#modal-actividades-titulo').text('Ver actividad');
   } else {
-    $('#record-id').data('id',id);
+    $('#record-id').data('id', id);
     $('.btn-actualizar').show();
     $('.btn-crear').hide();
     $('#modal-actividades-titulo').text('Actualizar actividad');
@@ -98,7 +73,7 @@ const showActividad = (actividad, action) => {
   $('#actividad-activo').prop('checked', activo);
   $('#actividad-destacado').prop('checked', destacado);
   $('#actividad-destacado-principal').prop('checked', destacado_principal);
-  $('#actividad_display_uploaded').attr('src',imagen)
+  $('#actividad_display_uploaded').attr('src', imagen)
   $('#modal-actividades').modal('toggle');
 
 }
@@ -184,26 +159,99 @@ const createActividad = () => {
     });
 
   }).fail((error) => {
-    console.log(error);
+    Swal.fire({
+      title: '¡Error!',
+      text: 'Ha ocurrido un error',
+      icon: 'error',
+      confirmButtonText: 'Aceptar'
+    });
   }).always(async () => {
     $('#spinner-custom').fadeOut();
     await initTable();
   })
 }
 
-const formarData = () =>{
+const formarData = () => {
   const data = {
-      nombre: $('#actividad-nombre').val(),
-      limite_usuarios: $('#actividad-limite').val(),
-      horario: $('#actividad-horario').val(),
-      descripcion: $('#actividad-descripcion').val(),
-      activo: $('#actividad-activo').prop('checked') ? 1 : 0,
-      destacado: $('#actividad-destacado').prop('checked') ? 1 : 0,
-      destacado_principal: $('#actividad-destacado-principal').prop('checked') ? 1 : 0,
-      imagen: $('#actividad_display_uploaded').attr('src'),
+    nombre: $('#actividad-nombre').val(),
+    limite_usuarios: $('#actividad-limite').val(),
+    horario: $('#actividad-horario').val(),
+    descripcion: $('#actividad-descripcion').val(),
+    activo: $('#actividad-activo').prop('checked') ? 1 : 0,
+    destacado: $('#actividad-destacado').prop('checked') ? 1 : 0,
+    destacado_principal: $('#actividad-destacado-principal').prop('checked') ? 1 : 0,
+    imagen: $('#actividad_display_uploaded').attr('src'),
   }
 
   return data;
+}
+
+const sort = (data) => {
+  const column = data.getAttribute("data-column")
+  const order = data.getAttribute("data-order")
+  sortBy(column, order);
+
+}
+
+const sortBy = async (column, order) => {
+  const data = {
+    column: column,
+    order: order
+  }
+  $.ajax({
+    url: getJsonActividades,
+    method: 'get',
+    data: data,
+    beforeSend: () => {
+      $('#spinner-custom').fadeIn();
+    },
+  }).done(async (res) => {
+    const actividades = res.actividades;
+    await initTable(actividades);
+  }).fail((error) => {
+    Swal.fire({
+      title: '¡Error!',
+      text: 'Ha ocurrido un error',
+      icon: 'error',
+      confirmButtonText: 'Aceptar'
+    });
+  }).always(async () => {
+    $('#spinner-custom').fadeOut();
+  })
+}
+
+const setRegistros = (actividades) => {
+  $('.actividades-row').remove(); //Reiniciamos la tabla
+
+  actividades.forEach(actividad => {
+    let actividad_row = `<tr class="actividades-row">`;
+    const { id, nombre, imagen, limite_usuarios, hora_desde, hora_hasta, destacado, destacado_principal, activo, created_at } = actividad;
+    const td_imagen = `<td colspan='1'><img src='${imagen}'></img></td>`
+    const td_nombre = `<td> ${nombre} </td>`;
+    const td_limite_usuarios = `<td> ${limite_usuarios} </td>`;
+    const td_horario = `<td> ${hora_desde}  / ${hora_hasta} </td>`;
+    const td_destacado = `<td> <span> ${destacado ? ("<span> SI </span>") : ("<span> NO </span>")} </span></td>`;
+    const td_destacado_principal = `<td> ${destacado_principal ? ("<span> SI </span>") : ("<span> NO </span>")} </td>`;
+    const td_activo = `<td> ${activo ? ("<span class='activo'> activo </span>") : ("<span class='inactivo'> inactivo </span>")} </td>`;
+    // const td_created_at = `<td> ${created_at} </td>`;
+
+    actividad_row += td_imagen + td_nombre + td_limite_usuarios + td_horario + td_destacado + td_destacado_principal + td_activo;
+    actividad_row += `<td> <div class="wrapper-dropdown container"> 
+                            <div class="dropdown ">
+                              <i class="fa-solid fa-ellipsis-vertical dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                                  <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-start" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#" onclick="getActividad(${id},'ver')"><i class="fa-regular fa-file fa-lg"></i> Ver </a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="getActividad(${id},'editar')"><i class="fa-regular fa-pen-to-square fa-lg"></i> Editar</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="destroyActividad(${id})"><i class="fa-regular fa-trash-can fa-lg"></i> Borrar </a></li>
+                                 </ul>
+                            </div> 
+                          </div> 
+                      </td>`;
+
+    actividad_row += '</tr>'
+
+    $('.actividades-table').append(actividad_row)
+  });
 }
 
 $('.nueva-actividad-button').on('click', () => {
@@ -211,6 +259,6 @@ $('.nueva-actividad-button').on('click', () => {
   $('.btn-crear').show();
   $('.btn-actualizar').hide();
 
-  $('#actividad_display_uploaded').attr('src',`${asset_global_images}/upload.jpg`);
+  $('#actividad_display_uploaded').attr('src', `${asset_global_images}/upload.jpg`);
   $('#modal-actividades').modal('toggle');
 })
