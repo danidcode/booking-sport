@@ -4,7 +4,7 @@ function initInputFile(name, maxSize = 1000) {
       inputFile = $(`#${name}_image_upload`),
       inputBase64 = $(`#${name}_image_uploaded`),
       inputUpdate = $(`#${name}_image_uploaded_update`),
-      imgDefautUrl = '/images/pages/upload.png',
+      imgDefautUrl = asset_global_images + '/upload.jpg',
       btnDelete = $(`#${name}_delete_btn`);
   
     imageDisplay.on('click', function () {
