@@ -91,7 +91,7 @@ const showActividad = (actividad, action) => {
   $('#actividad-activo').prop('checked', activo);
   $('#actividad-destacado').prop('checked', destacado);
   $('#actividad-destacado-principal').prop('checked', destacado_principal);
-
+  $('#actividad_display_uploaded').attr('src',imagen)
   $('#modal-actividades').modal('toggle');
 
 }
@@ -195,5 +195,7 @@ $('.nueva-actividad-button').on('click', () => {
   $('#modal-actividades-titulo').text('Crear actividad');
   $('.btn-crear').show();
   $('.btn-actualizar').hide();
+
+  $('#actividad_display_uploaded').attr('src',`${asset_global_images}/upload.jpg`);
   $('#modal-actividades').modal('toggle');
 })

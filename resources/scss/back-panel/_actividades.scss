@@ -42,6 +42,9 @@
             }
         }
 
+        tr{
+            height: 100px;
+        }
         td,
         th {
             // border: 1px solid #dddddd;
@@ -70,17 +73,15 @@
             font-size: .857rem;
             color: #6E6B7B;
             border-bottom: 3px #F7F7F7 solid;
-    
+            max-height: 100px;
             img{
+                max-height: 100px;
                 width: 100%;
             }
         }
     
         .fa-solid{
             cursor: pointer;
-        }
-        .actividades-row{
-            height: 135px;
         }
     
         .activo{
