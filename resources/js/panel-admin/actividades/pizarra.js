@@ -66,7 +66,12 @@ const getActividad = async (id, action) => {
     showActividad(res.actividad, action);
 
   }).fail((error) => {
-    console.log(error);
+    Swal.fire({
+      title: '¡Error!',
+      text: 'Ha ocurrido un error',
+      icon: 'error',
+      confirmButtonText: 'Aceptar'
+    });
   })
 
 }
@@ -116,7 +121,12 @@ const destroyActividad = (id) => {
     await initTable();
 
   }).fail((error) => {
-    console.log(error);
+    Swal.fire({
+      title: '¡Error!',
+      text: 'Ha ocurrido un error',
+      icon: 'error',
+      confirmButtonText: 'Aceptar'
+    });
   }).always(() => {
     $('#spinner-custom').fadeOut();
   })
@@ -142,7 +152,12 @@ const updateActividad = () => {
     });
 
   }).fail((error) => {
-    console.log(error);
+    Swal.fire({
+      title: '¡Error!',
+      text: 'Ha ocurrido un error',
+      icon: 'error',
+      confirmButtonText: 'Aceptar'
+    });
   }).always(async () => {
     await initTable();
     $('#spinner-custom').fadeOut();
