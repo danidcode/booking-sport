@@ -233,9 +233,9 @@ const setRegistros = (actividades) => {
     const td_destacado = `<td> <span> ${destacado ? ("<span> SI </span>") : ("<span> NO </span>")} </span></td>`;
     const td_destacado_principal = `<td> ${destacado_principal ? ("<span> SI </span>") : ("<span> NO </span>")} </td>`;
     const td_activo = `<td> ${activo ? ("<span class='activo'> activo </span>") : ("<span class='inactivo'> inactivo </span>")} </td>`;
-    // const td_created_at = `<td> ${created_at} </td>`;
+    const td_created_at = `<td> ${created_at} </td>`;
 
-    actividad_row += td_imagen + td_nombre + td_limite_usuarios + td_horario + td_destacado + td_destacado_principal + td_activo;
+    actividad_row += td_imagen + td_nombre + td_limite_usuarios + td_horario + td_destacado + td_destacado_principal + td_activo + td_created_at;
     actividad_row += `<td> <div class="wrapper-dropdown container"> 
                             <div class="dropdown ">
                               <i class="fa-solid fa-ellipsis-vertical dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></i>

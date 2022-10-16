@@ -10,51 +10,50 @@
                     <table class="actividades-table">
                         <tr>
                             <th>Imagen
-                                <i class="fa-solid fa-arrow-up-wide-short"></i>
-                                <i class="fa-solid fa-arrow-down-wide-short"></i>
-
                             </th>
                             <th>Nombre
-                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)"
-                                    data-column="nombre" data-order="asc"></i>
-                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)"
-                                    data-column="nombre" data-order="desc"></i>
+                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="nombre"
+                                    data-order="asc"></i>
+                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="nombre"
+                                    data-order="desc"></i>
 
                             </th>
                             <th>Límite
                                 <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)"
-                                data-column="limite_usuarios" data-order="asc"></i>
+                                    data-column="limite_usuarios" data-order="asc"></i>
                                 <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)"
-                                data-column="limite_usuarios" data-order="desc"></i>
+                                    data-column="limite_usuarios" data-order="desc"></i>
                             </th>
                             <th>Horario
-                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)"
-                                data-column="horario" data-order="asc"></i>
-                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)"
-                                data-column="horario" data-order="desc"></i>
+                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="horario"
+                                    data-order="asc"></i>
+                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="horario"
+                                    data-order="desc"></i>
                             </th>
                             <th>Destacado
-                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)"
-                                data-column="destacado" data-order="asc"></i>
-                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)"
-                                data-column="destacado" data-order="desc"></i>
+                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="destacado"
+                                    data-order="asc"></i>
+                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="destacado"
+                                    data-order="desc"></i>
                             </th>
                             <th>Destacado principal
                                 <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)"
-                                data-column="destacado_principal" data-order="asc"></i>
+                                    data-column="destacado_principal" data-order="asc"></i>
                                 <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)"
-                                data-column="destacado_principal" data-order="desc"></i>
+                                    data-column="destacado_principal" data-order="desc"></i>
                             </th>
                             <th>Estatus
-                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)"
-                                data-column="activo" data-order="asc"></i>
-                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)"
-                                data-column="activo" data-order="desc"></i>
+                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="activo"
+                                    data-order="asc"></i>
+                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="activo"
+                                    data-order="desc"></i>
                             </th>
-                            {{-- <th>Creada
-                                <i class="fa-solid fa-arrow-up-wide-short"></i>
-                                <i class="fa-solid fa-arrow-down-wide-short"></i>
-                        </th> --}}
+                            <th>Creada
+                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="created_at"
+                                    data-order="asc"></i>
+                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="created_at"
+                                    data-order="desc"></i>
+                            </th>
                             <th>Acciones</th>
                         </tr>
 
