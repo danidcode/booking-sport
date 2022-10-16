@@ -1,22 +1,22 @@
 
 
-$(document).ready(function () {
-  initTable();
+$(document).ready(async function () {
+  $('#spinner-custom').fadeIn();
+  await initTable();
+  $('#spinner-custom').fadeOut();
   initInputFile('actividad')
 });
 
 const initTable = () => {
 
+  return new Promise((resolve, reject) => {
+    
   $.ajax({
     url: "actividades/json/getActividades",
     method: 'get',
     dataType: 'json',
-    beforeSend: () => {
-      $('#spinner-custom').fadeIn();
-    },
   }).done((res) => {
     $('.actividades-row').remove();
-    $('#spinner-custom').fadeOut();
     const actividades = res.actividades;
     actividades.forEach(actividad => {
       let actividad_row = `<tr class="actividades-row">`;
@@ -48,13 +48,14 @@ const initTable = () => {
       $('.actividades-table').append(actividad_row)
     });
   });
+  resolve();
+})
 }
 
 
 
 
 const getActividad = async (id, action) => {
-  console.log(id);
 
   $.ajax({
     url: `actividades/${id}`,
@@ -73,7 +74,7 @@ const getActividad = async (id, action) => {
 
 const showActividad = (actividad, action) => {
   $("#actividades-form :input").attr("disabled", action == 'ver' ? true : false);
-  const { nombre, descripcion, imagen, limite_usuarios, hora_desde, hora_hasta, destacado, destacado_principal, activo, created_at } = actividad;
+  const { id, nombre, descripcion, imagen, limite_usuarios, hora_desde, hora_hasta, destacado, destacado_principal, activo, created_at } = actividad;
   $('#spinner-custom').fadeOut();
   $('#actividad-nombre').val(nombre);
   if (action == 'ver') {
@@ -81,6 +82,7 @@ const showActividad = (actividad, action) => {
     $('.btn-crear').hide();
     $('#modal-actividades-titulo').text('Ver actividad');
   } else {
+    $('#record-id').data('id',id);
     $('.btn-actualizar').show();
     $('.btn-crear').hide();
     $('#modal-actividades-titulo').text('Actualizar actividad');
@@ -103,7 +105,7 @@ const destroyActividad = (id) => {
     beforeSend: () => {
       $('#spinner-custom').fadeIn();
     },
-  }).done((res) => {
+  }).done(async (res) => {
     Swal.fire({
       title: 'Éxito!',
       text: 'La actividad se ha borrado correctamente',
@@ -111,7 +113,7 @@ const destroyActividad = (id) => {
       confirmButtonText: 'Aceptar'
     });
 
-    initTable();
+    await initTable();
 
   }).fail((error) => {
     console.log(error);
@@ -120,17 +122,9 @@ const destroyActividad = (id) => {
   })
 }
 
-const updateActividad = (id) => {
-  const data = {
-    nombre: $('#actividad-nombre').val(),
-    limite_usuarios: $('#actividad-limite').val(),
-    horario: $('#actividad-horario').val(),
-    descripcion: $('#actividad-descripcion').val(),
-    activo: $('#actividad-activo').val(),
-    destacado: $('#actividad-destacado').val(),
-    destacado_principal: $('#actividad-destacado-principal').val(),
-    imagen: ('#actividad-imagen').val(),
-  }
+const updateActividad = () => {
+  const id = $('#record-id').data('id');
+  const data = formarData();
 
   $.ajax({
     url: `actividades/${id}`,
@@ -149,24 +143,15 @@ const updateActividad = (id) => {
 
   }).fail((error) => {
     console.log(error);
-  }).always(() => {
+  }).always(async () => {
+    await initTable();
     $('#spinner-custom').fadeOut();
-    initTable();
   })
 }
 
 const createActividad = () => {
 
-  const data = {
-    nombre: $('#actividad-nombre').val(),
-    limite_usuarios: $('#actividad-limite').val(),
-    horario: $('#actividad-horario').val(),
-    descripcion: $('#actividad-descripcion').val(),
-    activo: $('#actividad-activo').prop('checked') ? 1 : 0,
-    destacado: $('#actividad-destacado').prop('checked') ? 1 : 0,
-    destacado_principal: $('#actividad-destacado-principal').prop('checked') ? 1 : 0,
-    imagen: $('#actividad_display_uploaded').attr('src'),
-  }
+  const data = formarData();
 
   $.ajax({
     url: `actividades/guardar`,
@@ -185,10 +170,25 @@ const createActividad = () => {
 
   }).fail((error) => {
     console.log(error);
-  }).always(() => {
+  }).always(async () => {
     $('#spinner-custom').fadeOut();
-    initTable();
+    await initTable();
   })
+}
+
+const formarData = () =>{
+  const data = {
+      nombre: $('#actividad-nombre').val(),
+      limite_usuarios: $('#actividad-limite').val(),
+      horario: $('#actividad-horario').val(),
+      descripcion: $('#actividad-descripcion').val(),
+      activo: $('#actividad-activo').prop('checked') ? 1 : 0,
+      destacado: $('#actividad-destacado').prop('checked') ? 1 : 0,
+      destacado_principal: $('#actividad-destacado-principal').prop('checked') ? 1 : 0,
+      imagen: $('#actividad_display_uploaded').attr('src'),
+  }
+
+  return data;
 }
 
 $('.nueva-actividad-button').on('click', () => {

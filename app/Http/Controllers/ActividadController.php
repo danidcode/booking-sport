@@ -50,14 +50,16 @@ class ActividadController extends Controller
     {
         
     }
-    public function update(Request $request)
+    public function update(Actividad $actividad, ActividadRequest $request)
     {
-            dd($request);
         try {
-            $actividad = $request->validated();
-            $imagen = imageInStorage($request->imagen);
-            $actividad['image'] = $imagen;
-            $actividad->update($actividad);
+            $actividadValidated = $request->validated();
+            $imagen = $actividad->imagen;
+            $request->imagen == $actividad->imagen ?? ($imagen = imageInStorage($request->imagen));
+            $actividadValidated['image'] = $imagen;
+            $actividadValidated['hora_desde'] = '2022/11/10';
+            $actividadValidated['hora_hasta'] = '2022/11/10';
+            $actividad->update($actividadValidated);
             return response()->json([
                 'status' => true,
                 'message' => 'Actividad actualizada correctamente',

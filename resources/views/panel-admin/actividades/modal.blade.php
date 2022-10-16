@@ -53,8 +53,9 @@
                         </div>
                     </div>
                     <div class="form-row mt-4  d-flex justify-content-center">
-                        <button type="button" class="btn-actualizar" onclick="updateActividad(this)"> Actualizar</button>
-                        <button type="button" class="btn-crear" onclick="createActividad(this)"> Crear</button>
+                    <input type="hidden" name="" id="record-id" data-id="0">
+                        <button type="button" class="btn-actualizar" onclick="updateActividad()"> Actualizar</button>
+                        <button type="button" class="btn-crear" onclick="createActividad()"> Crear</button>
                     </div>
                 </form>
             </div>
