@@ -60,6 +60,19 @@
 
                     </table>
                 </div>
+                <div class="actividades-pagination">
+                    <ul class="pagination">
+                        <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a class="active" href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><a href="#">7</a></li>
+                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
