@@ -60,8 +60,8 @@
 
                     </table>
                 </div>
-                <div class="actividades-pagination">
-                    <ul class="pagination">
+                <div class="actividades-pagination-wrap">
+                    <ul class="pagination-list">
                         <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
                         <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
                     </ul>

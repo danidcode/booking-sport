@@ -272,14 +272,14 @@ const createPagination = (actividades) => {
 }
 
 const setTotalPages = (total) => {
-  let paginacion_container = $('.pagination');
-  paginacion_container.empty();
-  let domPagination = `<li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>`;
+  let paginacion_list= $('.pagination-list');
+  paginacion_list.empty();
+  let pages = `<li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>`;
 
   for (let i = 0; i < total; i++) {
-    domPagination += `<li><a href="#">${i + 1}</a></li>`;
+    pages += `<li><a href="#">${i + 1}</a></li>`;
   }
 
-  domPagination += `<li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>`
-  paginacion_container.append(domPagination);
+  pages+= `<li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>`
+  paginacion_list.append(pages);
 }
