@@ -277,9 +277,33 @@ const setTotalPages = (total) => {
   let pages = `<li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>`;
 
   for (let i = 0; i < total; i++) {
-    pages += `<li><a href="#">${i + 1}</a></li>`;
+    let page = i + 1;
+    pages += `<li><a href="#" onclick='setPage(${page})'>${page}</a></li>`;
   }
 
   pages+= `<li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>`
   paginacion_list.append(pages);
+}
+
+const setPage = (page) =>{
+
+  $.ajax({
+    url: getJsonActividades + `?page=${page}`,
+    method: 'get',
+    beforeSend: () => {
+      $('#spinner-custom').fadeIn();
+    },
+  }).done(async (res) => {
+    const actividades = res.actividades.data;
+    await initTable(actividades);
+  }).fail((error) => {
+    Swal.fire({
+      title: '¡Error!',
+      text: 'Ha ocurrido un error',
+      icon: 'error',
+      confirmButtonText: 'Aceptar'
+    });
+  }).always(async () => {
+    $('#spinner-custom').fadeOut();
+  })
 }
