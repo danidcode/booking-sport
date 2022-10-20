@@ -92,7 +92,9 @@ class ActividadController extends Controller
         $order = $request->order;
         $actividades = Actividad::when(isset($order) && isset($column), function ($q) use ($column, $order) {
             $q->orderBy($column, $order);
-        })->get();
+        });
+
+        $actividades = $actividades->paginate(5);
         if ($request->ajax()) {
             return response()->json([
                 'status' => true,

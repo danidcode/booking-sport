@@ -18,7 +18,8 @@ const initTable = (actividades = null) => {
         dataType: 'json',
       }).done((res) => {
         const actividades = res.actividades;
-        setRegistros(actividades);
+        setRegistros(actividades.data);
+        createPagination(actividades)
       });
       resolve();
     })
@@ -262,3 +263,23 @@ $('.nueva-actividad-button').on('click', () => {
   $('#actividad_display_uploaded').attr('src', `${asset_global_images}/upload.jpg`);
   $('#modal-actividades').modal('toggle');
 })
+
+const createPagination = (actividades) => {
+
+  const { last_page } = actividades;
+
+  setTotalPages(last_page);
+}
+
+const setTotalPages = (total) => {
+  let paginacion_container = $('.pagination');
+  paginacion_container.empty();
+  let domPagination = `<li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>`;
+
+  for (let i = 0; i < total; i++) {
+    domPagination += `<li><a href="#">${i + 1}</a></li>`;
+  }
+
+  domPagination += `<li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>`
+  paginacion_container.append(domPagination);
+}
