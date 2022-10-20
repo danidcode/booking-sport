@@ -281,7 +281,7 @@ const setTotalPages = (total, current_page) => {
 
   for (let i = 0; i < total; i++) {
     let page = i + 1;
-    pages += `<li><a href="#" onclick='setPage(${page})'>${page}</a></li>`;
+    pages += `<li><a href="#" class="${current_page == page && 'active'}" onclick='setPage(${page})'>${page}</a></li>`;
   }
 
   pages+= `<li><a href="#" onclick='setPage(${next_page > total ? 1 : next_page})'><i class="fa-solid fa-chevron-right"></i></a></li>`
