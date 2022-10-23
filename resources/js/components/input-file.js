@@ -65,7 +65,6 @@ function initInputFile(name, maxSize = 1000) {
   
     btnDelete.on('click', function () {
       imageDisplay.attr('src', imgDefautUrl);
-      //Apaño, hay que arreglar
       inputBase64.val('borrado');
     })
   }
