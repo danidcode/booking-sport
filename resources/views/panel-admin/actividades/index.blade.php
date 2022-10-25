@@ -3,11 +3,11 @@
 @section('content')
     <div class="content">
         <div class="content-wrap">
-            <div class="eventos-wrap">
-                <button class="nuevo-evento-button"> Nuevo evento <i class="fa-solid fa-plus"></i></button>
+            <div class="actividades-wrap">
+                <button class="nueva-actividad-button"> Nueva actividad <i class="fa-solid fa-plus"></i></button>
 
-                <div class="eventos-table-wrap">
-                    <table class="eventos-table">
+                <div class="actividades-table-wrap">
+                    <table class="actividades-table">
                         <tr>
                             <th>Imagen
                             </th>
@@ -60,7 +60,7 @@
 
                     </table>
                 </div>
-                <div class="eventos-pagination-wrap">
+                <div class="actividades-pagination-wrap">
                     <ul class="pagination-list">
                         <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
                         <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
@@ -72,8 +72,8 @@
 @endsection
 
 @section('scripts')
-    <script src={{ Vite::asset('resources/js/panel-admin/eventos/pizarra.js') }}></script>
+    <script src={{ Vite::asset('resources/js/panel-admin/actividades/pizarra.js') }}></script>
 @endsection
 
 
-@include('panel-admin.eventos.modal')
+@include('panel-admin.actividades.modal')

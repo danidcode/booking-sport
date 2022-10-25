@@ -3,11 +3,11 @@
 @section('content')
     <div class="content">
         <div class="content-wrap">
-            <div class="actividades-wrap">
-                <button class="nueva-actividad-button"> Nueva actividad <i class="fa-solid fa-plus"></i></button>
+            <div class="eventos-wrap">
+                <button class="nueva-evento-button"> Nueva evento <i class="fa-solid fa-plus"></i></button>
 
-                <div class="actividades-table-wrap">
-                    <table class="actividades-table">
+                <div class="eventos-table-wrap">
+                    <table class="eventos-table">
                         <tr>
                             <th>Imagen
                             </th>
@@ -24,10 +24,10 @@
                                 <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)"
                                     data-column="limite_usuarios" data-order="desc"></i>
                             </th>
-                            <th>Horario
-                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="horario"
+                            <th>Fecha de inicio
+                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="fecha-inicio"
                                     data-order="asc"></i>
-                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="horario"
+                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="fecha-inicio"
                                     data-order="desc"></i>
                             </th>
                             <th>Destacado
@@ -60,7 +60,7 @@
 
                     </table>
                 </div>
-                <div class="actividades-pagination-wrap">
+                <div class="eventos-pagination-wrap">
                     <ul class="pagination-list">
                         <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
                         <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
@@ -72,8 +72,8 @@
 @endsection
 
 @section('scripts')
-    <script src={{ Vite::asset('resources/js/panel-admin/actividades/pizarra.js') }}></script>
+    <script src={{ Vite::asset('resources/js/panel-admin/eventos/pizarra.js') }}></script>
 @endsection
 
 
-@include('panel-admin.actividades.modal')
+@include('panel-admin.eventos.modal')
