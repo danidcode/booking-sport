@@ -8,6 +8,6 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{ Vite::asset('resources/js/main.js') }}"> </script>
 
-//Variable global para acceder a las imágenes en resources
+{{-- Variable global para acceder a las imágenes en resources --}}
 <script>const asset_global_images='{{Vite::asset("/resources/images")}}';</script>
 

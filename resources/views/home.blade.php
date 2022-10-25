@@ -1,4 +1,8 @@
 @extends('layouts.default')
 @section('content')
-   i am the home page
+<div class="home">
+   <div class="home-image">
+
+</div>
+</div>
 @stop

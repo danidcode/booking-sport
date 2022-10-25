@@ -24,6 +24,12 @@ class Actividad extends Model
         'activo'
     ];
 
+    public function reserva()
+    {
+        return $this->hasMany(Reserva::class);
+    }
+
+    
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
