@@ -1,31 +1,43 @@
 @import "variables";
 
-.home{
-    .home-evento-principal{
+.home {
+    .home-evento-principal {
         position: relative;
-        
-        .tarjeta-inscripcion{
+
+        .tarjeta-inscripcion {
             position: absolute;
-            border-radius:5px;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 40%;
+            left: 0;
+            height: 100%;
             width: 30%;
-            background: rgb(23 23 25 / 45%);
+            background: rgb(0 0 0 / 45%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            
 
-            &-button{
-                border-radius: 999px;
-                    padding: 0.7rem;
-                    background-color: $principal;
-                    border: none;
+            .home-evento-titulo, .home-evento-fecha{
+                text-align: center;
+                span{
+                    font-size: 2.5rem;
                     color: #FFFFFF;
-                    cursor: pointer;
-                    margin: 1rem;
-                    font-size: 1.5rem;
+                }
+            }
+            &-button {
+                border-radius: 999px;
+                padding: 0.7rem;
+                background-color: $principal;
+                border: none;
+                color: #FFFFFF;
+                cursor: pointer;
+                margin: 1rem;
+                font-size: 1.5rem;
             }
         }
-        img{
+
+        img {
             height: calc(100vh - 100px);
             width: 100%;
         }
