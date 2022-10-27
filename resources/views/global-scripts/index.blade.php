@@ -7,7 +7,7 @@
 <script src={{ Vite::asset('resources/js/components/input-file.js') }}></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{ Vite::asset('resources/js/main.js') }}"> </script>
-
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 {{-- Variable global para acceder a las imágenes en resources --}}
 <script>const asset_global_images='{{Vite::asset("/resources/images")}}';</script>
 
