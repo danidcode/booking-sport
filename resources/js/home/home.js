@@ -1,6 +1,6 @@
 const swiper = new Swiper(".swiper-home", {
-    slidesPerView: 3,
-    spaceBetween: 30,
+    slidesPerView: 2,
+    spaceBetween: 100,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
