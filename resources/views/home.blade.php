@@ -22,27 +22,41 @@
             <div class="home-actividades-destacadas-text">
                 <span> Actividades destacadas</span>
             </div>
-        <div class="swiper swiper-home">
-            <div class="swiper-wrapper">
-                @foreach ($actividades as $actividad)
-                <div class="swiper-slide">
-                <div class="actividad-card">
-                   <div class="actividad-card-text">
-                         {{$actividad->nombre}}
-                   </div>
-                   <div class="actividad-card-img">
-                      <img src="{{$actividad->imagen}}" alt="">
-                   </div>
-    
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    @foreach ($actividades as $actividad)
+                        <div class="swiper-slide">
+                            <img src="{{ $actividad->imagen }}" alt=""> </img>
+                            <div class="swiper-slide-actividad-content">
+                                <span> {{ $actividad->nombre }}</span>
+                               <div> <button class="tarjeta-inscripcion-button"> Reservar </button></div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
-                @endforeach
+        </div>
+
+        <div class="home-eventos-destacados">
+            <div class="home-eventos-destacados-text">
+                <span> Eventos destacados</span>
             </div>
-            <div class="swiper-pagination"></div>
-          </div>
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    @foreach ($actividades as $actividad)
+                        <div class="swiper-slide"> <img src="{{ $actividad->imagen }}" alt=""> </img> </div>
+                    @endforeach
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
         </div>
     @stop
 
     @section('scripts')
-    <script src={{ Vite::asset('resources/js/home/home.js') }}></script>
-@endsection
+        <script src={{ Vite::asset('resources/js/home/home.js') }}></script>
+    @endsection

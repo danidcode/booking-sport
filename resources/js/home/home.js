@@ -1,8 +1,6 @@
-const swiper = new Swiper(".swiper-home", {
-    slidesPerView: 2,
-    spaceBetween: 100,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
+var swiper = new Swiper(".mySwiper", {
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
