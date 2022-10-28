@@ -4,3 +4,4 @@ var swiper = new Swiper(".mySwiper", {
     prevEl: ".swiper-button-prev",
   },
 });
+
