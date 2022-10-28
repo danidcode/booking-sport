@@ -55,6 +55,7 @@
                 <div class="swiper-button-prev"></div>
             </div>
         </div>
+    </div>
     @stop
 
     @section('scripts')
