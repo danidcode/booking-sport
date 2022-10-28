@@ -4,7 +4,7 @@
     <div class="content">
         <div class="content-wrap">
             <div class="eventos-wrap">
-                <button class="nueva-evento-button"> Nueva evento <i class="fa-solid fa-plus"></i></button>
+                <button class="nuevo-evento-button"> Nueva evento <i class="fa-solid fa-plus"></i></button>
 
                 <div class="eventos-table-wrap">
                     <table class="eventos-table">

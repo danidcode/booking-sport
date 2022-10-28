@@ -46,6 +46,7 @@ Route::group(['prefix' => 'admin', 'as'=>'admin.',  'middleware' => ['auth','isA
     Route::get('/{evento}/editar',[EventoController::class, 'edit'])->name('edit');
     Route::put('/{evento}',[EventoController::class, 'update']);
     Route::delete('/{evento}',[EventoController::class, 'destroy']);
+    Route::get('/json/getEventos',[EventoController::class, 'getEventosJson']);
     });
 });
 

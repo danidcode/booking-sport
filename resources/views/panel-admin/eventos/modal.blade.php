@@ -34,10 +34,6 @@
                             <label class="form-check-label">¿Destacado principal?</label>
                             <input class="form-check-input" type="checkbox" role="switch" id="evento-destacado-principal">
                         </div>
-                        <div class="form-check form-switch">
-                            <label class="form-check-label">Activo?</label>
-                            <input class="form-check-input" type="checkbox" role="switch" id="evento-activo">
-                        </div>
                     </div>
                     <div class="form-row  d-flex justify-content-center mt-2">
                         <div class="col-6">

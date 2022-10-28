@@ -18,8 +18,7 @@ $routeName = Route::current()->getName()
 @endphp
 
 <body>
-    <header class="header">
-    </header>
+
     <div id="main" class="main">
         @include('components.spinner')
         <div class="sidebar">
