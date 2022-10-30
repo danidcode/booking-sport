@@ -102,4 +102,9 @@ class ActividadController extends Controller
             ], 200);
         }
     }
+
+    public function previewActividad(Actividad $actividad)
+    {
+        return view('web.actividades.preview-actividad')->with('actividad', $actividad);
+    }
 }

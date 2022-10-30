@@ -95,7 +95,7 @@
                 font-size: 2rem;
                 color: #FFFFFF;
             }
-            button{
+            a{
                 border-radius: 999px;
                 padding: 0.7rem;
                 background-color: $principal;
@@ -104,6 +104,11 @@
                 cursor: pointer;
                 margin: 1rem;
                 font-size: 1.2rem;
+                -webkit-appearance: button;
+                    -moz-appearance: button;
+                    appearance: button;
+                
+                    text-decoration: none;
             }
         }
       }

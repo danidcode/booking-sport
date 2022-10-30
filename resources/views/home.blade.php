@@ -30,7 +30,7 @@
                             <img src="{{ $actividad->imagen }}" alt=""> </img>
                             <div class="swiper-slide-actividad-content">
                                 <span> {{ $actividad->nombre }}</span>
-                                <div> <button class="tarjeta-inscripcion-button"> Reservar </button></div>
+                                <div> <a href="reservar-actividad/{{$actividad->id}}" class="tarjeta-inscripcion-button"> Reservar </a></div>
                             </div>
                         </div>
                     @endforeach
