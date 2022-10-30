@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     public function show(){
-        // $evento_principal = Evento::where('destacado_principal', 1)->first();
         $actividades_destacadas = Actividad::where('destacado', 1)->get();
         return view('home')
         ->with('actividades', $actividades_destacadas);
