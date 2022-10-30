@@ -22,7 +22,7 @@
                         </div>
                         <div class="col-md-3 mb-3">
                             <label>Fecha de inicio</label>
-                            <input type="text" class="form-control" id="evento-inicio">
+                            <input type="date" class="form-control" id="evento-inicio">
                         </div>
                     </div>
                     <div class="form-row d-flex justify-content-around mt-2">
@@ -50,8 +50,8 @@
                     </div>
                     <div class="form-row mt-4  d-flex justify-content-center">
                     <input type="hidden" name="" id="record-id" data-id="0">
-                        <button type="button" class="btn-actualizar" onclick="updateevento()"> Actualizar</button>
-                        <button type="button" class="btn-crear" onclick="createevento()"> Crear</button>
+                        <button type="button" class="btn-actualizar" onclick="updateEvento()"> Actualizar</button>
+                        <button type="button" class="btn-crear" onclick="createEvento()"> Crear</button>
                     </div>
                 </form>
             </div>

@@ -13,7 +13,7 @@ class EventoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,13 @@ class EventoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre' => 'required|max:20',
+            'descripcion' => 'required|max:255',
+            'imagen' => 'required',
+            'limite_usuarios'=> 'required|numeric',
+            'fecha_inicio' => 'required',
+            'destacado' => 'required|numeric|max:1',
+            'destacado_principal' => 'required|numeric|max:1',
         ];
     }
 }

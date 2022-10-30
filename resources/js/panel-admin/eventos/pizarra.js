@@ -32,7 +32,7 @@ $(document).ready(async function () {
   
   
   
-  const getActividad = async (id, action) => {
+  const getEvento = async (id, action) => {
   
     $.ajax({
       url: `eventos/${id}`,
@@ -40,7 +40,7 @@ $(document).ready(async function () {
         $('#spinner-custom').fadeIn();
       },
     }).done((res) => {
-      showActividad(res.evento, action);
+      showEvento(res.evento, action);
   
     }).fail((error) => {
       Swal.fire({
@@ -54,7 +54,7 @@ $(document).ready(async function () {
   }
   
   
-  const showActividad = (evento, action) => {
+  const showEvento = (evento, action) => {
     $("#eventos-form :input").attr("disabled", action == 'ver' ? true : false);
     const { id, nombre, descripcion, imagen, limite_usuarios, hora_desde, hora_hasta, destacado, destacado_principal, activo, created_at } = evento;
     $('#spinner-custom').fadeOut();
@@ -80,7 +80,7 @@ $(document).ready(async function () {
   
   }
   
-  const destroyActividad = (id) => {
+  const destroyEvento = (id) => {
     $.ajax({
       url: `eventos/${id}`,
       method: 'DELETE',
@@ -109,7 +109,7 @@ $(document).ready(async function () {
     })
   }
   
-  const updateActividad = () => {
+  const updateEvento = () => {
     const id = $('#record-id').data('id');
     const data = formarData();
   
@@ -141,7 +141,7 @@ $(document).ready(async function () {
     })
   }
   
-  const createActividad = () => {
+  const createEvento = () => {
   
     const data = formarData();
   
@@ -177,14 +177,13 @@ $(document).ready(async function () {
     const data = {
       nombre: $('#evento-nombre').val(),
       limite_usuarios: $('#evento-limite').val(),
-      horario: $('#evento-horario').val(),
+      fecha_inicio: $('#evento-inicio').val(),
       descripcion: $('#evento-descripcion').val(),
-      activo: $('#evento-activo').prop('checked') ? 1 : 0,
       destacado: $('#evento-destacado').prop('checked') ? 1 : 0,
       destacado_principal: $('#evento-destacado-principal').prop('checked') ? 1 : 0,
       imagen: $('#evento_display_uploaded').attr('src'),
     }
-  
+    console.log(data);
     return data;
   }
   
@@ -208,9 +207,9 @@ $(document).ready(async function () {
                               <div class="dropdown ">
                                 <i class="fa-solid fa-ellipsis-vertical dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></i>
                                     <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-start" aria-labelledby="dropdownMenuButton1">
-                                      <li><a class="dropdown-item" href="#" onclick="getActividad(${id},'ver')"><i class="fa-regular fa-file fa-lg"></i> Ver </a></li>
-                                      <li><a class="dropdown-item" href="#" onclick="getActividad(${id},'editar')"><i class="fa-regular fa-pen-to-square fa-lg"></i> Editar</a></li>
-                                      <li><a class="dropdown-item" href="#" onclick="destroyActividad(${id})"><i class="fa-regular fa-trash-can fa-lg"></i> Borrar </a></li>
+                                      <li><a class="dropdown-item" href="#" onclick="getEvento(${id},'ver')"><i class="fa-regular fa-file fa-lg"></i> Ver </a></li>
+                                      <li><a class="dropdown-item" href="#" onclick="getEvento(${id},'editar')"><i class="fa-regular fa-pen-to-square fa-lg"></i> Editar</a></li>
+                                      <li><a class="dropdown-item" href="#" onclick="destroyEvento(${id})"><i class="fa-regular fa-trash-can fa-lg"></i> Borrar </a></li>
                                    </ul>
                               </div> 
                             </div> 
