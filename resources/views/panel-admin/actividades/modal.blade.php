@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="modal-actividades" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-actividades" aria-hidden="true">
+<div class="modal fade" id="modal-actividades" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="modal-actividades" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
@@ -19,10 +19,6 @@
                         <div class="col-md-3 mb-3">
                             <label>Límite de usuarios</label>
                             <input type="text" class="form-control" id="actividad-limite">
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label>Horario</label>
-                            <input type="text" class="form-control" id="actividad-horario">
                         </div>
                     </div>
                     <div class="form-row d-flex justify-content-around mt-2">
@@ -44,6 +40,24 @@
                             <label>Descripción</label>
                             <textarea class="form-control" id="actividad-descripcion"></textarea>
                         </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <select name="states" id="example" class="form-control"  multiple="multiple" style="display: none;">
+                            2
+                              <option value="AL">Alabama</option>
+                            3
+                              <option value="AK">Alaska</option>
+                            4
+                              <option value="AZ">Arizona</option>
+                            5
+                              <option value="AR">Arkansas</option>
+                            6
+                              <option selectedvalue="CA">California</option>
+                            7
+                              ...
+                            8
+                            </select>
+                        
                     </div>
                     <div class="form-row mt-3  d-flex justify-content-center">
                         <div class="col-6">

@@ -1,4 +1,4 @@
-flatpickr('#calendar-tomorrow', {
+flatpickr('#calendar-reserva', {
   "minDate": new Date().fp_incr(1),
   locale: {
     firstDayOfWeek: 1,

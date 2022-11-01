@@ -19,8 +19,7 @@ return new class extends Migration
             $table->longText('descripcion');
             $table->longText('imagen');
             $table->integer('limite_usuarios');
-            $table->date('hora_desde');
-            $table->date('hora_hasta');
+            $table->longText('dias_activo');
             $table->tinyInteger('destacado');
             $table->tinyInteger('destacado_principal');
             $table->tinyInteger('activo');

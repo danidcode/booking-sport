@@ -4,8 +4,12 @@ $(document).ready(async function () {
   $('#spinner-custom').fadeIn();
   await initTable();
   $('#spinner-custom').fadeOut();
-  initInputFile('actividad')
+  initInputFile('actividad');
+
+  $("select").bsMultiSelect();
+
 });
+
 
 const getJsonActividades = 'actividades/json/getActividades';
 const initTable = (actividades = null) => {

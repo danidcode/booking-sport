@@ -1,6 +1,12 @@
-#calendar{
-    width: 40%;
-    height:25%;
-    box-shadow: 0 0 0.7rem rgb(2 20 27 / 86%);
-}
+.calendario {
+    #calendar-reserva {
+        display: flex;
+        flex-direction: column;
 
+    }
+
+    input {
+        border-radius: 999px;
+        text-align: center;
+    }
+}
