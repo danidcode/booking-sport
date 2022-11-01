@@ -12,7 +12,11 @@
             </span>
         </div>
     </div>
-    <div id="calendar"></div>
+    <div class="group">
+  <input type="text" id="calendar-tomorrow">
+  <span class="bar"></span>
+  <label class="input-label">From tomorrow</label>
+</div>
     <div class="confirmar-reserva-button">
         <button> Confirmar reserva </button>
     </div>
