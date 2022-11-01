@@ -25,10 +25,6 @@
                                     data-column="limite_usuarios" data-order="desc"></i>
                             </th>
                             <th>Días activa
-                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="horario"
-                                    data-order="asc"></i>
-                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="horario"
-                                    data-order="desc"></i>
                             </th>
                             <th>Destacado
                                 <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="destacado"
