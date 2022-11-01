@@ -148,7 +148,7 @@ const updateActividad = () => {
 const createActividad = () => {
 
   const data = formarData();
-
+  console.log(data);
   $.ajax({
     url: `actividades/guardar`,
     method: 'post',
@@ -181,14 +181,14 @@ const formarData = () => {
   const data = {
     nombre: $('#actividad-nombre').val(),
     limite_usuarios: $('#actividad-limite').val(),
-    horario: $('#actividad-horario').val(),
+    dias_activo: $('#actividad-horario').val(),
     descripcion: $('#actividad-descripcion').val(),
     activo: $('#actividad-activo').prop('checked') ? 1 : 0,
     destacado: $('#actividad-destacado').prop('checked') ? 1 : 0,
     destacado_principal: $('#actividad-destacado-principal').prop('checked') ? 1 : 0,
     imagen: $('#actividad_display_uploaded').attr('src'),
   }
-
+console.log(data);
   return data;
 }
 
@@ -197,11 +197,11 @@ const setRegistros = (actividades) => {
 
   actividades.forEach(actividad => {
     let actividad_row = `<tr class="actividades-row">`;
-    const { id, nombre, imagen, limite_usuarios, hora_desde, hora_hasta, destacado, destacado_principal, activo, created_at } = actividad;
+    const { id, nombre, imagen, limite_usuarios, dias_activo, destacado, destacado_principal, activo, created_at } = actividad;
     const td_imagen = `<td colspan='1'><img src='${imagen}'></img></td>`
     const td_nombre = `<td> ${nombre} </td>`;
     const td_limite_usuarios = `<td> ${limite_usuarios} </td>`;
-    const td_horario = `<td> ${hora_desde}  / ${hora_hasta} </td>`;
+    const td_horario = `<td> ${formarDias(dias_activo)} </td>`;
     const td_destacado = `<td> <span> ${destacado ? ("<span> SI </span>") : ("<span> NO </span>")} </span></td>`;
     const td_destacado_principal = `<td> ${destacado_principal ? ("<span> SI </span>") : ("<span> NO </span>")} </td>`;
     const td_activo = `<td> ${activo ? ("<span class='activo'> activo </span>") : ("<span class='inactivo'> inactivo </span>")} </td>`;
@@ -235,3 +235,25 @@ $('.nueva-actividad-button').on('click', () => {
   $('#modal-actividades').modal('toggle');
 })
 
+const formarDias = (dias) => {
+  console.log(dias);
+  dias = JSON.parse(dias);
+  let dias_activos = "";
+  const options = new Array();
+  options[1] = 'Lunes';
+  options[2] = 'Martes';
+  options[3] = 'Miércoles';
+  options[4] = 'Jueves';
+  options[5] = 'Viernes';
+  options[6] = 'Sábado';
+  options[7] = 'Domingo';
+
+  dias.forEach(dia => {
+    if(dias.length == dia){
+      dias_activos += `${options[dia]}`
+    }else{
+      dias_activos += `${options[dia]}, `
+    }
+  });
+  return dias_activos;
+}

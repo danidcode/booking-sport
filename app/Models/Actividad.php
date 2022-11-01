@@ -17,8 +17,7 @@ class Actividad extends Model
         'descripcion',
         'imagen',
         'limite_usuarios',
-        'hora_desde',
-        'hora_hasta',
+        'dias_activo',
         'destacado',
         'destacado_principal',
         'activo'

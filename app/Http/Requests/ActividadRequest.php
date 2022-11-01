@@ -28,7 +28,7 @@ class ActividadRequest extends FormRequest
             'descripcion' => 'required|max:255',
             'imagen' => 'required',
             'limite_usuarios'=> 'required|numeric',
-            'horario' => 'required',
+            'dias_activo' => 'required',
             'destacado' => 'required|numeric|max:1',
             'destacado_principal' => 'required|numeric|max:1',
             'activo' => 'required|numeric|max:1',

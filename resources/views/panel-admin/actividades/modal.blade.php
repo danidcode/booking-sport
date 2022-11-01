@@ -1,5 +1,6 @@
 <!-- Modal -->
-<div class="modal fade" id="modal-actividades" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="modal-actividades" aria-hidden="true">
+<div class="modal fade" id="modal-actividades" data-bs-backdrop="static" data-bs-keyboard="false"
+    aria-labelledby="modal-actividades" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
@@ -28,7 +29,8 @@
                         </div>
                         <div class="form-check form-switch">
                             <label class="form-check-label">¿Destacado principal?</label>
-                            <input class="form-check-input" type="checkbox" role="switch" id="actividad-destacado-principal">
+                            <input class="form-check-input" type="checkbox" role="switch"
+                                id="actividad-destacado-principal">
                         </div>
                         <div class="form-check form-switch">
                             <label class="form-check-label">Activo?</label>
@@ -41,33 +43,37 @@
                             <textarea class="form-control" id="actividad-descripcion"></textarea>
                         </div>
                     </div>
-                    <div class="col-md-3 mb-3">
-                        <select name="states" id="example" class="form-control"  multiple="multiple" style="display: none;">
-                            2
-                              <option value="AL">Alabama</option>
-                            3
-                              <option value="AK">Alaska</option>
-                            4
-                              <option value="AZ">Arizona</option>
-                            5
-                              <option value="AR">Arkansas</option>
-                            6
-                              <option selectedvalue="CA">California</option>
-                            7
-                              ...
-                            8
+                    <div class="form-row  d-flex justify-content-center mt-2">
+                        <div class="col-6">
+                            <label>Días activo</label>
+                            <select name="days" id="actividad-horario" class="form-control" multiple="multiple"
+                                style="display: none;">
+                                2
+                                <option value="1">Lunes</option>
+                                3
+                                <option value="2">Martes</option>
+                                4
+                                <option value="3">Miércoles</option>
+                                5
+                                <option value="4">Jueves</option>
+                                6
+                                <option value="5">Viernes</option>
+                                7
+                                <option value="6">Sábado</option>
+                                8
+                                <option value="7">Domingo</option>
                             </select>
-                        
+                        </div>
                     </div>
                     <div class="form-row mt-3  d-flex justify-content-center">
                         <div class="col-6">
                             <label>Imagen</label>
-                            @include('components.input-file', ['name' => "actividad"])
-                          
+                            @include('components.input-file', ['name' => 'actividad'])
+
                         </div>
                     </div>
                     <div class="form-row mt-4  d-flex justify-content-center">
-                    <input type="hidden" name="" id="record-id" data-id="0">
+                        <input type="hidden" name="" id="record-id" data-id="0">
                         <button type="button" class="btn-actualizar" onclick="updateActividad()"> Actualizar</button>
                         <button type="button" class="btn-crear" onclick="createActividad()"> Crear</button>
                     </div>
