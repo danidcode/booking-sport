@@ -4,6 +4,7 @@ use App\Http\Controllers\ActividadController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReservaController;
 use App\Models\Actividad;
 use Illuminate\Support\Facades\Route;
 
@@ -51,6 +52,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.',  'middleware' => ['auth', '
 
 Route::group(['prefix' => 'reservar-actividad', 'as' => 'reservar-actividad.', 'middleware' => ['auth']], function () {
     Route::get('/{actividad}', [ActividadController::class, 'previewActividad'])->name('preview-actividad');
+    Route::post('/guardar', [ReservaController::class, 'store']);
+
 });
 
 

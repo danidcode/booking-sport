@@ -12,3 +12,18 @@ flatpickr('#calendar-reserva', {
     },
   },
 });
+
+const createReserva = () =>{
+ const data = {
+  'actividad_id': $('#actividad_id').val(),
+  'fecha_reserva' : $('#calendar-reserva').val(),
+ } 
+ $.ajax({
+  url: 'guardar',
+  method: 'post',
+  dataType: 'json',
+  data: data,
+}).done((res) => {
+console.log(res);
+});
+}

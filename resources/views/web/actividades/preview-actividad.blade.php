@@ -20,7 +20,8 @@
             <input type="text" id="calendar-reserva">
         </div>
         <div class="confirmar-reserva-button">
-            <button> Confirmar reserva </button>
+            <button onclick="createReserva()"> Confirmar reserva </button>
+            <input type="hidden" id="actividad_id" value="{{$actividad->id}}">
         </div>
     </div>
 @endsection
