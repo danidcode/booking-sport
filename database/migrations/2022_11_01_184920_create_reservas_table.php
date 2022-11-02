@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('actividad_id');
             $table->foreign('actividad_id')->references('id')->on('actividades');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->date('fecha_reserva');
             $table->timestamps();
         });
