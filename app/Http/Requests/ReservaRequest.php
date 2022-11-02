@@ -25,7 +25,6 @@ class ReservaRequest extends FormRequest
     {
         return [
             'actividad_id' => 'required',
-            'user_id' => 'required',
             'fecha_reserva' => 'required'
         ];
     }
