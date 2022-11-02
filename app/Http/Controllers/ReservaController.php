@@ -7,6 +7,7 @@ use App\Models\Actividad;
 use App\Models\Reserva;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReservaController extends Controller
 {
@@ -24,6 +25,15 @@ class ReservaController extends Controller
                     'message' => 'Ha seleccionado un día que no está activo'
                 ], 500);
             }
+            if(Reserva::where('user_id', Auth::user()->id)
+            ->where('fecha_reserva', $date->toDateString())
+            ->count()){
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Ya tienes una reserva para esta actividad este día'
+                ], 500);
+            }
+
             Reserva::create($reserva);
             return response()->json([
                 'status' => true,

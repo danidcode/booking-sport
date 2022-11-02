@@ -11,6 +11,7 @@ class Reserva extends Model
     
     protected $fillable = [
         'actividad_id',
+        'user_id',
         'fecha_reserva',
     ];
 
