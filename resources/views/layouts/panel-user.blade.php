@@ -14,8 +14,6 @@
 </head>
 
 <body>
-    <header class="header">
-    </header>
 
     <div id="main" class="main">
         @yield('content')

@@ -20,6 +20,7 @@ $routeName = Route::current()->getName()
 <body>
 
     <div id="main" class="main">
+        @include('components.spinner')
         <div class="sidebar">
             <a class="@if(strpos($routeName, 'dashboard') === 0) active  @endif" href="/dashboard">Home</a>
             <a class="@if(strpos($routeName, 'admin.actividades.') === 0) active  @endif" href="/admin/actividades">Configurar Actividades</a>
