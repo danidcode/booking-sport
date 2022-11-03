@@ -26,6 +26,8 @@
                             </th>
                             <th>Días activa
                             </th>
+                            <th>Nº de reservas
+                            </th>
                             <th>Destacado
                                 <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="destacado"
                                     data-order="asc"></i>

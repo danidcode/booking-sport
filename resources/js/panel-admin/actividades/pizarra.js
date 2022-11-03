@@ -198,17 +198,18 @@ const setRegistros = (actividades) => {
 
   actividades.forEach(actividad => {
     let actividad_row = `<tr class="actividades-row">`;
-    const { id, nombre, imagen, limite_usuarios, dias_activo, destacado, destacado_principal, activo, created_at } = actividad;
+    const { id, nombre, imagen, limite_usuarios, reserva_count, dias_activo, destacado, destacado_principal, activo, created_at } = actividad;
     const td_imagen = `<td colspan='1'><img src='${imagen}'></img></td>`
     const td_nombre = `<td> ${nombre} </td>`;
     const td_limite_usuarios = `<td> ${limite_usuarios} </td>`;
     const td_horario = `<td> ${formarDias(dias_activo)} </td>`;
+    const td_reservas = `<td colspan='1'>${reserva_count}</td>`
     const td_destacado = `<td> <span> ${destacado ? ("<span> SI </span>") : ("<span> NO </span>")} </span></td>`;
     const td_destacado_principal = `<td> ${destacado_principal ? ("<span> SI </span>") : ("<span> NO </span>")} </td>`;
     const td_activo = `<td> ${activo ? ("<span class='activo'> activo </span>") : ("<span class='inactivo'> inactivo </span>")} </td>`;
     const td_created_at = `<td> ${created_at} </td>`;
 
-    actividad_row += td_imagen + td_nombre + td_limite_usuarios + td_horario + td_destacado + td_destacado_principal + td_activo + td_created_at;
+    actividad_row += td_imagen + td_nombre + td_limite_usuarios + td_horario + td_reservas + td_destacado + td_destacado_principal + td_activo + td_created_at;
     actividad_row += `<td> <div class="wrapper-dropdown container"> 
                             <div class="dropdown ">
                               <i class="fa-solid fa-ellipsis-vertical dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></i>

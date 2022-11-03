@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ActividadRequest;
 use App\Models\Actividad;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Faker\Extension\Helper;
+use Illuminate\Database\Eloquent\Builder;
 
 class ActividadController extends Controller
 {
@@ -89,8 +91,11 @@ class ActividadController extends Controller
         $order = $request->order;
         $actividades = Actividad::when(isset($order) && isset($column), function ($q) use ($column, $order) {
             $q->orderBy($column, $order);
-        });
-
+        })
+        ->withCount(['reserva' => function(Builder $query){
+            $query->where('fecha_reserva', Carbon::now()->toDateString());
+        }]);
+        
         $actividades = $actividades->paginate(5);
         if ($request->ajax()) {
             return response()->json([
