@@ -249,8 +249,8 @@ const formarDias = (dias) => {
   options[6] = 'Sábado';
   options[7] = 'Domingo';
 
-  dias.forEach(dia => {
-    if(dias.length == dia){
+  dias.forEach((dia, index) => {
+    if(dias.length == index + 1){
       dias_activos += `${options[dia]}`
     }else{
       dias_activos += `${options[dia]}, `
