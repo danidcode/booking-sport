@@ -27,7 +27,7 @@ const sort = (data) => {
         icon: 'error',
         confirmButtonText: 'Aceptar'
       });
-    }).always(async () => {
+    }).always(() => {
       $('#spinner-custom').fadeOut();
     })
   }

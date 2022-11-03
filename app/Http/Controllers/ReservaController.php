@@ -32,7 +32,7 @@ class ReservaController extends Controller
             ->count()){
                 return response()->json([
                     'status' => false,
-                    'message' => 'Ya tienes una reserva para esta actividad este día'
+                    'message' => 'Ya has reservado en esta actividad en la fecha seleccionada'
                 ], 500);
             }
 

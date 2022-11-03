@@ -25,6 +25,7 @@
 
     <div id="main" class="main">
         @yield('content')
+        @include('components.spinner')
     </div>
 
     <footer class="footer">

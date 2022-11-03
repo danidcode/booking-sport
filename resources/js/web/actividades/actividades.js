@@ -11,7 +11,12 @@ flatpickr('#calendar-reserva', {
       longhand: ['Enero', 'Febreo', 'Мarzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
     },
   },
-});
+  disable: [ 
+      (date) => {
+         let dias_activo = $('#dias_activo').val();
+        return (!dias_activo.includes(date.getDay() == 0 ? 7 : date.getDay()));
+    }
+]});
 
 const createReserva = () =>{
  const data = {
@@ -23,7 +28,25 @@ const createReserva = () =>{
   method: 'post',
   dataType: 'json',
   data: data,
+  beforeSend: () => {
+    $('#spinner-custom').fadeIn();
+  }
 }).done((res) => {
-console.log(res);
+  Swal.fire({
+    title: 'Éxito!',
+    text: 'La reserva se ha realizado correctamente',
+    icon: 'success',
+    confirmButtonText: 'Aceptar'
+  });
+}).fail((error)=>{
+  console.log(error);
+  Swal.fire({
+    title: '¡Error!',
+    text: `${error.responseJSON.message}`,
+    icon: 'error',
+    confirmButtonText: 'Aceptar'
+  });
+}).always(() => {
+  $('#spinner-custom').fadeOut();
 });
 }

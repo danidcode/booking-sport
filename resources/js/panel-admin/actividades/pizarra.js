@@ -102,6 +102,7 @@ const destroyActividad = (id) => {
     await initTable();
 
   }).fail((error) => {
+    console.log(error);
     Swal.fire({
       title: '¡Error!',
       text: 'Ha ocurrido un error',
@@ -188,7 +189,7 @@ const formarData = () => {
     destacado_principal: $('#actividad-destacado-principal').prop('checked') ? 1 : 0,
     imagen: $('#actividad_display_uploaded').attr('src'),
   }
-console.log(data);
+
   return data;
 }
 
