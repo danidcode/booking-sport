@@ -3,10 +3,10 @@
 @section('content')
     <div class="content">
         <div class="content-wrap">
-            <div class="actividades-wrap">
+            <div class="reservas-wrap">
 
-                <div class="actividades-table-wrap">
-                    <table class="actividades-table">
+                <div class="reservas-table-wrap">
+                    <table class="reservas-table">
                         <tr>
                             <th>Actividad
                                 <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="nombre"
@@ -31,7 +31,7 @@
 
                     </table>
                 </div>
-                <div class="actividades-pagination-wrap">
+                <div class="reservas-pagination-wrap">
                     <ul class="pagination-list">
                         <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
                         <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
@@ -43,7 +43,7 @@
 @endsection
 
 @section('scripts')
-    {{-- <script src={{ Vite::asset('resources/js/panel-admin/actividades/pizarra.js') }}></script> --}}
+    <script src={{ Vite::asset('resources/js/panel-user/reservas/pizarra.js') }}></script>
 @endsection
 
 
