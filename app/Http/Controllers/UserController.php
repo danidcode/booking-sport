@@ -29,4 +29,20 @@ class UserController extends Controller
             ], 200);
         }
     }
+
+    public function destroyReserva(Reserva $reserva){
+        $user_id = Auth::user()->id;
+        if($reserva->user_id == $user_id){
+            $reserva->delete();
+            return response()->json([
+                'status' => true,
+                'message' => 'Reserva borrada correctamente',
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => false,
+                'message' => 'Acción no autorizada'
+            ], 500);
+        }
+    }
 }

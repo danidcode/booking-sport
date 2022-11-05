@@ -179,7 +179,7 @@ const setRegistros = (reservas) => {
     const td_created_at = `<td> ${created_at} </td>`;
 
     reserva_row += td_actividad + td_fecha_reserva + td_dias_restantes + td_created_at;
-    reserva_row += `<td> <button class="cancelar-reserva"> Cancelar </button></td>`;
+    reserva_row += `<td> <button class="cancelar-reserva" onclick='destroyReserva(${id})'> Cancelar </button></td>`;
 
     reserva_row += '</tr>'
 
