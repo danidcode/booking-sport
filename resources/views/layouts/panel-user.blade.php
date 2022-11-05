@@ -12,10 +12,20 @@
       <!-- Scripts -->
       @vite(['resources/css/app.css','resources/scss/main.scss', 'resources/js/app.js'])
 </head>
-
+@php
+$routeName = Route::current()->getName()
+@endphp
 <body>
 
     <div id="main" class="main">
+        @include('components.spinner')
+        <div class="sidebar">
+            <a class="@if(strpos($routeName, 'dashboard') === 0) active  @endif" href="/dashboard">Home</a>
+            <a class="@if(strpos($routeName, 'user.reservas.') === 0) active  @endif" href="/user/reservas">Mis reservas</a>
+            <a class="@if(strpos($routeName, 'user.inscripciones.') === 0) active  @endif" href="/user/inscripciones">Mis inscripciones</a>
+            <a class="" href="/">Volver a la página principal</a>
+            <a class="" href="#about">Cerrar sesión <i class="fa-solid fa-right-from-bracket"></i></a>
+          </div>
         @yield('content')
     </div>
 

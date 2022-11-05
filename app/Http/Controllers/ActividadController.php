@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class ActividadController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         return view('panel-admin.actividades.index');
     }

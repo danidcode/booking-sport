@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\UserController;
 use App\Models\Actividad;
 use Illuminate\Support\Facades\Route;
 
@@ -49,6 +50,26 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.',  'middleware' => ['auth', '
     });
 });
 
+Route::group(['prefix' => 'user', 'as' => 'user.',  'middleware' => ['auth']], function () {
+    //Reservas
+    Route::group(['prefix' => 'reservas', 'as' => 'reservas.'], function () {
+        Route::get('/', [UserController::class, 'indexReservas'])->name('reservas');
+        Route::delete('/{reserva}', [UserController::class, 'destroyReserva']);
+        Route::get('/json/getReservas', [UserController::class, 'getReservasJson']);
+    });
+
+    //Inscripciones
+    Route::group(['prefix' => 'eventos', 'as' => 'eventos.'], function () {
+        Route::get('/', [EventoController::class, 'index'])->name('index');
+        Route::get('/crear', [EventoController::class, 'create'])->name('create');
+        Route::post('/guardar', [EventoController::class, 'store']);
+        Route::get('/{evento}', [EventoController::class, 'show'])->name('show');
+        Route::get('/{evento}/editar', [EventoController::class, 'edit'])->name('edit');
+        Route::put('/{evento}', [EventoController::class, 'update']);
+        Route::delete('/{evento}', [EventoController::class, 'destroy']);
+        Route::get('/json/getEventos', [EventoController::class, 'getEventosJson']);
+    });
+});
 
 Route::group(['prefix' => 'reservar-actividad', 'as' => 'reservar-actividad.', 'middleware' => ['auth']], function () {
     Route::get('/{actividad}', [ActividadController::class, 'previewActividad'])->name('preview-actividad');
