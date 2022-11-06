@@ -20,7 +20,7 @@ class UserController extends Controller
         ->where('user_id',$user_id)
         ->where('fecha_reserva', '>=', Carbon::now()->toDateString());
         
-        $reservas = $reservas->paginate(5);
+        $reservas = $reservas->paginate(7);
 
         if ($request->ajax()) {
             return response()->json([

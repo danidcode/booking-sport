@@ -23,13 +23,13 @@ const initTable = (actividades = null) => {
       }).done((res) => {
         const actividades = res.actividades;
         setRegistros(actividades.data);
-        createPagination(actividades)
+        createPagination(actividades,getJsonActividades)
       });
       resolve();
     })
   } else {
     setRegistros(actividades.data);
-    createPagination(actividades)
+    createPagination(actividades, getJsonActividades)
   }
 }
 

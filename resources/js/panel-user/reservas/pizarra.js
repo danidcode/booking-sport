@@ -22,13 +22,13 @@ const initTable = (reservas = null) => {
       }).done((res) => {
         const reservas = res.reservas;
         setRegistros(reservas.data);
-        createPagination(reservas)
+        createPagination(reservas, getJsonReservas)
       });
       resolve();
     })
   } else {
     setRegistros(reservas.data);
-    createPagination(reservas)
+    createPagination(reservas, getJsonReservas)
   }
 }
 
@@ -67,7 +67,7 @@ const destroyReserva = (id) => {
   }).done(async (res) => {
     Swal.fire({
       title: 'Éxito!',
-      text: 'La reserva se ha borrado correctamente',
+      text: 'La reserva se ha cancelado correctamente',
       icon: 'success',
       confirmButtonText: 'Aceptar'
     });
