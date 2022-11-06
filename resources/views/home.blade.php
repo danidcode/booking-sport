@@ -4,7 +4,7 @@
         <div class="home-evento-principal">
             <div class="tarjeta-inscripcion">
                 <div class="home-evento-titulo">
-                    <span> Carrera benéfica por Camilo Sánchez </span>
+                    <span> {{$evento_principal->nombre}} </span>
                 </div>
                 <div class="home-evento-fecha">
                     <span> 20 de noviembre </span>
@@ -15,7 +15,8 @@
 
 
             </div>
-            <img src="storage/gente_corriendo.webp"> </img>
+            <img src="{{$evento_principal->imagen}}"> </img>
+            {{-- <img src="storage/gente_corriendo.webp"> </img> --}}
         </div>
 
         <div class="home-actividades-destacadas" data-aos="fade-right" data-aos-offset="400" data-aos-easing="ease-in-sine">

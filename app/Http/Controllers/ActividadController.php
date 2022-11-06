@@ -69,7 +69,7 @@ class ActividadController extends Controller
             ], 500);
         }
     }
-    public function destroy(Request $request, Actividad $actividad)
+    public function destroy(Actividad $actividad)
     {
         try {
             $actividad->delete();

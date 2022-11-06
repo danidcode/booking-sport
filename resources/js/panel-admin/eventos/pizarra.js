@@ -33,13 +33,13 @@ $(document).ready(async function () {
   
   
   const getEvento = async (id, action) => {
-  
     $.ajax({
       url: `eventos/${id}`,
       beforeSend: () => {
         $('#spinner-custom').fadeIn();
       },
     }).done((res) => {
+      console.log(res);
       showEvento(res.evento, action);
   
     }).fail((error) => {
@@ -56,8 +56,9 @@ $(document).ready(async function () {
   
   
   const showEvento = (evento, action) => {
+    console.log(evento);
     $("#eventos-form :input").attr("disabled", action == 'ver' ? true : false);
-    const { id, nombre, descripcion, imagen, limite_usuarios, hora_desde, hora_hasta, destacado, destacado_principal, activo, created_at } = evento;
+    const { id, nombre, descripcion, imagen, limite_usuarios, fecha_inicio, destacado, destacado_principal, created_at } = evento;
     $('#spinner-custom').fadeOut();
     $('#evento-nombre').val(nombre);
     if (action == 'ver') {
@@ -71,9 +72,8 @@ $(document).ready(async function () {
       $('#modal-eventos-titulo').text('Actualizar evento');
     }
     $('#evento-limite').val(limite_usuarios);
-    $('#evento-horario').val(`desde ${hora_desde} hasta ${hora_hasta}`);
     $('#evento-descripcion').val(descripcion);
-    $('#evento-activo').prop('checked', activo);
+    $('#evento-inicio').val(fecha_inicio);
     $('#evento-destacado').prop('checked', destacado);
     $('#evento-destacado-principal').prop('checked', destacado_principal);
     $('#evento_display_uploaded').attr('src', imagen)
@@ -91,7 +91,7 @@ $(document).ready(async function () {
     }).done(async (res) => {
       Swal.fire({
         title: 'Éxito!',
-        text: 'La evento se ha borrado correctamente',
+        text: 'Evento se ha borrado correctamente',
         icon: 'success',
         confirmButtonText: 'Aceptar',
         heightAuto: false
@@ -199,17 +199,16 @@ $(document).ready(async function () {
   
     eventos.forEach(evento => {
       let evento_row = `<tr class="eventos-row">`;
-      const { id, nombre, imagen, limite_usuarios, hora_desde, hora_hasta, destacado, destacado_principal, activo, created_at } = evento;
+      const { id, nombre, imagen, limite_usuarios, fecha_inicio, destacado, destacado_principal, created_at } = evento;
       const td_imagen = `<td colspan='1'><img src='${imagen}'></img></td>`
       const td_nombre = `<td> ${nombre} </td>`;
       const td_limite_usuarios = `<td> ${limite_usuarios} </td>`;
-      const td_horario = `<td> ${hora_desde}  / ${hora_hasta} </td>`;
+      const td_inicio = `<td> ${fecha_inicio}</td>`;
       const td_destacado = `<td> <span> ${destacado ? ("<span> SI </span>") : ("<span> NO </span>")} </span></td>`;
       const td_destacado_principal = `<td> ${destacado_principal ? ("<span> SI </span>") : ("<span> NO </span>")} </td>`;
-      const td_activo = `<td> ${activo ? ("<span class='activo'> activo </span>") : ("<span class='inactivo'> inactivo </span>")} </td>`;
       const td_created_at = `<td> ${created_at} </td>`;
   
-      evento_row += td_imagen + td_nombre + td_limite_usuarios + td_horario + td_destacado + td_destacado_principal + td_activo + td_created_at;
+      evento_row += td_imagen + td_nombre + td_limite_usuarios + td_inicio + td_destacado + td_destacado_principal  + td_created_at;
       evento_row += `<td> <div class="wrapper-dropdown container"> 
                               <div class="dropdown ">
                                 <i class="fa-solid fa-ellipsis-vertical dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></i>

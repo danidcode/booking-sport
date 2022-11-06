@@ -35,17 +35,51 @@ class EventoController extends Controller
             ], 500);
         }
     }
-    public function show()
+    public function show(Evento $evento, Request $request)
     {
+        if ($request->ajax()) {
+            return response()->json([
+                'status' => true,
+                'evento' => $evento,
+            ], 200);
+        }
     }
     public function edit()
     {
     }
-    public function update()
+    public function update(Evento $evento, EventoRequest $request)
     {
+        try {
+            $eventoValidated = $request->validated();
+            $imagen = $evento->imagen;
+            $request->imagen == $evento->imagen ?? ($imagen = imageInStorage($request->imagen));
+            $eventoValidated['image'] = $imagen;
+            $evento->update($eventoValidated);
+            return response()->json([
+                'status' => true,
+                'message' => 'evento actualizada correctamente',
+            ], 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage()
+            ], 500);
+        }
     }
-    public function destroy()
+    public function destroy(Evento $evento)
     {
+        try {
+            $evento->delete();
+            return response()->json([
+                'status' => true,
+                'message' => 'Evento borrado correctamente',
+            ], 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage()
+            ], 500);
+        }
     }
 
     public function getEventosJson(Request $request)

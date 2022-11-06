@@ -24,7 +24,7 @@ class EventoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|max:20',
+            'nombre' => 'required|max:30',
             'descripcion' => 'required|max:255',
             'imagen' => 'required',
             'limite_usuarios'=> 'required|numeric',
