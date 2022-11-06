@@ -46,4 +46,4 @@
     <script src={{ Vite::asset('resources/js/panel-user/reservas/pizarra.js') }}></script>
 @endsection
 
-
+{{-- @include('panel-user.reservas.modal') --}}

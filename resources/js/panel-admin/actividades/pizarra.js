@@ -51,7 +51,8 @@ const getActividad = async (id, action) => {
       title: '¡Error!',
       text: 'Ha ocurrido un error',
       icon: 'error',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Aceptar',
+      heightAuto: false
     });
   })
 
@@ -96,7 +97,8 @@ const destroyActividad = (id) => {
       title: 'Éxito!',
       text: 'La actividad se ha borrado correctamente',
       icon: 'success',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Aceptar',
+      heightAuto: false
     });
 
     await initTable();
@@ -107,7 +109,8 @@ const destroyActividad = (id) => {
       title: '¡Error!',
       text: 'Ha ocurrido un error',
       icon: 'error',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Aceptar',
+      heightAuto: false
     });
   }).always(() => {
     $('#spinner-custom').fadeOut();
@@ -130,7 +133,8 @@ const updateActividad = () => {
       title: 'Éxito!',
       text: 'La actividad se ha actualizado correctamente',
       icon: 'success',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Aceptar',
+      heightAuto: false
     });
 
   }).fail((error) => {
@@ -138,7 +142,8 @@ const updateActividad = () => {
       title: '¡Error!',
       text: 'Ha ocurrido un error',
       icon: 'error',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Aceptar',
+      heightAuto: false
     });
   }).always(async () => {
     await initTable();
@@ -162,7 +167,8 @@ const createActividad = () => {
       title: 'Éxito!',
       text: 'La actividad se ha creado correctamente',
       icon: 'success',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Aceptar',
+      heightAuto: false
     });
 
   }).fail((error) => {
@@ -170,7 +176,8 @@ const createActividad = () => {
       title: '¡Error!',
       text: 'Ha ocurrido un error',
       icon: 'error',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Aceptar',
+      heightAuto: false
     });
   }).always(async () => {
     $('#spinner-custom').fadeOut();

@@ -35,7 +35,8 @@ const createPagination = (registros, url) => {
         title: '¡Error!',
         text: 'Ha ocurrido un error',
         icon: 'error',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
+        heightAuto: false
       });
     }).always(async () => {
       $('#spinner-custom').fadeOut();

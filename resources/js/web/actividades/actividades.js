@@ -36,7 +36,8 @@ const createReserva = () =>{
     title: 'Éxito!',
     text: 'La reserva se ha realizado correctamente',
     icon: 'success',
-    confirmButtonText: 'Aceptar'
+    confirmButtonText: 'Aceptar',
+    heightAuto: false
   });
 }).fail((error)=>{
   console.log(error);
@@ -44,7 +45,8 @@ const createReserva = () =>{
     title: '¡Error!',
     text: `${error.responseJSON.message}`,
     icon: 'error',
-    confirmButtonText: 'Aceptar'
+    confirmButtonText: 'Aceptar',
+    heightAuto: false
   });
 }).always(() => {
   $('#spinner-custom').fadeOut();

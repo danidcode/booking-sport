@@ -25,7 +25,8 @@ const sort = (data) => {
         title: '¡Error!',
         text: 'Ha ocurrido un error',
         icon: 'error',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
+        heightAuto: false
       });
     }).always(() => {
       $('#spinner-custom').fadeOut();

@@ -35,7 +35,8 @@ function initInputFile(name, maxSize = 1000) {
               customClass: {
                 confirmButton: 'btn btn-primary'
               },
-              buttonsStyling: false
+              buttonsStyling: false,
+              heightAuto: false
             });
           }
           break;
@@ -47,7 +48,8 @@ function initInputFile(name, maxSize = 1000) {
             customClass: {
               confirmButton: 'btn btn-primary'
             },
-            buttonsStyling: false
+            buttonsStyling: false,
+            heightAuto: false
           });
           break;
       }

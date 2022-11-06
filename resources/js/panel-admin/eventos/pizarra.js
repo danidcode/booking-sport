@@ -47,7 +47,8 @@ $(document).ready(async function () {
         title: '¡Error!',
         text: 'Ha ocurrido un error',
         icon: 'error',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
+        heightAuto: false
       });
     })
   
@@ -92,7 +93,8 @@ $(document).ready(async function () {
         title: 'Éxito!',
         text: 'La evento se ha borrado correctamente',
         icon: 'success',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
+        heightAuto: false
       });
   
       await initTable();
@@ -102,7 +104,8 @@ $(document).ready(async function () {
         title: '¡Error!',
         text: 'Ha ocurrido un error',
         icon: 'error',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
+        heightAuto: false
       });
     }).always(() => {
       $('#spinner-custom').fadeOut();
@@ -125,7 +128,8 @@ $(document).ready(async function () {
         title: 'Éxito!',
         text: 'La evento se ha actualizado correctamente',
         icon: 'success',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
+        heightAuto: false
       });
   
     }).fail((error) => {
@@ -133,7 +137,8 @@ $(document).ready(async function () {
         title: '¡Error!',
         text: 'Ha ocurrido un error',
         icon: 'error',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
+        heightAuto: false
       });
     }).always(async () => {
       await initTable();
@@ -157,7 +162,8 @@ $(document).ready(async function () {
         title: 'Éxito!',
         text: 'La evento se ha creado correctamente',
         icon: 'success',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
+        heightAuto: false
       });
   
     }).fail((error) => {
@@ -165,7 +171,8 @@ $(document).ready(async function () {
         title: '¡Error!',
         text: 'Ha ocurrido un error',
         icon: 'error',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
+        heightAuto: false
       });
     }).always(async () => {
       $('#spinner-custom').fadeOut();

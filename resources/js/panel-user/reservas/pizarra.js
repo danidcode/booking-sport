@@ -50,7 +50,8 @@ const getReserva = async (id, action) => {
       title: '¡Error!',
       text: 'Ha ocurrido un error',
       icon: 'error',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Aceptar',
+      heightAuto: false
     });
   })
 
@@ -69,7 +70,8 @@ const destroyReserva = (id) => {
       title: 'Éxito!',
       text: 'La reserva se ha cancelado correctamente',
       icon: 'success',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Aceptar',
+      heightAuto: false
     });
 
     await initTable();
@@ -80,7 +82,8 @@ const destroyReserva = (id) => {
       title: '¡Error!',
       text: 'Ha ocurrido un error',
       icon: 'error',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Aceptar',
+      heightAuto: false
     });
   }).always(() => {
     $('#spinner-custom').fadeOut();
@@ -103,7 +106,8 @@ const updateReserva = () => {
       title: 'Éxito!',
       text: 'La reserva se ha actualizado correctamente',
       icon: 'success',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Aceptar',
+      heightAuto: false
     });
 
   }).fail((error) => {
@@ -111,7 +115,8 @@ const updateReserva = () => {
       title: '¡Error!',
       text: 'Ha ocurrido un error',
       icon: 'error',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Aceptar',
+      heightAuto: false
     });
   }).always(async () => {
     await initTable();
@@ -135,7 +140,8 @@ const createReserva= () => {
       title: 'Éxito!',
       text: 'La reserva se ha creado correctamente',
       icon: 'success',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Aceptar',
+      heightAuto: false
     });
 
   }).fail((error) => {
@@ -143,7 +149,8 @@ const createReserva= () => {
       title: '¡Error!',
       text: 'Ha ocurrido un error',
       icon: 'error',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Aceptar',
+      heightAuto: false
     });
   }).always(async () => {
     $('#spinner-custom').fadeOut();
