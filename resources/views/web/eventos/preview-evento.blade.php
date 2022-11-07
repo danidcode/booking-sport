@@ -14,9 +14,14 @@
                     {{ $evento->descripcion }}
                 </span>
             </div>
+            <div class="evento-fecha">
+                <span>
+                    {{ $evento->fecha_inicio }}
+                </span>
+            </div>
         </div>
         <div class="confirmar-reserva-button">
-            <button onclick="createReserva()"> Confirmar inscripción </button>
+            <button onclick="createReserva()"> Inscribirse </button>
             <input type="hidden" id="evento_id" value="{{ $evento->id }}">
         </div>
     </div>

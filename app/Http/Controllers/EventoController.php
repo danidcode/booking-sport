@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EventoRequest;
 use App\Models\Evento;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class EventoController extends Controller
@@ -100,7 +101,8 @@ class EventoController extends Controller
     }
 
     public function previewEvento(Evento $evento)
-    {
+    {   
+        $evento->fecha_inicio = getFecha($evento->fecha_inicio);
         return view('web.eventos.preview-evento')->with('evento', $evento);
     }
 }

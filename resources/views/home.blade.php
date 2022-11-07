@@ -7,7 +7,7 @@
                     <span> {{$evento_principal->nombre}} </span>
                 </div>
                 <div class="home-evento-fecha">
-                    <span> 20 de noviembre </span>
+                    <span> {{$evento_principal->fecha_inicio}} </span>
                 </div>
                 <div>
                     <a href="inscripcion-evento/{{$evento_principal->id}}" class="tarjeta-inscripcion-button"> Inscríbete ya! </a>

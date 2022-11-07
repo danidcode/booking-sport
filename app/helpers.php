@@ -23,3 +23,17 @@ if (!function_exists('imageInStorage')) {
         return "/storage/" . $imageName;
     }
 }
+
+if (!function_exists('getFecha')) {
+    function getFecha($fecha)
+    {
+        $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+        $dia = date('d', strtotime($fecha));
+        $mes = date('m', strtotime($fecha));
+        $year = date('Y', strtotime($fecha));
+        
+        $fecha_formateada = $dia . ' ' . 'de' . ' ' . $meses[$mes - 1] .  ' ' . 'del' . ' '  . $year;
+
+        return $fecha_formateada;
+    }
+}
