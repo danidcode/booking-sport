@@ -10,7 +10,7 @@
                     <span> 20 de noviembre </span>
                 </div>
                 <div>
-                    <button class="tarjeta-inscripcion-button"> Inscríbete ya! </button>
+                    <a href="inscripcion-evento/{{$evento_principal->id}}" class="tarjeta-inscripcion-button"> Inscríbete ya! </a>
                 </div>
 
 

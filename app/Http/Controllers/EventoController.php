@@ -98,4 +98,9 @@ class EventoController extends Controller
             ], 200);
         }
     }
+
+    public function previewEvento(Evento $evento)
+    {
+        return view('web.eventos.preview-evento')->with('evento', $evento);
+    }
 }

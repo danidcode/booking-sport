@@ -4,6 +4,7 @@ use App\Http\Controllers\ActividadController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InscripcionController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\UserController;
 use App\Models\Actividad;
@@ -74,6 +75,12 @@ Route::group(['prefix' => 'user', 'as' => 'user.',  'middleware' => ['auth']], f
 Route::group(['prefix' => 'reservar-actividad', 'as' => 'reservar-actividad.', 'middleware' => ['auth']], function () {
     Route::get('/{actividad}', [ActividadController::class, 'previewActividad'])->name('preview-actividad');
     Route::post('/guardar', [ReservaController::class, 'store']);
+
+});
+
+Route::group(['prefix' => 'inscripcion-evento', 'as' => 'inscripcion-evento.', 'middleware' => ['auth']], function () {
+    Route::get('/{evento}', [EventoController::class, 'previewEvento'])->name('preview-evento');
+    Route::post('/guardar', [InscripcionController::class, 'store']);
 
 });
 
