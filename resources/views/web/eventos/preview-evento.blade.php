@@ -20,8 +20,8 @@
                 </span>
             </div>
         </div>
-        <div class="confirmar-reserva-button">
-            <button onclick="createReserva()"> Inscribirse </button>
+        <div class="confirmar-evento-button">
+            <button onclick="createInscripcion()"> Inscribirse </button>
             <input type="hidden" id="evento_id" value="{{ $evento->id }}">
         </div>
     </div>

@@ -10,15 +10,15 @@
         flex-direction: column;
         align-items: center;
         width: 70%;
-        height: 50%; 
-        margin-bottom: 5rem;
+        height: 70%; 
+
         &-nombre{
             font-size: 3rem;
             border-bottom: 3px solid rgb(73, 139, 201);
             margin-bottom: 1rem;
         }
         &-img{
-            height: 80%;
+            height: 70%;
             width: 70%;
             img{
                 display: block;
@@ -31,7 +31,7 @@
     }
 }
 
-.confirmar-reserva-button{
+.confirmar-evento-button{
     margin-top: 2rem;
     button{
         border-radius: 999px;
