@@ -18,15 +18,13 @@ class InscripcionController extends Controller
             $evento = Evento::findOrFail($inscripcion['evento_id'])->first();
             $user_id = Auth::user()->id;
             $inscripcion['user_id'] = $user_id;
-            if(Inscripcion::where('user_id',$user_id)
-            ->where('fecha_inscripcion', $date->toDateString())
-            ->count()){
+
+            if($evento->fecha_inicio <= Carbon::now()->toDateString()){
                 return response()->json([
                     'status' => false,
-                    'message' => 'Ya te has inscrito en este evento'
+                    'message' => 'El tiempo para inscribirse a este evento ya ha expirado'
                 ], 500);
             }
-
             Inscripcion::create($inscripcion);
             return response()->json([
                 'status' => true,

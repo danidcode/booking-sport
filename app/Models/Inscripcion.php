@@ -10,6 +10,11 @@ class Inscripcion extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'evento_id',
+        'user_id',
+    ];
+
     public function evento()
     {
         return $this->belongsTo(Evento::class);
