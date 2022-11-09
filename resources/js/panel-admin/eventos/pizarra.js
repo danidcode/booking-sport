@@ -56,7 +56,6 @@ $(document).ready(async function () {
   
   
   const showEvento = (evento, action) => {
-    console.log(evento);
     $("#eventos-form :input").attr("disabled", action == 'ver' ? true : false);
     const { id, nombre, descripcion, imagen, limite_usuarios, fecha_inicio, destacado, destacado_principal, created_at } = evento;
     $('#spinner-custom').fadeOut();
@@ -69,6 +68,7 @@ $(document).ready(async function () {
       $('#record-id').data('id', id);
       $('.btn-actualizar').show();
       $('.btn-crear').hide();
+      $('#evento-limite').prop("disabled", true );
       $('#modal-eventos-titulo').text('Actualizar evento');
     }
     $('#evento-limite').val(limite_usuarios);

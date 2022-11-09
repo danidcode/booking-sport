@@ -57,6 +57,7 @@ class ActividadController extends Controller
             $imagen = $actividad->imagen;
             $request->imagen == $actividad->imagen ?? ($imagen = imageInStorage($request->imagen));
             $actividadValidated['image'] = $imagen;
+            $actividadValidated['limite_usuarios'] = $actividad->limite_usuarios;
             $actividad->update($actividadValidated);
             return response()->json([
                 'status' => true,

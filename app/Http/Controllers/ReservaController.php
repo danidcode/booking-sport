@@ -35,6 +35,7 @@ class ReservaController extends Controller
                     'message' => 'Ya has reservado en esta actividad en la fecha seleccionada'
                 ], 500);
             }
+            
 
             Reserva::create($reserva);
             return response()->json([

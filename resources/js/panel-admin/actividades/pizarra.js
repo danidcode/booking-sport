@@ -6,9 +6,10 @@ $(document).ready(async function () {
   $('#spinner-custom').fadeOut();
   initInputFile('actividad');
 
-  $("select").bsMultiSelect();
-
 });
+
+var selector_dias = $("#actividad-horario");
+selector_dias.bsMultiSelect();
 
 
 const getJsonActividades = 'actividades/json/getActividades';
@@ -23,7 +24,7 @@ const initTable = (actividades = null) => {
       }).done((res) => {
         const actividades = res.actividades;
         setRegistros(actividades.data);
-        createPagination(actividades,getJsonActividades)
+        createPagination(actividades, getJsonActividades)
       });
       resolve();
     })
@@ -61,7 +62,7 @@ const getActividad = async (id, action) => {
 
 const showActividad = (actividad, action) => {
   $("#actividades-form :input").attr("disabled", action == 'ver' ? true : false);
-  const { id, nombre, descripcion, imagen, limite_usuarios, hora_desde, hora_hasta, destacado, destacado_principal, activo, created_at } = actividad;
+  const { id, nombre, descripcion, imagen, limite_usuarios, dias_activo, destacado, destacado_principal, activo, created_at } = actividad;
   $('#spinner-custom').fadeOut();
   $('#actividad-nombre').val(nombre);
   if (action == 'ver') {
@@ -72,15 +73,23 @@ const showActividad = (actividad, action) => {
     $('#record-id').data('id', id);
     $('.btn-actualizar').show();
     $('.btn-crear').hide();
+    $('#actividad-limite').prop("disabled", true);
     $('#modal-actividades-titulo').text('Actualizar actividad');
   }
   $('#actividad-limite').val(limite_usuarios);
-  $('#actividad-horario').val(`desde ${hora_desde} hasta ${hora_hasta}`);
+  $('#actividad-horario').val(2);
   $('#actividad-descripcion').val(descripcion);
   $('#actividad-activo').prop('checked', activo);
   $('#actividad-destacado').prop('checked', destacado);
   $('#actividad-destacado-principal').prop('checked', destacado_principal);
-  $('#actividad_display_uploaded').attr('src', imagen)
+  $('#actividad_display_uploaded').attr('src', imagen);
+
+  const dias = JSON.parse(dias_activo)
+  dias.forEach(dia => {
+    selector_dias.find('option').eq(dia - 1).prop('selected', 'selected');
+    selector_dias.data('DashboardCode.BsMultiSelect').updateOptionSelected(dia - 1);
+
+  });
   $('#modal-actividades').modal('toggle');
 
 }
@@ -236,6 +245,8 @@ const setRegistros = (actividades) => {
 }
 
 $('.nueva-actividad-button').on('click', () => {
+  $("#actividades-form").trigger('reset');
+  $("#actividades-form :input").attr("disabled", false);
   $('#modal-actividades-titulo').text('Crear actividad');
   $('.btn-crear').show();
   $('.btn-actualizar').hide();
@@ -258,9 +269,9 @@ const formarDias = (dias) => {
   options[7] = 'Domingo';
 
   dias.forEach((dia, index) => {
-    if(dias.length == index + 1){
+    if (dias.length == index + 1) {
       dias_activos += `${options[dia]}`
-    }else{
+    } else {
       dias_activos += `${options[dia]}, `
     }
   });
