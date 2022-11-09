@@ -228,6 +228,8 @@ $(document).ready(async function () {
   }
   
   $('.nuevo-evento-button').on('click', () => {
+    $("#eventos-form").trigger('reset');
+    $("#eventos-form :input").attr("disabled", false);
     $('#modal-eventos-titulo').text('Crear evento');
     $('.btn-crear').show();
     $('.btn-actualizar').hide();

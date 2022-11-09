@@ -36,7 +36,6 @@ class ReservaController extends Controller
                 ], 500);
             }
             
-
             Reserva::create($reserva);
             return response()->json([
                 'status' => true,
