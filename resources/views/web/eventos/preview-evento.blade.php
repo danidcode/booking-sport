@@ -26,3 +26,7 @@
         </div>
     </div>
 @endsection
+
+@section('scripts')
+    <script src="{{ Vite::asset('resources/js/web/eventos/eventos.js') }}"></script>
+@endsection

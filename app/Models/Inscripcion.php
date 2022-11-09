@@ -10,6 +10,8 @@ class Inscripcion extends Model
 {
     use HasFactory;
 
+    protected $table = 'inscripciones';
+
     protected $fillable = [
         'evento_id',
         'user_id',

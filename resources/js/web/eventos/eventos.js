@@ -1,4 +1,4 @@
-const createEvento = () =>{
+const createInscripcion = () =>{
     const data = {
      'evento_id': $('#evento_id').val(),
     } 
