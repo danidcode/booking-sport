@@ -85,7 +85,7 @@ const showActividad = (actividad, action) => {
   $('#actividad_display_uploaded').attr('src', imagen);
 
   let dias = JSON.parse(dias_activo)
-  
+  selector_dias.BsMultiSelect().deselectAll()
   dias.forEach(dia => {
 
     selector_dias.find('option').eq(dia - 1).prop('selected', 'selected');
