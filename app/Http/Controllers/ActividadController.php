@@ -110,4 +110,9 @@ class ActividadController extends Controller
     {
         return view('web.actividades.preview-actividad')->with('actividad', $actividad);
     }
+
+    public function actividadesWeb(){
+        $actividades = Actividad::where('activo', 1)->get();
+        return view('web.actividades.listado-actividades')->with('actividades', $actividades);
+    }
 }
