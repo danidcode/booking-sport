@@ -6,6 +6,7 @@ use App\Http\Requests\ReservaRequest;
 use App\Models\Actividad;
 use App\Models\Reserva;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +18,18 @@ class ReservaController extends Controller
             $reserva = $request->validated();
             $date = new Carbon($reserva['fecha_reserva']);
             $dayOfWeek = $date->dayOfWeek;
-            $actividad = Actividad::findOrFail($reserva['actividad_id'])->first();
+            $actividad = Actividad::where('id',$reserva['actividad_id'])
+            ->withCount(['reserva' => function(Builder $query) use ($date){
+                $query->where('fecha_reserva', $date->toDateString());
+            }])
+            ->first();
+            if(!isset($actividad)){
+                return response()->json([
+                    'status' => false,
+                    'message' => 'La actividad seleccionada no existe'
+                ], 500); 
+            }
+
             $dias_activos = json_decode($actividad->dias_activo);
             $user_id = Auth::user()->id;
             $reserva['user_id'] = $user_id;
@@ -36,6 +48,12 @@ class ReservaController extends Controller
                 ], 500);
             }
             
+            if ($actividad->reserva_count == $actividad->limite_usuarios) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Se ha llegado al límite de reservas en esta actividad por hoy'
+                ], 500);
+            }
             Reserva::create($reserva);
             return response()->json([
                 'status' => true,

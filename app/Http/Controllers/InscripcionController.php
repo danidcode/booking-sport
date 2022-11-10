@@ -17,7 +17,9 @@ class InscripcionController extends Controller
 
         try {
             $inscripcion = $request->validated();
-            $evento = Evento::where('id',$inscripcion['evento_id'])->withCount('inscripcion')->first();
+            $evento = Evento::where('id',$inscripcion['evento_id'])
+            ->withCount('inscripcion')
+            ->first();
             $user_id = Auth::user()->id;
             $inscripcion['user_id'] = $user_id;
 

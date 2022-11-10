@@ -84,8 +84,10 @@ const showActividad = (actividad, action) => {
   $('#actividad-destacado-principal').prop('checked', destacado_principal);
   $('#actividad_display_uploaded').attr('src', imagen);
 
-  const dias = JSON.parse(dias_activo)
+  let dias = JSON.parse(dias_activo)
+  
   dias.forEach(dia => {
+
     selector_dias.find('option').eq(dia - 1).prop('selected', 'selected');
     selector_dias.data('DashboardCode.BsMultiSelect').updateOptionSelected(dia - 1);
 
@@ -256,7 +258,6 @@ $('.nueva-actividad-button').on('click', () => {
 })
 
 const formarDias = (dias) => {
-  console.log(dias);
   dias = JSON.parse(dias);
   let dias_activos = "";
   const options = new Array();
