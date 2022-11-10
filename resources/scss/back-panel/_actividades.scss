@@ -1,4 +1,3 @@
-
 .actividades-wrap {
     display: flex;
     flex-direction: column;
@@ -106,12 +105,12 @@
 
     }
 
-    .actividades-pagination-wrap{
+    .actividades-pagination-wrap {
         display: flex;
         justify-content: center;
         margin-top: auto;
         width: 100%;
-        
+
 
         ul {
             display: flex;
@@ -119,9 +118,11 @@
             margin: 0;
             align-items: center;
         }
-        
-        ul li {display: inline;}
-        
+
+        ul li {
+            display: inline;
+        }
+
         ul li a {
             color: black;
             float: left;
@@ -129,13 +130,20 @@
             text-decoration: none;
             border-radius: 5px;
         }
-        
+
         ul li a.active {
             background-color: $principal;
             color: white;
             border-radius: 5px;
         }
-        
-        ul li a:hover:not(.active) {background-color: #ddd;}
+
+        ul li a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        .points {
+            background-color: white !important;
+            cursor: auto !important;
+        }
     }
 }

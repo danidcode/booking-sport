@@ -97,7 +97,7 @@ class ActividadController extends Controller
             $query->where('fecha_reserva', Carbon::now()->toDateString());
         }]);
         
-        $actividades = $actividades->paginate(5);
+        $actividades = $actividades->paginate(5)->onEachSide(1);
         if ($request->ajax()) {
             return response()->json([
                 'status' => true,

@@ -136,6 +136,11 @@
         }
         
         ul li a:hover:not(.active) {background-color: #ddd;}
+
+        .points{
+            background-color: white!important;
+            cursor: auto!important;
+        }
     }
 
 }

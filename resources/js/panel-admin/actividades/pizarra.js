@@ -22,6 +22,7 @@ const initTable = (actividades = null) => {
         method: 'get',
         dataType: 'json',
       }).done((res) => {
+        console.log(res);
         const actividades = res.actividades;
         setRegistros(actividades.data);
         createPagination(actividades, getJsonActividades)
@@ -216,7 +217,8 @@ const setRegistros = (actividades) => {
 
   actividades.forEach(actividad => {
     let actividad_row = `<tr class="actividades-row">`;
-    const { id, nombre, imagen, limite_usuarios, reserva_count, dias_activo, destacado, destacado_principal, activo, created_at } = actividad;
+    const { id, nombre, imagen, limite_usuarios, reserva_count, dias_activo, destacado, destacado_principal, activo, created_at, paginacion } = actividad;
+    console.log(actividad);
     const td_imagen = `<td colspan='1'><img src='${imagen}'></img></td>`
     const td_nombre = `<td> ${nombre} </td>`;
     const td_limite_usuarios = `<td> ${limite_usuarios} </td>`;
