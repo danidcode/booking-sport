@@ -18,8 +18,9 @@
                     </div>
                     </div>
             @endforeach
-            {{ $actividades->onEachSide(5)->links() }}
+          
         </div>
+        {!! $actividades->onEachSide(1)->links() !!}
     </div>
 @endsection
 
