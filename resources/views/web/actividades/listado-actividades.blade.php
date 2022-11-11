@@ -4,16 +4,22 @@
     <div class="listado-actividades-wrap">
 
         <div class="listado-actividades">
-        @foreach($actividades as $actividad)
+            @foreach ($actividades as $actividad)
+                    <div class="actividad">
+                        <img src="{{ $actividad->imagen }}" alt="" class="actividad-image" />
+                        <div class="actividad-wrap">
+                        <div class="actividad-text-content">
+                            <h2 class="actividad-title">{{ $actividad->nombre }}</h2>
+                            <div class="actividad-date">
+                                <span>{{$actividad->id}}</span>
+                            </div>
 
-        <div class="actividad-content">
-
-            <div class="actividad">
-
-            </div>
+                        </div>
+                    </div>
+                    </div>
+            @endforeach
+            {{ $actividades->onEachSide(5)->links() }}
         </div>
-        @endforeach
-    </div>
     </div>
 @endsection
 
