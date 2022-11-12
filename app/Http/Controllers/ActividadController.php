@@ -98,6 +98,11 @@ class ActividadController extends Controller
         }]);
         
         $actividades = $actividades->paginate(5)->onEachSide(1);
+        $actividades->getCollection()->transform(function ($actividad) {
+            $actividad->dias_activo = $this->formarDias(json_decode($actividad->dias_activo));
+            
+            return $actividad;
+        });
         if ($request->ajax()) {
             return response()->json([
                 'status' => true,
@@ -113,6 +118,33 @@ class ActividadController extends Controller
 
     public function actividadesWeb(){
         $actividades = Actividad::where('activo', 1)->paginate(10);
+        $actividades->getCollection()->transform(function ($actividad) {
+            $actividad->dias_activo = $this->formarDias(json_decode($actividad->dias_activo));
+
+            return $actividad;
+        });
         return view('web.actividades.listado-actividades')->with('actividades', $actividades);
+    }
+
+    public function formarDias($actividad){
+        $dias = [];
+        $dias_activos = '';
+        $dias[1] = 'Lunes';
+        $dias[2] = 'Martes';
+        $dias[3] = 'Miércoles';
+        $dias[4] = 'Jueves';
+        $dias[5] = 'Viernes';
+        $dias[6] = 'Sábado';
+        $dias[7] = 'Domingo';
+
+        foreach ($actividad as $key => $dia) {
+            if(count($actividad) == $key + 1){
+                $dias_activos = $dias_activos . ' ' . 'y' . ' ' .  $dias[$dia];
+            }else{
+                $dias_activos = $key != 0 ? ($dias_activos . ', ' . $dias[$dia]) : ($dias_activos . ' ' . $dias[$dia]) ;
+            }
+            
+        }
+        return $dias_activos;
     }
 }

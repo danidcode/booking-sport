@@ -6,16 +6,12 @@
         <div class="listado-actividades">
             @foreach ($actividades as $actividad)
                     <div class="actividad">
-                        <img src="{{ $actividad->imagen }}" alt="" class="actividad-image" />
-                        <div class="actividad-wrap">
+                            <img src="{{ $actividad->imagen }}" alt="" class="actividad-image" />
                         <div class="actividad-text-content">
                             <h2 class="actividad-title">{{ $actividad->nombre }}</h2>
-                            <div class="actividad-date">
-                                <span>{{$actividad->id}}</span>
-                            </div>
+                            <span>{{ $actividad->dias_activo }}</span>
 
                         </div>
-                    </div>
                     </div>
             @endforeach
           

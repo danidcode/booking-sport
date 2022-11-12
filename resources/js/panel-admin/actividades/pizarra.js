@@ -222,7 +222,7 @@ const setRegistros = (actividades) => {
     const td_imagen = `<td colspan='1'><img src='${imagen}'></img></td>`
     const td_nombre = `<td> ${nombre} </td>`;
     const td_limite_usuarios = `<td> ${limite_usuarios} </td>`;
-    const td_horario = `<td> ${formarDias(dias_activo)} </td>`;
+    const td_horario = `<td> ${dias_activo} </td>`;
     const td_reservas = `<td colspan='1'>${reserva_count}</td>`
     const td_destacado = `<td> <span> ${destacado ? ("<span> SI </span>") : ("<span> NO </span>")} </span></td>`;
     const td_destacado_principal = `<td> ${destacado_principal ? ("<span> SI </span>") : ("<span> NO </span>")} </td>`;
@@ -259,24 +259,4 @@ $('.nueva-actividad-button').on('click', () => {
   $('#modal-actividades').modal('toggle');
 })
 
-const formarDias = (dias) => {
-  dias = JSON.parse(dias);
-  let dias_activos = "";
-  const options = new Array();
-  options[1] = 'Lunes';
-  options[2] = 'Martes';
-  options[3] = 'Miércoles';
-  options[4] = 'Jueves';
-  options[5] = 'Viernes';
-  options[6] = 'Sábado';
-  options[7] = 'Domingo';
 
-  dias.forEach((dia, index) => {
-    if (dias.length == index + 1) {
-      dias_activos += `${options[dia]}`
-    } else {
-      dias_activos += `${options[dia]}, `
-    }
-  });
-  return dias_activos;
-}
