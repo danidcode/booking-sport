@@ -7,7 +7,7 @@
         <div class="listado-eventos">
             @foreach ($eventos as $evento)
                     <div class="evento">
-                        <a href="reservar-evento/{{$evento->id}}">
+                        <a href="inscripcion-evento/{{$evento->id}}">
                             <img src="{{ $evento->imagen }}" alt="" class="evento-image" />
                         <div class="evento-text-content">
                             <h2 class="evento-title">{{ $evento->nombre }}</h2>

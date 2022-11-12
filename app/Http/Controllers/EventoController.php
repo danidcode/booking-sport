@@ -53,8 +53,8 @@ class EventoController extends Controller
         try {
             $eventoValidated = $request->validated();
             $imagen = $evento->imagen;
-            $request->imagen == $evento->imagen ?? ($imagen = imageInStorage($request->imagen));
-            $eventoValidated['image'] = $imagen;
+            $request->imagen != $evento->imagen ? $imagen = imageInStorage($request->imagen) : null;  
+            $eventoValidated['imagen'] = $imagen;
             $eventoValidated['limite_usuarios'] = $evento->limite_usuarios;
             $evento->update($eventoValidated);
             return response()->json([

@@ -45,10 +45,17 @@
                 <span> Eventos destacados</span>
             </div>
 
-            <div class="swiper mySwiper">
+            <div class="swiper home-swiper">
                 <div class="swiper-wrapper">
-                    @foreach ($actividades as $actividad)
-                        <div class="swiper-slide"> <img src="{{ $actividad->imagen }}" alt=""> </img> </div>
+                    @foreach ($eventos as $evento)
+                    <div class="swiper-slide">
+                        <img src="{{ $evento->imagen }}" alt=""> </img>
+                        <div class="swiper-slide-actividad-content">
+                            <span> {{ $evento->nombre }}</span>
+                            <span> {{$evento->fecha_inicio}}</span>
+                            <div> <a href="inscripcion-evento/{{$evento->id}}" class="tarjeta-inscripcion-button"> Inscribirse </a></div>
+                        </div>
+                    </div>
                     @endforeach
                 </div>
                 <div class="swiper-button-next"></div>
