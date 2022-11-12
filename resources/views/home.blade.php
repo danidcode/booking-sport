@@ -16,15 +16,14 @@
 
             </div>
             <img src="{{$evento_principal->imagen}}"> </img>
-            {{-- <img src="storage/gente_corriendo.webp"> </img> --}}
         </div>
 
-        <div class="home-actividades-destacadas" data-aos="fade-right" data-aos-offset="400" data-aos-easing="ease-in-sine">
+        <div class="home-actividades-destacadas">
             <div class="home-actividades-destacadas-text">
                 <span> Actividades destacadas</span>
             </div>
 
-            <div class="swiper mySwiper">
+            <div class="swiper home-swiper">
                 <div class="swiper-wrapper">
                     @foreach ($actividades as $actividad)
                         <div class="swiper-slide">
@@ -41,7 +40,7 @@
             </div>
         </div>
 
-        <div class="home-eventos-destacados" data-aos="fade-right" data-aos-offset="400" data-aos-easing="ease-in-sine">
+        <div class="home-eventos-destacados">
             <div class="home-eventos-destacados-text">
                 <span> Eventos destacados</span>
             </div>

@@ -85,6 +85,6 @@ Route::group(['prefix' => 'inscripcion-evento', 'as' => 'inscripcion-evento.', '
 });
 
 Route::get('/actividades', [ActividadController::class, 'actividadesWeb'])->name('actividades-web');
-Route::get('/eventos', [ActividadController::class, 'eventosWeb'])->name('index');
+Route::get('/eventos', [EventoController::class, 'eventosWeb'])->name('eventos-web');
 
 require __DIR__ . '/auth.php';

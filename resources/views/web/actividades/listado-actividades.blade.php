@@ -2,16 +2,19 @@
 
 @section('content')
     <div class="listado-actividades-wrap">
-
+        <div class="title"> 
+            <span> Actividades</span> </div>
         <div class="listado-actividades">
             @foreach ($actividades as $actividad)
                     <div class="actividad">
+                        <a href="reservar-actividad/{{$actividad->id}}">
                             <img src="{{ $actividad->imagen }}" alt="" class="actividad-image" />
                         <div class="actividad-text-content">
                             <h2 class="actividad-title">{{ $actividad->nombre }}</h2>
                             <span>{{ $actividad->dias_activo }}</span>
 
                         </div>
+                    </a>
                     </div>
             @endforeach
           

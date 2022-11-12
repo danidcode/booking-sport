@@ -1,4 +1,4 @@
-.listado-actividades-wrap {
+.listado-eventos-wrap {
 
     display: flex;
     width: 100%;
@@ -18,20 +18,20 @@
             border-bottom: 3px solid $principal;
         }
     }
-    .listado-actividades {
+    .listado-eventos {
         display: flex;
         flex-direction: row;
         width: 80%;
         flex-wrap: wrap;
         justify-content: center;
 
-        .actividad {
+        .evento {
             position: relative;
             margin: 2rem;
             cursor: pointer;
             transition: transform .2s;
             width: 40%;
-            .actividad-text-content {
+            .evento-text-content {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -49,7 +49,7 @@
             }
         }
 
-        .actividad:hover {
+        .evento:hover {
             box-shadow: 0 0 0.7rem rgb(2 20 27 / 86%);
             transform: scale(1.1);
             transform-origin: center;

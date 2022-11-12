@@ -106,4 +106,15 @@ class EventoController extends Controller
         $evento->fecha_inicio = getFecha($evento->fecha_inicio);
         return view('web.eventos.preview-evento')->with('evento', $evento);
     }
+
+    public function eventosWeb()
+    {
+        $eventos = Evento::where('fecha_inicio', '<', Carbon::now()->toDateString())->paginate(10);
+        $eventos->getCollection()->transform(function ($evento) {
+            $evento->fecha_inicio = getFecha($evento->fecha_inicio);
+
+            return $evento;
+        });
+        return view('web.eventos.listado-eventos')->with('eventos', $eventos);
+    }
 }
