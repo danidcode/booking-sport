@@ -30,6 +30,8 @@
                             </th>
                             <th>Días restantes
                             </th>
+                            <th>Estado
+                            </th>
                             <th>Fecha de realización
                             </th>
                             <th>Acciones</th>

@@ -81,13 +81,35 @@ class ReservaController extends Controller
         ->with('actividad')
         ->with('user');
 
-        $reservas = $reservas->paginate(5)->onEachSide(1);
+        $reservas = $reservas->paginate(7)->onEachSide(1);
+
+        $reservas->getCollection()->transform(function ($reserva) {
+            $reserva->estado = $reserva->fecha_reserva < Carbon::now()->toDateString() ? false : true;
+            
+            return $reserva;
+        });
 
         if ($request->ajax()) {
             return response()->json([
                 'status' => true,
                 'reservas' => $reservas,
             ], 200);
+        }
+    }
+
+    public function destroy(Reserva $reserva)
+    {
+        try {
+            $reserva->delete();
+            return response()->json([
+                'status' => true,
+                'message' => 'Reserva borrada correctamente',
+            ], 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage()
+            ], 500);
         }
     }
 }

@@ -54,6 +54,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.',  'middleware' => ['auth', '
 
     Route::group(['prefix' => 'reservas', 'as' => 'reservas.'], function () {
         Route::get('/', [ReservaController::class, 'index'])->name('index');
+        Route::delete('/{reserva}', [ReservaController::class, 'destroy']);
         Route::get('/json/getReservas', [ReservaController::class, 'getReservasJson']);
 
     });
