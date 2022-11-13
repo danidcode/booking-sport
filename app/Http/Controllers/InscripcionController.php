@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Auth;
 
 class InscripcionController extends Controller
 {
+
+    public function index()
+    {
+        return view('panel-admin.inscripciones.index');
+    }
+
     public function store(InscripcionRequest $request)
     {
 
@@ -46,6 +52,48 @@ class InscripcionController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'inscripcion creada correctamente',
+            ], 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage()
+            ], 500);
+        }
+    }
+
+    public function getInscripcionesJson(Request $request){
+
+        $column = $request->column;
+        $order = $request->order;
+        $inscripciones = Inscripcion::when(isset($order) && isset($column), function ($q) use ($column, $order) {
+            $q->orderBy($column, $order);
+        })
+        ->with('evento')
+        ->with('user');
+
+        $inscripciones = $inscripciones->paginate(7)->onEachSide(1);
+
+        $inscripciones->getCollection()->transform(function ($inscripcion) {
+            $inscripcion->estado = $inscripcion->fecha_inscripcion < Carbon::now()->toDateString() ? false : true;
+            
+            return $inscripcion;
+        });
+
+        if ($request->ajax()) {
+            return response()->json([
+                'status' => true,
+                'inscripciones' => $inscripciones,
+            ], 200);
+        }
+    }
+
+    public function destroy(Inscripcion $inscripcion)
+    {
+        try {
+            $inscripcion->delete();
+            return response()->json([
+                'status' => true,
+                'message' => 'Inscripcion borrada correctamente',
             ], 200);
         } catch (\Throwable $th) {
             return response()->json([

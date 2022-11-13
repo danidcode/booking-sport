@@ -26,7 +26,7 @@ Route::get('/', [HomeController::class, 'show']);
 Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard')->middleware('auth');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.',  'middleware' => ['auth', 'isAdmin']], function () {
-    //Actividades
+    //Admin Actividades
     Route::group(['prefix' => 'actividades', 'as' => 'actividades.'], function () {
         Route::get('/', [ActividadController::class, 'index'])->name('index');
         Route::get('/crear', [ActividadController::class, 'create'])->name('create');
@@ -38,7 +38,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.',  'middleware' => ['auth', '
         Route::get('/json/getActividades', [ActividadController::class, 'getActividadesJson']);
     });
 
-    //Eventos
+    //Admin Eventos
     Route::group(['prefix' => 'eventos', 'as' => 'eventos.'], function () {
         Route::get('/', [EventoController::class, 'index'])->name('index');
         Route::get('/crear', [EventoController::class, 'create'])->name('create');
@@ -50,12 +50,21 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.',  'middleware' => ['auth', '
         Route::get('/json/getEventos', [EventoController::class, 'getEventosJson']);
     });
 
-    //Reservas 
+    // Admin Reservas 
 
     Route::group(['prefix' => 'reservas', 'as' => 'reservas.'], function () {
         Route::get('/', [ReservaController::class, 'index'])->name('index');
         Route::delete('/{reserva}', [ReservaController::class, 'destroy']);
         Route::get('/json/getReservas', [ReservaController::class, 'getReservasJson']);
+
+    });
+
+    // Admin Inscripciones 
+
+    Route::group(['prefix' => 'inscripciones', 'as' => 'inscripciones.'], function () {
+        Route::get('/', [InscripcionController::class, 'index'])->name('index');
+        Route::delete('/{inscripcion}', [InscripcionController::class, 'destroy']);
+        Route::get('/json/getInscripciones', [InscripcionController::class, 'getInscripcionesJson']);
 
     });
 });

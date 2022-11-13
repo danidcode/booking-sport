@@ -1,4 +1,5 @@
-.reservas-wrap {
+
+.inscripciones-wrap {
     display: flex;
     flex-direction: column;
     align-items: self-end;
@@ -7,19 +8,18 @@
     background-color: #FFFFFF;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 15px;
-    overflow: auto;
-    
-    .reservas-table {
+
+    .inscripciones-table {
         table-layout: fixed;
     }
 
-    .reservas-table-wrap {
+    .inscripciones-table-wrap {
         display: flex;
         width: 100%;
         justify-content: center;
         margin-top: 1rem;
 
-        .reservas-table {
+        .inscripciones-table {
             border-collapse: collapse;
             width: 100%;
 
@@ -29,7 +29,7 @@
                 }
             }
 
-            .reservas-row {
+            .inscripciones-row {
                 height: 100px;
             }
 
@@ -88,16 +88,29 @@
                 background-color: rgb(233 78 78);
             }
 
+            .cancelar-inscripcion{
+                background-color: #eb2a2a;
+                border-radius: 999px;
+                padding: 2px 13px 2px 13px;
+                color: #F7F7F7;
+                font-size: .857rem;
+                border: none;
+            }
+
+            .cancelar-inscripcion:hover{
+                background-color: #6E6B7B;
+            }
+
         }
 
     }
 
-    .reservas-pagination-wrap {
+    .inscripciones-pagination-wrap{
         display: flex;
         justify-content: center;
         margin-top: auto;
         width: 100%;
-
+        
 
         ul {
             display: flex;
@@ -105,11 +118,9 @@
             margin: 0;
             align-items: center;
         }
-
-        ul li {
-            display: inline;
-        }
-
+        
+        ul li {display: inline;}
+        
         ul li a {
             color: black;
             float: left;
@@ -117,20 +128,19 @@
             text-decoration: none;
             border-radius: 5px;
         }
-
+        
         ul li a.active {
             background-color: $principal;
             color: white;
             border-radius: 5px;
         }
+        
+        ul li a:hover:not(.active) {background-color: #ddd;}
 
-        ul li a:hover:not(.active) {
-            background-color: #ddd;
-        }
-
-        .points {
-            background-color: white !important;
-            cursor: auto !important;
+        .points{
+            background-color: white!important;
+            cursor: auto!important;
         }
     }
+
 }

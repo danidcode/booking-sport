@@ -17,6 +17,11 @@ class Inscripcion extends Model
         'user_id',
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
     public function evento()
     {
         return $this->belongsTo(Evento::class);
