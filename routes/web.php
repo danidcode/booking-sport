@@ -67,6 +67,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.',  'middleware' => ['auth', '
         Route::get('/json/getInscripciones', [InscripcionController::class, 'getInscripcionesJson']);
 
     });
+
+    // Admin Usuarios 
+
+    Route::group(['prefix' => 'lista-usuarios', 'as' => 'lista-usuarios.'], function () {
+        Route::get('/', [UserController::class, 'index'])->name('index');
+        Route::delete('/{user}', [UserController::class, 'destroy']);
+        Route::get('/json/getUsuarios', [UserController::class, 'getUsuariosJson']);
+
+    });
 });
 
 Route::group(['prefix' => 'user', 'as' => 'user.',  'middleware' => ['auth']], function () {

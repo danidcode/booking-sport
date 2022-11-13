@@ -66,21 +66,6 @@ $(document).ready(async function () {
   }
   
   
-  const formarData = () => {
-    const data = {
-      nombre: $('#inscripcion-nombre').val(),
-      limite_usuarios: $('#inscripcion-limite').val(),
-      dias_activo: $('#inscripcion-horario').val(),
-      descripcion: $('#inscripcion-descripcion').val(),
-      activo: $('#inscripcion-activo').prop('checked') ? 1 : 0,
-      destacado: $('#inscripcion-destacado').prop('checked') ? 1 : 0,
-      destacado_principal: $('#inscripcion-destacado-principal').prop('checked') ? 1 : 0,
-      imagen: $('#inscripcion_display_uploaded').attr('src'),
-    }
-  
-    return data;
-  }
-  
   const setRegistros = (inscripciones) => {
     $('.inscripciones-row').remove(); //Reiniciamos la tabla
   

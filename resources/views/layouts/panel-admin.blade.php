@@ -27,7 +27,7 @@ $routeName = Route::current()->getName()
             <a class="@if(strpos($routeName, 'admin.eventos.') === 0) active  @endif" href="/admin/eventos">Configurar Eventos</a>
             <a class="@if(strpos($routeName, 'admin.reservas.') === 0) active  @endif" href="/admin/reservas">Ver Reservas</a>
             <a class="@if(strpos($routeName, 'admin.inscripciones.') === 0) active  @endif" href="/admin/inscripciones">Ver Inscripciones</a>
-            <a class="@if(strpos($routeName, 'admin.lista-usuarios.') === 0) active  @endif" href="/admin/usuarios">Lista de usuarios</a>
+            <a class="@if(strpos($routeName, 'admin.lista-usuarios.') === 0) active  @endif" href="/admin/lista-usuarios">Lista de usuarios</a>
             <a class="" href="/">Volver a la página principal</a>
             <a class="" href="#about">Cerrar sesión <i class="fa-solid fa-right-from-bracket"></i></a>
         </div>

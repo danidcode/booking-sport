@@ -8,41 +8,41 @@ $(document).ready(async function () {
   });
   
   
-  const getJsonReservas = 'reservas/json/getReservas';
-  const initTable = (reservas = null) => {
-    if (reservas == null) {
+  const getJsonUsuarios = 'lista-usuarios/json/getUsuarios';
+  const initTable = (usuarios = null) => {
+    if (usuarios == null) {
   
       return new Promise((resolve, reject) => {
         $.ajax({
-          url: getJsonReservas,
+          url: getJsonUsuarios,
           method: 'get',
           dataType: 'json',
         }).done((res) => {
           console.log(res);
-          const reservas = res.reservas;
-          setRegistros(reservas.data);
-          createPagination(reservas, getJsonReservas)
+          const usuarios = res.usuarios;
+          setRegistros(usuarios.data);
+          createPagination(usuarios, getJsonUsuarios)
         });
         resolve();
       })
     } else {
-      setRegistros(reservas.data);
-      createPagination(reservas, getJsonReservas)
+      setRegistros(usuarios.data);
+      createPagination(usuarios, getJsonUsuarios)
     }
   }
   
   
   
   
-  const getReserva = async (id, action) => {
+  const getUsuario = async (id, action) => {
   
     $.ajax({
-      url: `reservas/${id}`,
+      url: `usuarios/${id}`,
       beforeSend: () => {
         $('#spinner-custom').fadeIn();
       },
     }).done((res) => {
-      showreserva(res.reserva, action);
+      showUsuario(res.usuario, action);
   
     }).fail((error) => {
       Swal.fire({
@@ -57,9 +57,9 @@ $(document).ready(async function () {
   }
   
   
-  const destroyReserva = (id) => {
+  const destroyUsuario = (id) => {
     $.ajax({
-      url: `reservas/${id}`,
+      url: `lista-usuarios/${id}`,
       method: 'DELETE',
       beforeSend: () => {
         $('#spinner-custom').fadeIn();
@@ -67,7 +67,7 @@ $(document).ready(async function () {
     }).done(async (res) => {
       Swal.fire({
         title: 'Éxito!',
-        text: 'La reserva se ha borrado correctamente',
+        text: 'El usuario se ha borrado correctamente',
         icon: 'success',
         confirmButtonText: 'Aceptar',
         heightAuto: false
@@ -88,36 +88,33 @@ $(document).ready(async function () {
       $('#spinner-custom').fadeOut();
     })
   }
+
+  const setRegistros = (usuarios) => {
+    $('.usuarios-row').remove(); //Reiniciamos la tabla
   
- 
-  
-  const setRegistros = (reservas) => {
-    $('.reservas-row').remove(); //Reiniciamos la tabla
-  
-    reservas.forEach(reserva => {
-      let reserva_row = `<tr class="reservas-row">`;
-      const { id, actividad, fecha_reserva, user, estado, created_at} = reserva;
-      const td_actividad = `<td> ${actividad.nombre} </td>`;
-      const td_user = `<td> ${user.name} (${user.email}) </td>`;
-      const td_fecha_reserva = `<td> ${fecha_reserva} </td>`;
-      const td_dias_restantes = `<td> ${getDiasRestantes(fecha_reserva)} </td>`;
-      const td_estado = `<td> ${estado ? ("<span class='activo'> activa </span>") : ("<span class='inactivo'> inactiva </span>")} </td>`;
+    usuarios.forEach(usuario => {
+      let usuario_row = `<tr class="usuarios-row">`;
+      const { id, name, email, inscripcion_count, reserva_count, created_at} = usuario;
+      const td_nombre = `<td> ${name} </td>`;
+      const td_email = `<td> ${email} </td>`;
+      const td_reserva = `<td> ${reserva_count} </td>`;
+      const td_inscripcion = `<td> ${inscripcion_count} </td>`;
       const td_created_at = `<td> ${created_at} </td>`;
   
-      reserva_row += td_actividad + td_user + td_fecha_reserva + td_dias_restantes + td_estado + td_created_at;
-      reserva_row += `<td> <div class="wrapper-dropdown container"> 
+      usuario_row += td_nombre + td_email + td_reserva + td_inscripcion + td_created_at;
+      usuario_row += `<td> <div class="wrapper-dropdown container"> 
                               <div class="dropdown ">
                                 <i class="fa-solid fa-ellipsis-vertical dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></i>
                                     <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-start" aria-labelledby="dropdownMenuButton1">
-                                      <li><a class="dropdown-item" href="#" onclick="destroyReserva(${id})"><i class="fa-regular fa-trash-can fa-lg"></i> Borrar </a></li>
+                                      <li><a class="dropdown-item" href="#" onclick="destroyUsuario(${id})"><i class="fa-regular fa-trash-can fa-lg"></i> Borrar </a></li>
                                    </ul>
                               </div> 
                             </div> 
                         </td>`;
   
-      reserva_row += '</tr>'
+      usuario_row += '</tr>'
   
-      $('.reservas-table').append(reserva_row)
+      $('.usuarios-table').append(usuario_row)
     });
   }
   

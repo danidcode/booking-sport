@@ -71,7 +71,8 @@ class ReservaController extends Controller
         }
     }
 
-    public function getReservasJson(Request $request){
+    public function getReservasJson(Request $request)
+    {
 
         $column = $request->column;
         $order = $request->order;
