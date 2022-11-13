@@ -1,4 +1,4 @@
-@extends('layouts.panel-user')
+@extends('layouts.panel-admin')
 
 @section('content')
     <div class="content">
@@ -12,6 +12,13 @@
                                 <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="nombre"
                                     data-order="asc"></i>
                                 <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="nombre"
+                                    data-order="desc"></i>
+
+                            </th>
+                            <th>Usuario
+                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="user"
+                                    data-order="asc"></i>
+                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="user"
                                     data-order="desc"></i>
 
                             </th>
@@ -43,7 +50,5 @@
 @endsection
 
 @section('scripts')
-    <script src={{ Vite::asset('resources/js/panel-user/reservas/pizarra.js') }}></script>
+    <script src={{ Vite::asset('resources/js/panel-admin/reservas/pizarra.js') }}></script>
 @endsection
-
-{{-- @include('panel-user.reservas.modal') --}}

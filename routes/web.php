@@ -49,6 +49,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.',  'middleware' => ['auth', '
         Route::delete('/{evento}', [EventoController::class, 'destroy']);
         Route::get('/json/getEventos', [EventoController::class, 'getEventosJson']);
     });
+
+    //Reservas 
+
+    Route::group(['prefix' => 'reservas', 'as' => 'reservas.'], function () {
+        Route::get('/', [ReservaController::class, 'index'])->name('index');
+        Route::get('/json/getReservas', [ReservaController::class, 'getReservasJson']);
+
+    });
 });
 
 Route::group(['prefix' => 'user', 'as' => 'user.',  'middleware' => ['auth']], function () {
@@ -60,16 +68,16 @@ Route::group(['prefix' => 'user', 'as' => 'user.',  'middleware' => ['auth']], f
     });
 
     //Inscripciones
-    Route::group(['prefix' => 'eventos', 'as' => 'eventos.'], function () {
-        Route::get('/', [EventoController::class, 'index'])->name('index');
-        Route::get('/crear', [EventoController::class, 'create'])->name('create');
-        Route::post('/guardar', [EventoController::class, 'store']);
-        Route::get('/{evento}', [EventoController::class, 'show'])->name('show');
-        Route::get('/{evento}/editar', [EventoController::class, 'edit'])->name('edit');
-        Route::put('/{evento}', [EventoController::class, 'update']);
-        Route::delete('/{evento}', [EventoController::class, 'destroy']);
-        Route::get('/json/getEventos', [EventoController::class, 'getEventosJson']);
-    });
+    // Route::group(['prefix' => 'eventos', 'as' => 'eventos.'], function () {
+    //     Route::get('/', [EventoController::class, 'index'])->name('index');
+    //     Route::get('/crear', [EventoController::class, 'create'])->name('create');
+    //     Route::post('/guardar', [EventoController::class, 'store']);
+    //     Route::get('/{evento}', [EventoController::class, 'show'])->name('show');
+    //     Route::get('/{evento}/editar', [EventoController::class, 'edit'])->name('edit');
+    //     Route::put('/{evento}', [EventoController::class, 'update']);
+    //     Route::delete('/{evento}', [EventoController::class, 'destroy']);
+    //     Route::get('/json/getEventos', [EventoController::class, 'getEventosJson']);
+    // });
 });
 
 Route::group(['prefix' => 'reservar-actividad', 'as' => 'reservar-actividad.', 'middleware' => ['auth']], function () {
