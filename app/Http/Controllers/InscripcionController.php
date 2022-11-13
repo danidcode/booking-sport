@@ -74,7 +74,7 @@ class InscripcionController extends Controller
         $inscripciones = $inscripciones->paginate(7)->onEachSide(1);
 
         $inscripciones->getCollection()->transform(function ($inscripcion) {
-            $inscripcion->estado = $inscripcion->fecha_inscripcion < Carbon::now()->toDateString() ? false : true;
+            $inscripcion->estado = $inscripcion->evento->fecha_inicio < Carbon::now()->toDateString() ? false : true;
             
             return $inscripcion;
         });
