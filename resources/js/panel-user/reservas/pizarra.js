@@ -34,30 +34,6 @@ const initTable = (reservas = null) => {
 
 
 
-
-const getReserva = async (id, action) => {
-
-  $.ajax({
-    url: `reservas/${id}`,
-    beforeSend: () => {
-      $('#spinner-custom').fadeIn();
-    },
-  }).done((res) => {
-    showReserva(res.reserva, action);
-
-  }).fail((error) => {
-    Swal.fire({
-      title: '¡Error!',
-      text: 'Ha ocurrido un error',
-      icon: 'error',
-      confirmButtonText: 'Aceptar',
-      heightAuto: false
-    });
-  })
-
-}
-
-
 const destroyReserva = (id) => {
   $.ajax({
     url: `reservas/${id}`,
@@ -90,88 +66,6 @@ const destroyReserva = (id) => {
   })
 }
 
-const updateReserva = () => {
-  const id = $('#record-id').data('id');
-  const data = formarData();
-
-  $.ajax({
-    url: `reservas/${id}`,
-    method: 'put',
-    data: data,
-    beforeSend: () => {
-      $('#spinner-custom').fadeIn();
-    },
-  }).done((res) => {
-    Swal.fire({
-      title: 'Éxito!',
-      text: 'La reserva se ha actualizado correctamente',
-      icon: 'success',
-      confirmButtonText: 'Aceptar',
-      heightAuto: false
-    });
-
-  }).fail((error) => {
-    Swal.fire({
-      title: '¡Error!',
-      text: 'Ha ocurrido un error',
-      icon: 'error',
-      confirmButtonText: 'Aceptar',
-      heightAuto: false
-    });
-  }).always(async () => {
-    await initTable();
-    $('#spinner-custom').fadeOut();
-  })
-}
-
-const createReserva= () => {
-
-  const data = formarData();
-  console.log(data);
-  $.ajax({
-    url: `reservas/guardar`,
-    method: 'post',
-    data: data,
-    beforeSend: () => {
-      $('#spinner-custom').fadeIn();
-    },
-  }).done((res) => {
-    Swal.fire({
-      title: 'Éxito!',
-      text: 'La reserva se ha creado correctamente',
-      icon: 'success',
-      confirmButtonText: 'Aceptar',
-      heightAuto: false
-    });
-
-  }).fail((error) => {
-    Swal.fire({
-      title: '¡Error!',
-      text: 'Ha ocurrido un error',
-      icon: 'error',
-      confirmButtonText: 'Aceptar',
-      heightAuto: false
-    });
-  }).always(async () => {
-    $('#spinner-custom').fadeOut();
-    await initTable();
-  })
-}
-
-const formarData = () => {
-  const data = {
-    nombre: $('#reserva-nombre').val(),
-    limite_usuarios: $('#reserva-limite').val(),
-    dias_activo: $('#reserva-horario').val(),
-    descripcion: $('#reserva-descripcion').val(),
-    activo: $('#reserva-activo').prop('checked') ? 1 : 0,
-    destacado: $('#reserva-destacado').prop('checked') ? 1 : 0,
-    destacado_principal: $('#reserva-destacado-principal').prop('checked') ? 1 : 0,
-    imagen: $('#reserva_display_uploaded').attr('src'),
-  }
-
-  return data;
-}
 
 const setRegistros = (reservas) => {
   console.log(reservas);

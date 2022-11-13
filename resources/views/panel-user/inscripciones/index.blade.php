@@ -3,23 +3,19 @@
 @section('content')
     <div class="content">
         <div class="content-wrap">
-            <div class="reservas-wrap">
+            <div class="inscripciones-wrap">
 
-                <div class="reservas-table-wrap">
-                    <table class="reservas-table">
+                <div class="inscripciones-table-wrap">
+                    <table class="inscripciones-table">
                         <tr>
-                            <th>Actividad
+                            <th>Evento
                                 <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="nombre"
                                     data-order="asc"></i>
                                 <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="nombre"
                                     data-order="desc"></i>
 
                             </th>
-                            <th>Fecha de la reserva
-                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)"
-                                    data-column="fecha_reserva" data-order="asc"></i>
-                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)"
-                                    data-column="fecha_reserva" data-order="desc"></i>
+                            <th>Fecha del evento
                             </th>
                             <th>Días restantes
                             </th>
@@ -31,7 +27,7 @@
 
                     </table>
                 </div>
-                <div class="reservas-pagination-wrap">
+                <div class="inscripciones-pagination-wrap">
                     <ul class="pagination-list">
                         <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
                         <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
@@ -43,7 +39,6 @@
 @endsection
 
 @section('scripts')
-    <script src={{ Vite::asset('resources/js/panel-user/reservas/pizarra.js') }}></script>
+    <script src={{ Vite::asset('resources/js/panel-user/inscripciones/pizarra.js') }}></script>
 @endsection
-
 

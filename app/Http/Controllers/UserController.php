@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Inscripcion;
 use App\Models\Reserva;
 use App\Models\User;
 use Carbon\Carbon;
@@ -18,6 +19,10 @@ class UserController extends Controller
 
     public function indexReservas(){
         return view('panel-user.reservas.index');
+    }
+
+    public function indexInscripciones(){
+        return view('panel-user.inscripciones.index');
     }
 
     public function getReservasJson(Request $request){
@@ -37,6 +42,23 @@ class UserController extends Controller
         }
     }
 
+    public function getInscripcionesJson(Request $request){
+        $user_id = Auth::user()->id;
+
+        $inscripciones = Inscripcion::with('evento')
+        ->where('user_id',$user_id)
+        ->whereRelation('evento', 'fecha_inicio', '>=', Carbon::now()->toDateString());
+        
+        $inscripciones = $inscripciones->paginate(7);
+
+        if ($request->ajax()) {
+            return response()->json([
+                'status' => true,
+                'inscripciones' => $inscripciones,
+            ], 200);
+        }
+    }
+
     public function destroyReserva(Reserva $reserva){
         $user_id = Auth::user()->id;
         if($reserva->user_id == $user_id){
@@ -44,6 +66,22 @@ class UserController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'Reserva borrada correctamente',
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => false,
+                'message' => 'Acción no autorizada'
+            ], 500);
+        }
+    }
+
+    public function destroyInscripcion(Inscripcion $inscripcion){
+        $user_id = Auth::user()->id;
+        if($inscripcion->user_id == $user_id){
+            $inscripcion->delete();
+            return response()->json([
+                'status' => true,
+                'message' => 'Inscripcion borrada correctamente',
             ], 200);
         }else{
             return response()->json([
