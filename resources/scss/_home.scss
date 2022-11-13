@@ -80,7 +80,7 @@
         font-size: 18px;
         background: #fff;
         position: relative;
-    
+        height: auto;
         &-actividad-content{
             position: absolute;
             background: rgb(0 0 0 / 45%);
@@ -122,7 +122,7 @@
       &-slide img {
         display: block;
         width: 100%;
-        max-height: 100%;
+        height: 100%;
         object-fit: cover;
       }
   }

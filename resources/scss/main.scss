@@ -8,6 +8,7 @@
 @import "user-panel/index";
 @import "spinner";
 @import "input-file";
+@import "footer";
 @import "web/index";
 
 * {
@@ -17,7 +18,7 @@
 
 html{
   min-height: 100vh;
-  height: 100%;
+  position: relative;
 }
 body {
   // min-height:100vh;
@@ -41,6 +42,17 @@ svg {
 
 ::-webkit-scrollbar-thumb:horizontal{
   display: none;
+}
+
+footer{
+
+}
+
+.global-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 // table{

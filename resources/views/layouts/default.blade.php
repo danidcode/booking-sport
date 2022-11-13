@@ -21,6 +21,7 @@
 </head>
 
 <body>
+    <div class="global-wrapper">
     <header class="header">
         @include('components.header')
     </header>
@@ -33,6 +34,7 @@
     <footer class="footer">
         @include('components.footer')
     </footer>
+</div>
 </body>
 
 @include('global-scripts.index')
