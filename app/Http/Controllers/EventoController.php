@@ -109,7 +109,7 @@ class EventoController extends Controller
 
     public function eventosWeb()
     {
-        $eventos = Evento::where('fecha_inicio', '<', Carbon::now()->toDateString())->paginate(10);
+        $eventos = Evento::where('fecha_inicio', '>', Carbon::now()->toDateString())->paginate(10);
         $eventos->getCollection()->transform(function ($evento) {
             $evento->fecha_inicio = getFecha($evento->fecha_inicio);
 
