@@ -136,7 +136,7 @@ $(document).ready(async function () {
     }).fail((error) => {
       Swal.fire({
         title: '¡Error!',
-        text: 'Ha ocurrido un error',
+        text: `${error.responseJSON.message}`,
         icon: 'error',
         confirmButtonText: 'Aceptar',
         heightAuto: false
@@ -170,7 +170,7 @@ $(document).ready(async function () {
     }).fail((error) => {
       Swal.fire({
         title: '¡Error!',
-        text: 'Ha ocurrido un error',
+        text: `${error.responseJSON.message}`,
         icon: 'error',
         confirmButtonText: 'Aceptar',
         heightAuto: false

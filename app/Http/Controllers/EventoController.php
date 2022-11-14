@@ -24,6 +24,12 @@ class EventoController extends Controller
             $evento = $request->validated();
             $imagen = imageInStorage($request->imagen);
             $evento['imagen'] = $imagen;
+            if ($evento['destacado_principal'] == 1 && Evento::where('destacado_principal', 1)->count() > 0) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Ya existe un evento como destacado principal, debe quitarlo si desea poner este'
+                ], 500);
+            }
             Evento::create($evento);
             return response()->json([
                 'status' => true,
@@ -53,9 +59,19 @@ class EventoController extends Controller
         try {
             $eventoValidated = $request->validated();
             $imagen = $evento->imagen;
-            $request->imagen != $evento->imagen ? $imagen = imageInStorage($request->imagen) : null;  
+            $request->imagen != $evento->imagen ? $imagen = imageInStorage($request->imagen) : null;
             $eventoValidated['imagen'] = $imagen;
             $eventoValidated['limite_usuarios'] = $evento->limite_usuarios;
+
+            if ($eventoValidated['destacado_principal'] == 1 && Evento::where('destacado_principal', 1)
+                ->whereNot('id', $evento->id)
+                ->count() > 0
+            ) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Ya existe un evento como destacado principal, debe quitarlo si desea poner este'
+                ], 500);
+            }
             $evento->update($eventoValidated);
             return response()->json([
                 'status' => true,
@@ -102,7 +118,7 @@ class EventoController extends Controller
     }
 
     public function previewEvento(Evento $evento)
-    {   
+    {
         $evento->fecha_inicio = getFecha($evento->fecha_inicio);
         return view('web.eventos.preview-evento')->with('evento', $evento);
     }

@@ -41,7 +41,6 @@ const createReserva = () => {
       heightAuto: false
     });
   }).fail((error) => {
-    console.log(error);
     Swal.fire({
       title: '¡Error!',
       text: `${error.responseJSON.message}`,
