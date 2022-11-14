@@ -30,9 +30,6 @@ $routeName = Route::current()->getName()
         @yield('content')
     </div>
 
-    <footer class="footer">
-        @include('components.footer')
-    </footer>
 </body>
 
 @include('global-scripts.index')

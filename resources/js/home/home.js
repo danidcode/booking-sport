@@ -3,5 +3,7 @@ var swiper = new Swiper(".home-swiper", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+  breakpoints: {
+  }
 });
 

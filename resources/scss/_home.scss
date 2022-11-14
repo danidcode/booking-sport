@@ -16,15 +16,18 @@
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
-            
 
-            .home-evento-titulo, .home-evento-fecha{
+
+            .home-evento-titulo,
+            .home-evento-fecha {
                 text-align: center;
-                span{
+
+                span {
                     font-size: 2.5rem;
                     color: #FFFFFF;
                 }
             }
+
             &-button {
                 border-radius: 999px;
                 padding: 0.7rem;
@@ -45,23 +48,23 @@
         }
     }
 
-    &-actividades-destacadas, &-eventos-destacados{
+    &-actividades-destacadas,
+    &-eventos-destacados {
         margin-top: 5rem;
         width: 100%;
 
-        &-text{
+        &-text {
             display: flex;
             justify-content: center;
 
-            span{
+            span {
                 font-size: 3rem;
                 display: inline;
                 border-bottom: 3px solid $principal;
             }
         }
-        .actividad-card{
 
-        }
+        .actividad-card {}
     }
 }
 
@@ -71,9 +74,11 @@
     max-width: 50%;
     box-shadow: 0 0 0.7rem rgb(2 20 27 / 86%);
 
-    &-button-next,  &-button-prev{
+    &-button-next,
+    &-button-prev {
         color: #fff;
     }
+
     &-slide {
         cursor: pointer;
         text-align: center;
@@ -81,7 +86,8 @@
         background: #fff;
         position: relative;
         height: auto;
-        &-actividad-content{
+
+        &-actividad-content {
             position: absolute;
             background: rgb(0 0 0 / 45%);
             width: 100%;
@@ -92,11 +98,13 @@
             justify-content: center;
             opacity: 0;
             transition: 0.7s;
-            span{
+
+            span {
                 font-size: 2rem;
                 color: #FFFFFF;
             }
-            a{
+
+            a {
                 border-radius: 999px;
                 padding: 0.7rem;
                 background-color: $principal;
@@ -106,24 +114,71 @@
                 margin: 1rem;
                 font-size: 1.2rem;
                 -webkit-appearance: button;
-                    -moz-appearance: button;
-                    appearance: button;
-                
-                    text-decoration: none;
+                -moz-appearance: button;
+                appearance: button;
+
+                text-decoration: none;
             }
         }
-      }
-    
-      &-slide:hover{
-        .swiper-slide-actividad-content{
+    }
+
+    &-slide:hover {
+        .swiper-slide-actividad-content {
             opacity: 1;
         }
     }
-      &-slide img {
+
+    &-slide img {
         display: block;
         width: 100%;
         height: 100%;
         object-fit: cover;
-      }
-  }
+    }
+}
 
+// Breakpoints
+
+// Extra extra large
+@media (min-width: $xxl-min) {}
+
+// Extra large
+@media (min-width: $xl-min) and (max-width: $xl-max) {}
+
+// Large
+@media (min-width: $lg-min) and (max-width: $lg-max) {}
+
+// Medium
+@media (min-width: $md-min) and (max-width: $md-max) {
+
+}
+
+// Small
+@media (min-width: $sm-min) and (max-width: $sm-max) {
+    .tarjeta-inscripcion{
+        width: 100%!important;
+    }
+
+    .home-actividades-destacadas-text, .home-eventos-destacados-text {
+        span{
+            font-size: 1.5rem!important;
+        }
+    }
+}
+
+
+
+// Extra small
+@media (max-width: $xs-max) {
+    .tarjeta-inscripcion{
+        width: 100%!important;
+    }
+
+    .home-actividades-destacadas-text, .home-eventos-destacados-text{
+        span{
+            font-size: 1.5rem!important;
+        }
+    }
+}
+
+//Medium specifically
+@media (max-width: $md-max) {}
