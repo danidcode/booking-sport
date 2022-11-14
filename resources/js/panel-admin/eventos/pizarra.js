@@ -69,6 +69,7 @@ $(document).ready(async function () {
       $('.btn-actualizar').show();
       $('.btn-crear').hide();
       $('#evento-limite').prop("disabled", true );
+      $('#evento-inicio').prop("disabled", true );
       $('#modal-eventos-titulo').text('Actualizar evento');
     }
     $('#evento-limite').val(limite_usuarios);

@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index(){
         $actividades_destacadas = Actividad::where('destacado', 1)->get();
         $eventos_destacados = Evento::where('destacado', 1)
-        ->where('fecha_inicio', '<', Carbon::now()->toDateString())->get();
+        ->where('fecha_inicio', '>', Carbon::now()->toDateString())->get();
         
         $eventos_destacados->transform(function ($evento) {
             $evento->fecha_inicio = getFecha($evento->fecha_inicio);
@@ -20,7 +20,6 @@ class HomeController extends Controller
             return $evento;
         });
         $evento_principal = Evento::where('destacado_principal', 1)->first();
-
         $evento_principal->fecha_inicio = getFecha($evento_principal->fecha_inicio);
         return view('home')
         ->with('actividades', $actividades_destacadas)

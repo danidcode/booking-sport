@@ -4,6 +4,7 @@
     flex-direction: column;
     margin-top: 3rem;
     align-items: center;
+    margin-bottom: 2rem;
 
     .evento{
         display: flex;
@@ -27,6 +28,11 @@
                 object-fit: cover;
             }
             margin-bottom: 1rem;
+        }
+
+        &-fecha{
+            margin-top: 1rem;
+            font-size: 1.5rem;
         }
     }
 }

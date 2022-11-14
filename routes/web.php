@@ -26,6 +26,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard')->middleware('auth');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.',  'middleware' => ['auth', 'isAdmin']], function () {
+
     //Admin Actividades
     Route::group(['prefix' => 'actividades', 'as' => 'actividades.'], function () {
         Route::get('/', [ActividadController::class, 'index'])->name('index');
@@ -51,7 +52,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.',  'middleware' => ['auth', '
     });
 
     // Admin Reservas 
-
     Route::group(['prefix' => 'reservas', 'as' => 'reservas.'], function () {
         Route::get('/', [ReservaController::class, 'index'])->name('index');
         Route::delete('/{reserva}', [ReservaController::class, 'destroy']);
@@ -60,7 +60,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.',  'middleware' => ['auth', '
     });
 
     // Admin Inscripciones 
-
     Route::group(['prefix' => 'inscripciones', 'as' => 'inscripciones.'], function () {
         Route::get('/', [InscripcionController::class, 'index'])->name('index');
         Route::delete('/{inscripcion}', [InscripcionController::class, 'destroy']);
@@ -69,7 +68,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.',  'middleware' => ['auth', '
     });
 
     // Admin Usuarios 
-
     Route::group(['prefix' => 'lista-usuarios', 'as' => 'lista-usuarios.'], function () {
         Route::get('/', [UserController::class, 'index'])->name('index');
         Route::delete('/{user}', [UserController::class, 'destroy']);
@@ -79,6 +77,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.',  'middleware' => ['auth', '
 });
 
 Route::group(['prefix' => 'user', 'as' => 'user.',  'middleware' => ['auth']], function () {
+
     //User Reservas
     Route::group(['prefix' => 'reservas', 'as' => 'reservas.'], function () {
         Route::get('/', [UserController::class, 'indexReservas'])->name('reservas');

@@ -35,6 +35,12 @@ class InscripcionController extends Controller
                     'message' => 'El evento seleccionado no existe'
                 ], 500); 
             }
+            if(Inscripcion::where('user_id', $user_id)->where('evento_id', $evento->id)->count() > 0){
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Ya te has inscrito a este evento'
+                ], 500);
+            }
             if($evento->fecha_inicio <= Carbon::now()->toDateString()){
                 return response()->json([
                     'status' => false,
