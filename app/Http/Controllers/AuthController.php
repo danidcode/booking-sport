@@ -34,7 +34,7 @@ class AuthController extends Controller
         $credentials = $request->validated();
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended('/dashboard');
         }
 
         return back()->withErrors('Las credenciales son incorrectas');
@@ -44,6 +44,7 @@ class AuthController extends Controller
     {
         $data = $request->validated();
         $data['password'] = Hash::make($request->password);
+        
         User::create($data);
         return redirect('/login');
     }
