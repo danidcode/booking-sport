@@ -120,4 +120,3 @@ Route::post('/register', [AuthController::class, 'createUser'])->name('auth.crea
 
 // Logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
-// require __DIR__ . '/auth.php';

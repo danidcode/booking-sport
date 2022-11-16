@@ -21,9 +21,6 @@
                                 required />
                             <label class="form__label">Contraseña</label>
                         </div>
-                        {{-- <div class="forgotPassword">
-                            <Link to="/recovery-password"> <span>¿Contraseña olvidada?</span></Link>
-                        </div> --}}
                         @if ($errors)
                             <span style="color:rgb(165, 16, 16)">{{ $errors->first() }}</span>
                         @endif
@@ -39,5 +36,4 @@
             </div>
         </div>
     </div>
-    </form>
 @endsection
