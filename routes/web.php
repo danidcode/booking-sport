@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ActividadController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\HomeController;
@@ -109,4 +110,14 @@ Route::group(['prefix' => 'inscripcion-evento', 'as' => 'inscripcion-evento.', '
 Route::get('/actividades', [ActividadController::class, 'actividadesWeb'])->name('actividades-web');
 Route::get('/eventos', [EventoController::class, 'eventosWeb'])->name('eventos-web');
 
-require __DIR__ . '/auth.php';
+// Login
+Route::get('/login', [AuthController::class, 'login'])->name('auth.login');
+Route::post('/login', [AuthController::class, 'signIn'])->name('auth.signIn');
+
+// Register
+Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
+Route::post('/register', [AuthController::class, 'createUser'])->name('auth.createUser');
+
+// Logout
+Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+// require __DIR__ . '/auth.php';

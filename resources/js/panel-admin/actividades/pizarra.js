@@ -22,7 +22,6 @@ const initTable = (actividades = null) => {
         method: 'get',
         dataType: 'json',
       }).done((res) => {
-        console.log(res);
         const actividades = res.actividades;
         setRegistros(actividades.data);
         createPagination(actividades, getJsonActividades)
