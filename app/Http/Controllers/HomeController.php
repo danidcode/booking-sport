@@ -20,7 +20,8 @@ class HomeController extends Controller
             return $evento;
         });
         $evento_principal = Evento::where('destacado_principal', 1)->first();
-        $evento_principal->fecha_inicio = getFecha($evento_principal->fecha_inicio);
+        isset($evento_principal) ? $evento_principal->fecha_inicio = getFecha($evento_principal->fecha_inicio) : null;
+        
         return view('home')
         ->with('actividades', $actividades_destacadas)
         ->with('eventos', $eventos_destacados)

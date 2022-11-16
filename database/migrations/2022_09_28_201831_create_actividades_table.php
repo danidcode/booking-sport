@@ -21,7 +21,6 @@ return new class extends Migration
             $table->integer('limite_usuarios');
             $table->longText('dias_activo');
             $table->tinyInteger('destacado');
-            $table->tinyInteger('destacado_principal');
             $table->tinyInteger('activo');
             $table->timestamps();
         });

@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('content')
     <div class="home">
+        @if(isset($evento_principal))
         <div class="home-evento-principal">
             <div class="tarjeta-inscripcion">
                 <div class="home-evento-titulo">
@@ -17,7 +18,7 @@
             </div>
             <img src="{{$evento_principal->imagen}}"> </img>
         </div>
-
+        @endif
         <div class="home-actividades-destacadas">
             <div class="home-actividades-destacadas-text">
                 <span> Actividades destacadas</span>
