@@ -51,6 +51,7 @@
     &-actividades-destacadas,
     &-eventos-destacados {
         margin-top: 5rem;
+        margin-bottom: 5rem;
         width: 100%;
 
         &-text {
@@ -80,7 +81,11 @@
 @media (min-width: $lg-min) and (max-width: $lg-max) {}
 
 // Medium
-@media (min-width: $md-min) and (max-width: $md-max) {}
+@media (min-width: $md-min) and (max-width: $md-max) {
+    .home-actividades-destacadas, .home-eventos-destacados{
+        margin-top: 2rem!important;
+    }
+}
 
 // Small
 @media (min-width: $sm-min) and (max-width: $sm-max) {
@@ -93,6 +98,10 @@
         span {
             font-size: 1.5rem !important;
         }
+    }
+
+    .home-actividades-destacadas, .home-eventos-destacados{
+        margin-top: 2rem!important;
     }
 }
 
@@ -109,6 +118,10 @@
         span {
             font-size: 1.5rem !important;
         }
+    }
+    
+    .home-actividades-destacadas, .home-eventos-destacados{
+        margin-top: 2rem!important;
     }
 }
 

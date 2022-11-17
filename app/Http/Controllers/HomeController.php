@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     public function index(){
+
         $actividades_destacadas = Actividad::where('destacado', 1)->get();
         $eventos_destacados = Evento::where('destacado', 1)
         ->where('fecha_inicio', '>', Carbon::now()->toDateString())->get();

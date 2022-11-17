@@ -26,16 +26,16 @@
                 <div class="home-actividades-destacadas-text">
                     <span> Actividades destacadas</span>
                 </div>
-                @include('components/carrusel', ['actividades' => $actividades])
+                @include('components/carrusel', ['registros' => $actividades,'ruta_boton' => 'reservar-actividad', 'texto_boton' => 'Reservar'])
             </div>
         @endif
-
+            
         @if ($eventos->isNotEmpty())
             <div class="home-eventos-destacados">
                 <div class="home-eventos-destacados-text">
                     <span> Eventos destacados</span>
                 </div>
-                @include('components/carrusel', ['eventos' => $eventos])
+                {{-- @include('components/carrusel', ['registros' => $eventos,'ruta_boton' => 'inscripcion-evento', 'texto_boton' => 'Inscribirse']) --}}
             </div>
     </div>
     @endif

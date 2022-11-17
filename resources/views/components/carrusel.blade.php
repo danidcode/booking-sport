@@ -1,12 +1,12 @@
 
 <div class="carrusel-container">
 
-    @foreach ($actividades as $actividad)
+    @foreach ($registros as $registro)
         <div class="slide">
-            <img src="{{ $actividad->imagen }}">
+            <img src="{{ $registro->imagen }}">
             <div class="slide-content">
-                <span>{{ $actividad->nombre }}</span>
-                <div> <a href="reservar-actividad/{{$actividad->id}}" class="tarjeta-inscripcion-button"> Reservar </a></div>
+                <span>{{ $registro->nombre }}</span>
+                <div> <a href="{{$ruta_boton}}/{{$registro->id}}" class="tarjeta-inscripcion-button"> {{$texto_boton}} </a></div>
             </div>
         </div>
     @endforeach
