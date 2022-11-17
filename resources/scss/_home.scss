@@ -80,19 +80,18 @@
 @media (min-width: $lg-min) and (max-width: $lg-max) {}
 
 // Medium
-@media (min-width: $md-min) and (max-width: $md-max) {
-
-}
+@media (min-width: $md-min) and (max-width: $md-max) {}
 
 // Small
 @media (min-width: $sm-min) and (max-width: $sm-max) {
-    .tarjeta-inscripcion{
-        width: 100%!important;
+    .tarjeta-inscripcion {
+        width: 100% !important;
     }
 
-    .home-actividades-destacadas-text, .home-eventos-destacados-text {
-        span{
-            font-size: 1.5rem!important;
+    .home-actividades-destacadas-text,
+    .home-eventos-destacados-text {
+        span {
+            font-size: 1.5rem !important;
         }
     }
 }
@@ -101,13 +100,14 @@
 
 // Extra small
 @media (max-width: $xs-max) {
-    .tarjeta-inscripcion{
-        width: 100%!important;
+    .tarjeta-inscripcion {
+        width: 100% !important;
     }
 
-    .home-actividades-destacadas-text, .home-eventos-destacados-text{
-        span{
-            font-size: 1.5rem!important;
+    .home-actividades-destacadas-text,
+    .home-eventos-destacados-text {
+        span {
+            font-size: 1.5rem !important;
         }
     }
 }

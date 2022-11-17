@@ -1,4 +1,3 @@
-
 .carrusel-container {
   width: 50%;
   position: relative;
@@ -85,3 +84,91 @@
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
+
+// Breakpoints
+
+// Extra extra large
+@media (min-width: $xxl-min) {}
+
+// Extra large
+@media (min-width: $xl-min) and (max-width: $xl-max) {}
+
+// Large
+@media (min-width: $lg-min) and (max-width: $lg-max) {}
+
+// Medium
+@media (min-width: $md-min) and (max-width: $md-max) {
+
+  .carrusel-container {
+    width: 80% !important;
+  }
+
+  .slide-content {
+    opacity: 1;
+    height: auto !important;
+
+    span {
+      font-size: 2rem !important;
+    }
+
+    a {
+      font-size: 1.5rem !important;
+    }
+  }
+}
+
+// Small
+@media (min-width: $sm-min) and (max-width: $sm-max) {
+  .prev,
+  .next {
+    top: 30%;
+  }
+
+  .carrusel-container {
+    width: 80% !important;
+  }
+
+  .slide-content {
+    opacity: 1;
+    height: auto !important;
+
+    span {
+      font-size: 1.5rem !important;
+    }
+
+    a {
+      font-size: 0.7rem !important;
+    }
+  }
+}
+
+
+
+// Extra small
+@media (max-width: $xs-max) {
+
+  .prev,
+  .next {
+    top: 30%;
+  }
+
+  .carrusel-container {
+    width: 80% !important;
+  }
+
+  .slide-content {
+    opacity: 1;
+    height: auto !important;
+
+    span {
+      font-size: 1.5rem !important;
+    }
+
+    a {
+      font-size: 0.7rem !important;
+    }
+  }
+}
+
+//Medium specifically
+@media (max-width: $md-max) {}
