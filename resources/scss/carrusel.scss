@@ -1,19 +1,68 @@
-* {box-sizing:border-box}
 
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
+.carrusel-container {
+  width: 50%;
   position: relative;
+  box-shadow: 0 0 0.7rem rgb(2 20 27 / 86%);
   margin: auto;
+  margin-top: 2rem;
 }
 
-/* Hide the images by default */
-.mySlides {
+.slide {
   display: none;
+  cursor: pointer;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  position: relative;
+  height: auto;
+
+  &-content {
+    position: absolute;
+    background: rgb(0 0 0 / 45%);
+    width: 100%;
+    height: 30%;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.7s;
+
+    span {
+      font-size: 2rem;
+      color: #FFFFFF;
+    }
+
+    a {
+      border-radius: 999px;
+      padding: 0.7rem;
+      background-color: $principal;
+      border: none;
+      color: #FFFFFF;
+      cursor: pointer;
+      margin: 1rem;
+      font-size: 1.2rem;
+      -webkit-appearance: button;
+      -moz-appearance: button;
+      appearance: button;
+
+      text-decoration: none;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
 }
 
-/* Next & previous buttons */
-.prev, .next {
+.slide:hover {
+  .slide-content {
+    opacity: 1;
+  }
+}
+
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -23,34 +72,16 @@
   color: white;
   font-weight: bold;
   font-size: 18px;
-  transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
-  user-select: none;
+
 }
 
-/* Position the "next button" to the right */
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-
-
-
-
