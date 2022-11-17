@@ -111,12 +111,12 @@ Route::get('/actividades', [ActividadController::class, 'actividadesWeb'])->name
 Route::get('/eventos', [EventoController::class, 'eventosWeb'])->name('eventos-web');
 
 // Login
-Route::get('/login', [AuthController::class, 'login'])->name('auth.login');
-Route::post('/login', [AuthController::class, 'signIn'])->name('auth.signIn');
+Route::get('/login', [AuthController::class, 'login'])->name('auth.login')->middleware('isNotLogged');
+Route::post('/login', [AuthController::class, 'signIn'])->name('auth.signIn')->middleware('isNotLogged');
 
 // Register
-Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
-Route::post('/register', [AuthController::class, 'createUser'])->name('auth.createUser');
+Route::get('/register', [AuthController::class, 'register'])->name('auth.register')->middleware('isNotLogged');
+Route::post('/register', [AuthController::class, 'createUser'])->name('auth.createUser')->middleware('isNotLogged');
 
 // Logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
