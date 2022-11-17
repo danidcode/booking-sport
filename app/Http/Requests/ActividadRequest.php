@@ -30,7 +30,6 @@ class ActividadRequest extends FormRequest
             'limite_usuarios'=> 'required|numeric',
             'dias_activo' => 'required',
             'destacado' => 'required|numeric|max:1',
-            'destacado_principal' => 'required|numeric|max:1',
             'activo' => 'required|numeric|max:1',
         ];
     }

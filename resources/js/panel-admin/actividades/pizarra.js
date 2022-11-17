@@ -62,7 +62,7 @@ const getActividad = async (id, action) => {
 
 const showActividad = (actividad, action) => {
   $("#actividades-form :input").attr("disabled", action == 'ver' ? true : false);
-  const { id, nombre, descripcion, imagen, limite_usuarios, dias_activo, destacado, destacado_principal, activo, created_at } = actividad;
+  const { id, nombre, descripcion, imagen, limite_usuarios, dias_activo, destacado, activo, created_at } = actividad;
   $('#spinner-custom').fadeOut();
   $('#actividad-nombre').val(nombre);
   if (action == 'ver') {
@@ -81,7 +81,6 @@ const showActividad = (actividad, action) => {
   $('#actividad-descripcion').val(descripcion);
   $('#actividad-activo').prop('checked', activo);
   $('#actividad-destacado').prop('checked', destacado);
-  $('#actividad-destacado-principal').prop('checked', destacado_principal);
   $('#actividad_display_uploaded').attr('src', imagen);
 
   let dias = JSON.parse(dias_activo)
@@ -204,7 +203,6 @@ const formarData = () => {
     descripcion: $('#actividad-descripcion').val(),
     activo: $('#actividad-activo').prop('checked') ? 1 : 0,
     destacado: $('#actividad-destacado').prop('checked') ? 1 : 0,
-    destacado_principal: $('#actividad-destacado-principal').prop('checked') ? 1 : 0,
     imagen: $('#actividad_display_uploaded').attr('src'),
   }
 
@@ -216,7 +214,7 @@ const setRegistros = (actividades) => {
 
   actividades.forEach(actividad => {
     let actividad_row = `<tr class="actividades-row">`;
-    const { id, nombre, imagen, limite_usuarios, reserva_count, dias_activo, destacado, destacado_principal, activo, created_at, paginacion } = actividad;
+    const { id, nombre, imagen, limite_usuarios, reserva_count, dias_activo, destacado, activo, created_at, paginacion } = actividad;
     console.log(actividad);
     const td_imagen = `<td colspan='1'><img src='${imagen}'></img></td>`
     const td_nombre = `<td> ${nombre} </td>`;
@@ -224,11 +222,10 @@ const setRegistros = (actividades) => {
     const td_horario = `<td> ${dias_activo} </td>`;
     const td_reservas = `<td colspan='1'>${reserva_count}</td>`
     const td_destacado = `<td> <span> ${destacado ? ("<span> SI </span>") : ("<span> NO </span>")} </span></td>`;
-    const td_destacado_principal = `<td> ${destacado_principal ? ("<span> SI </span>") : ("<span> NO </span>")} </td>`;
     const td_activo = `<td> ${activo ? ("<span class='activo'> activo </span>") : ("<span class='inactivo'> inactivo </span>")} </td>`;
     const td_created_at = `<td> ${created_at} </td>`;
 
-    actividad_row += td_imagen + td_nombre + td_limite_usuarios + td_horario + td_reservas + td_destacado + td_destacado_principal + td_activo + td_created_at;
+    actividad_row += td_imagen + td_nombre + td_limite_usuarios + td_horario + td_reservas + td_destacado + td_activo + td_created_at;
     actividad_row += `<td> <div class="wrapper-dropdown container"> 
                             <div class="dropdown ">
                               <i class="fa-solid fa-ellipsis-vertical dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></i>

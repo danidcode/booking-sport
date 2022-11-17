@@ -34,12 +34,6 @@
                                 <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="destacado"
                                     data-order="desc"></i>
                             </th>
-                            <th>Destacado principal
-                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)"
-                                    data-column="destacado_principal" data-order="asc"></i>
-                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)"
-                                    data-column="destacado_principal" data-order="desc"></i>
-                            </th>
                             <th>Estatus
                                 <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="activo"
                                     data-order="asc"></i>

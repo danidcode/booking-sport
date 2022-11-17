@@ -22,21 +22,6 @@
                             <input type="text" class="form-control" id="actividad-limite">
                         </div>
                     </div>
-                    <div class="form-row d-flex justify-content-around mt-2">
-                        <div class="form-check form-switch">
-                            <label class="form-check-label">¿Destacado?</label>
-                            <input class="form-check-input" type="checkbox" role="switch" id="actividad-destacado">
-                        </div>
-                        <div class="form-check form-switch">
-                            <label class="form-check-label">¿Destacado principal?</label>
-                            <input class="form-check-input" type="checkbox" role="switch"
-                                id="actividad-destacado-principal">
-                        </div>
-                        <div class="form-check form-switch">
-                            <label class="form-check-label">Activo?</label>
-                            <input class="form-check-input" type="checkbox" role="switch" id="actividad-activo">
-                        </div>
-                    </div>
                     <div class="form-row  d-flex justify-content-center mt-2">
                         <div class="col-6">
                             <label>Descripción</label>
@@ -63,6 +48,17 @@
                                 8
                                 <option value="7">Domingo</option>
                             </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row d-flex justify-content-around mt-4 mb-4">
+                        <div class="form-check form-switch">
+                            <label class="form-check-label">¿Destacado?</label>
+                            <input class="form-check-input" type="checkbox" role="switch" id="actividad-destacado">
+                        </div>
+                        <div class="form-check form-switch">
+                            <label class="form-check-label">Activo?</label>
+                            <input class="form-check-input" type="checkbox" role="switch" id="actividad-activo">
                         </div>
                     </div>
                     <div class="form-row mt-3  d-flex justify-content-center">
