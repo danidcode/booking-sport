@@ -23,23 +23,9 @@
             <div class="home-actividades-destacadas-text">
                 <span> Actividades destacadas</span>
             </div>
-
-            <div class="swiper home-swiper">
-                <div class="swiper-wrapper">
-                    @foreach ($actividades as $actividad)
-                        <div class="swiper-slide">
-                            <img src="{{ $actividad->imagen }}" alt=""> </img>
-                            <div class="swiper-slide-actividad-content">
-                                <span> {{ $actividad->nombre }}</span>
-                                <div> <a href="reservar-actividad/{{$actividad->id}}" class="tarjeta-inscripcion-button"> Reservar </a></div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
+            @include('components/carrusel',  ['actividades' => $actividades])
         </div>
+        
 
         <div class="home-eventos-destacados">
             <div class="home-eventos-destacados-text">
@@ -68,4 +54,5 @@
 
 @section('scripts')
     <script src={{ Vite::asset('resources/js/home/home.js') }}></script>
+    <script src={{ Vite::asset('resources/js/components/carrusel.js') }}></script>
 @endsection

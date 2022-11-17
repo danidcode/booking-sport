@@ -96,7 +96,7 @@
             display: none;
             position: absolute;
             width: 30px;
-            height: 100%;
+            max-height: 100%;
             z-index: 3;
             cursor: pointer;
             opacity: 0;
