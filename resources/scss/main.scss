@@ -17,14 +17,15 @@
   box-sizing: border-box;
 }
 
-html{
+html {
   height: 100%;
   position: relative;
 }
+
 body {
   // min-height:100vh;
-  height: 100%!important;
-  width: 100%!important;
+  height: 100% !important;
+  width: 100% !important;
   margin: 0 !important;
 }
 
@@ -41,13 +42,11 @@ svg {
   height: 100%;
 }
 
-::-webkit-scrollbar-thumb:horizontal{
+::-webkit-scrollbar-thumb:horizontal {
   display: none;
 }
 
-footer{
-
-}
+footer {}
 
 .global-wrapper {
   display: flex;
@@ -56,11 +55,43 @@ footer{
   justify-content: space-between;
 }
 
-// table{
-//   display: block;
-//   max-width: -moz-fit-content;
-//   max-width: fit-content;
-//   margin: 0 auto;
-//   overflow-x: auto;
-//   white-space: nowrap;
-// }
+
+
+// Medium
+@media (min-width: $md-min) and (max-width: $md-max) {
+  table {
+    display: block;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    margin: 0 auto;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+// Small
+@media (min-width: $sm-min) and (max-width: $sm-max) {
+  table {
+    display: block;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    margin: 0 auto;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+
+
+// Extra small
+@media (max-width: $xs-max) {
+  table {
+    display: block;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    margin: 0 auto;
+    overflow-x: auto;
+    white-space: nowrap;
+    
+  }
+}

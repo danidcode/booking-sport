@@ -10,7 +10,7 @@ for (let i = 0; i < slides.length; i++) {
       carruseles.forEach(element => {
         if (element.tipo == slides[i].id) repetido = true;
       });
-      repetido != true && carruseles.push({ tipo: slides[i].id, slides: [slides[i]], index: 1 });
+      !repetido && carruseles.push({ tipo: slides[i].id, slides: [slides[i]], index: 1 });
     }
   })
 

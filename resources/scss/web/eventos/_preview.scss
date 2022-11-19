@@ -50,3 +50,63 @@
                 font-size: 1.2rem;
     }
 }
+
+
+// Medium
+@media (min-width: $md-min) and (max-width: $md-max) {
+    .evento{
+        width: 80%!important;
+    }
+    .evento-nombre{
+        font-size: 1.5rem!important;
+    }
+    .evento-img{
+        width: 100%!important;
+    }
+    .evento-fecha span{
+        font-size: 1rem!important;
+    }
+    .confirmar-evento-button button{
+        font-size: 1rem!important;
+    }
+}
+
+// Small
+@media (min-width: $sm-min) and (max-width: $sm-max) {
+    .evento{
+        width: 80%!important;
+    }
+    .evento-nombre span{
+        font-size: 1.5rem!important;
+    }
+    .evento-img{
+        width: 100%!important;
+    }
+    .evento-fecha span{
+        font-size: 1rem!important;
+    }
+    .confirmar-evento-button button{
+        font-size: 1rem!important;
+    }
+}
+
+
+
+// Extra small
+@media (max-width: $xs-max) {
+    .evento{
+        width: 80%!important;
+    }
+    .evento-nombre span{
+        font-size: 1.5rem!important;
+    }
+    .evento-img{
+        width: 100%!important;
+    }
+    .evento-fecha span{
+        font-size: 1rem!important;
+    }
+    .confirmar-evento-button button{
+        font-size: 1rem!important;
+    }
+}

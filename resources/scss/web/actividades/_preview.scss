@@ -45,3 +45,62 @@
                 font-size: 1.2rem;
     }
 }
+
+// Medium
+@media (min-width: $md-min) and (max-width: $md-max) {
+    .actividad{
+        width: 80%!important;
+    }
+    .actividad-nombre{
+        font-size: 1.5rem!important;
+    }
+    .actividad-img{
+        width: 100%!important;
+    }
+    .actividad-fecha span{
+        font-size: 1rem!important;
+    }
+    .confirmar-reserva-button button{
+        font-size: 1rem!important;
+    }
+}
+
+// Small
+@media (min-width: $sm-min) and (max-width: $sm-max) {
+    .actividad{
+        width: 80%!important;
+    }
+    .actividad-nombre span{
+        font-size: 1.5rem!important;
+    }
+    .actividad-img{
+        width: 100%!important;
+    }
+    .actividad-fecha span{
+        font-size: 1rem!important;
+    }
+    .confirmar-reserva-button button{
+        font-size: 1rem!important;
+    }
+}
+
+
+
+// Extra small
+@media (max-width: $xs-max) {
+    .actividad{
+        width: 80%!important;
+    }
+    .actividad-nombre span{
+        font-size: 1.5rem!important;
+    }
+    .actividad-img{
+        width: 100%!important;
+    }
+    .actividad-fecha span{
+        font-size: 1rem!important;
+    }
+    .confirmar-reserva-button button{
+        font-size: 1rem!important;
+    }
+}
