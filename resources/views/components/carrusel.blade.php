@@ -2,7 +2,7 @@
 <div class="carrusel-container">
 
     @foreach ($registros as $registro)
-        <div class="slide">
+        <div class="slide" id="{{$tipo}}">
             <img src="{{ $registro->imagen }}">
             <div class="slide-content">
                 <span>{{ $registro->nombre }}</span>
@@ -11,7 +11,7 @@
         </div>
     @endforeach
 
-    <a class="prev" onclick="setSlide(-1)">&#10094;</a>
-    <a class="next" onclick="setSlide(1)">&#10095;</a>
+    <a class="prev" onclick="setSlide(-1, this)" id="{{$tipo}}">&#10094;</a>
+    <a class="next" onclick="setSlide(1, this)" id="{{$tipo}}">&#10095;</a>
 </div>
 

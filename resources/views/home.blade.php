@@ -26,7 +26,7 @@
                 <div class="home-actividades-destacadas-text">
                     <span> Actividades destacadas</span>
                 </div>
-                @include('components/carrusel', ['registros' => $actividades,'ruta_boton' => 'reservar-actividad', 'texto_boton' => 'Reservar'])
+                @include('components/carrusel', ['registros' => $actividades,'ruta_boton' => 'reservar-actividad', 'texto_boton' => 'Reservar', 'tipo' => 'actividad'])
             </div>
         @endif
             
@@ -35,7 +35,7 @@
                 <div class="home-eventos-destacados-text">
                     <span> Eventos destacados</span>
                 </div>
-                {{-- @include('components/carrusel', ['registros' => $eventos,'ruta_boton' => 'inscripcion-evento', 'texto_boton' => 'Inscribirse']) --}}
+                @include('components/carrusel', ['registros' => $eventos,'ruta_boton' => 'inscripcion-evento', 'texto_boton' => 'Inscribirse', 'tipo' => 'evento'])
             </div>
     </div>
     @endif
