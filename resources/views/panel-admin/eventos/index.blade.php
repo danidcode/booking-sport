@@ -25,9 +25,9 @@
                                     data-column="limite_usuarios" data-order="desc"></i>
                             </th>
                             <th>Fecha de inicio
-                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="fecha-inicio"
+                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="fecha_inicio"
                                     data-order="asc"></i>
-                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="fecha-inicio"
+                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="fecha_inicio"
                                     data-order="desc"></i>
                             </th>
                             <th>Destacado

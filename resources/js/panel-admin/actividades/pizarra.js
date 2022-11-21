@@ -5,7 +5,7 @@ $(document).ready(async function () {
   await initTable();
   $('#spinner-custom').fadeOut();
   initInputFile('actividad');
-
+  url = getJsonActividades;
 });
 
 var selector_dias = $("#actividad-horario");

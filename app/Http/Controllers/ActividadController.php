@@ -47,9 +47,6 @@ class ActividadController extends Controller
             ], 200);
         }
     }
-    public function edit(Actividad $actividad, Request $request)
-    {
-    }
     public function update(Actividad $actividad, ActividadRequest $request)
     {
         try {

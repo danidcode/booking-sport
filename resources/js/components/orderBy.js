@@ -1,3 +1,5 @@
+let url = null;
+
 const sort = (data) => {
     const column = data.getAttribute("data-column")
     const order = data.getAttribute("data-order")
@@ -11,15 +13,15 @@ const sort = (data) => {
       order: order
     }
     $.ajax({
-      url: getJsonActividades,
+      url: url,
       method: 'get',
       data: data,
       beforeSend: () => {
         $('#spinner-custom').fadeIn();
       },
     }).done(async (res) => {
-      const actividades = res.actividades;
-      await initTable(actividades);
+      const registros = Object.values(res)[1];
+    await initTable(registros);
     }).fail((error) => {
       Swal.fire({
         title: '¡Error!',

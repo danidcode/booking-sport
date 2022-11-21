@@ -5,6 +5,7 @@ $(document).ready(async function () {
     await initTable();
     $('#spinner-custom').fadeOut();
     initInputFile('evento')
+    url = getJsonEventos;
   });
   
   const getJsonEventos = 'eventos/json/getEventos';

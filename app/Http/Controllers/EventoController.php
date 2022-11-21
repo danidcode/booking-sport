@@ -51,9 +51,6 @@ class EventoController extends Controller
             ], 200);
         }
     }
-    public function edit()
-    {
-    }
     public function update(Evento $evento, EventoRequest $request)
     {
         try {
@@ -105,9 +102,9 @@ class EventoController extends Controller
         $column = $request->column;
         $order = $request->order;
         $eventos = Evento::when(isset($order) && isset($column), function ($q) use ($column, $order) {
+            // dd($order);
             $q->orderBy($column, $order);
         });
-
         $eventos = $eventos->paginate(5);
         if ($request->ajax()) {
             return response()->json([
