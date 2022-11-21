@@ -25,7 +25,10 @@ $routeName = Route::current()->getName()
             <a class="@if(strpos($routeName, 'user.reservas.') === 0) active  @endif" href="/user/reservas">Mis reservas</a>
             <a class="@if(strpos($routeName, 'user.inscripciones.') === 0) active  @endif" href="/user/inscripciones">Mis inscripciones</a>
             <a class="" href="/">Volver a la página principal</a>
-            <a class="" href="#about">Cerrar sesión <i class="fa-solid fa-right-from-bracket"></i></a>
+            {{-- <a class="" href="#about">Cerrar sesión <i class="fa-solid fa-right-from-bracket"></i></a> --}}
+            <form style="display: none" action="{{ route('auth.logout') }}" method="POST" id="form-logout">
+                @csrf
+            </form>
           </div>
         @yield('content')
     </div>
