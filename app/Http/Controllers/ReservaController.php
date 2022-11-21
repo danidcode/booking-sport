@@ -23,16 +23,16 @@ class ReservaController extends Controller
             $reserva = $request->validated();
             $date = new Carbon($reserva['fecha_reserva']);
             $dayOfWeek = $date->dayOfWeek;
-            $actividad = Actividad::where('id',$reserva['actividad_id'])
-            ->withCount(['reserva' => function(Builder $query) use ($date){
-                $query->where('fecha_reserva', $date->toDateString());
-            }])
-            ->first();
-            if(!isset($reserva)){
+            $actividad = Actividad::where('id', $reserva['actividad_id'])
+                ->withCount(['reserva' => function (Builder $query) use ($date) {
+                    $query->where('fecha_reserva', $date->toDateString());
+                }])
+                ->first();
+            if (!isset($reserva)) {
                 return response()->json([
                     'status' => false,
                     'message' => 'La reserva seleccionada no existe'
-                ], 500); 
+                ], 500);
             }
 
             $dias_activos = json_decode($actividad->dias_activo);
@@ -50,15 +50,16 @@ class ReservaController extends Controller
                     'message' => 'La actividad no se encuentra activa'
                 ], 500);
             }
-            if(Reserva::where('user_id',$user_id)
-            ->where('fecha_reserva', $date->toDateString())
-            ->count()){
+            if (Reserva::where('user_id', $user_id)
+                ->where('fecha_reserva', $date->toDateString())
+                ->count()
+            ) {
                 return response()->json([
                     'status' => false,
                     'message' => 'Ya has reservado en esta actividad en la fecha seleccionada'
                 ], 500);
             }
-            
+
             if ($actividad->reserva_count == $actividad->limite_usuarios) {
                 return response()->json([
                     'status' => false,
@@ -83,17 +84,25 @@ class ReservaController extends Controller
 
         $column = $request->column;
         $order = $request->order;
-        $reservas = Reserva::when(isset($order) && isset($column), function ($q) use ($column, $order) {
+        $reservas = Reserva::join('users', 'reservas.user_id', '=', 'users.id')
+        ->join('actividades', 'reservas.actividad_id', '=', 'actividades.id')
+        ->selectRaw('reservas.*, users.name as user_nombre, users.email as user_email, actividades.nombre as actividad_nombre')
+        ->when(isset($order) && isset($column), function ($q) use ($column, $order) {
             $q->orderBy($column, $order);
-        })
-        ->with('actividad')
-        ->with('user');
-
-        $reservas = $reservas->paginate(7)->onEachSide(1);
+        });
+        
+        try {
+            $reservas = $reservas->paginate(7)->onEachSide(1);
+        } catch (\Throwable $th) {
+            dd($th->getMessage());
+        }
+        
+        
+        // $reservas = $reservas->paginate(7)->onEachSide(1);
 
         $reservas->getCollection()->transform(function ($reserva) {
             $reserva->estado = $reserva->fecha_reserva < Carbon::now()->toDateString() ? false : true;
-            
+
             return $reserva;
         });
 

@@ -4,6 +4,7 @@ $(document).ready(async function () {
     $('#spinner-custom').fadeIn();
     await initTable();
     $('#spinner-custom').fadeOut();
+    url = getJsonReservas;
   
   });
   
@@ -96,9 +97,9 @@ $(document).ready(async function () {
   
     reservas.forEach(reserva => {
       let reserva_row = `<tr class="reservas-row">`;
-      const { id, actividad, fecha_reserva, user, estado, created_at} = reserva;
-      const td_actividad = `<td> ${actividad.nombre} </td>`;
-      const td_user = `<td> ${user.name} (${user.email}) </td>`;
+      const { id, actividad_nombre, fecha_reserva, user_nombre, user_email, estado, created_at} = reserva;
+      const td_actividad = `<td> ${actividad_nombre} </td>`;
+      const td_user = `<td> ${user_nombre} (${user_email}) </td>`;
       const td_fecha_reserva = `<td> ${fecha_reserva} </td>`;
       const td_dias_restantes = `<td> ${getDiasRestantes(fecha_reserva)} </td>`;
       const td_estado = `<td> ${estado ? ("<span class='activo'> activa </span>") : ("<span class='inactivo'> inactiva </span>")} </td>`;

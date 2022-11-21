@@ -9,16 +9,16 @@
                     <table class="reservas-table">
                         <tr>
                             <th>Actividad
-                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="nombre"
+                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="actividad_nombre"
                                     data-order="asc"></i>
-                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="nombre"
+                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="actividad_nombre"
                                     data-order="desc"></i>
 
                             </th>
                             <th>Usuario
-                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="user"
+                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="user_nombre"
                                     data-order="asc"></i>
-                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="user"
+                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="user_nombre"
                                     data-order="desc"></i>
 
                             </th>
@@ -33,6 +33,10 @@
                             <th>Estado
                             </th>
                             <th>Fecha de realización
+                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)"
+                                data-column="created_at" data-order="asc"></i>
+                            <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)"
+                                data-column="created_at" data-order="desc"></i>
                             </th>
                             <th>Acciones</th>
                         </tr>
