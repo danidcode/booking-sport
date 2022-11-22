@@ -71,11 +71,12 @@ class InscripcionController extends Controller
 
         $column = $request->column;
         $order = $request->order;
-        $inscripciones = Inscripcion::when(isset($order) && isset($column), function ($q) use ($column, $order) {
+        $inscripciones = Inscripcion::join('users', 'inscripciones.user_id', '=', 'users.id')
+        ->join('eventos', 'inscripciones.evento_id', '=', 'eventos.id')
+        ->selectRaw('inscripciones.*, users.name as user_nombre, users.email as user_email, eventos.nombre as evento_nombre, eventos.fecha_inicio as evento_fecha_inicio')
+        ->when(isset($order) && isset($column), function ($q) use ($column, $order) {
             $q->orderBy($column, $order);
-        })
-        ->with('evento')
-        ->with('user');
+        });
 
         $inscripciones = $inscripciones->paginate(7)->onEachSide(1);
 

@@ -71,11 +71,11 @@ $(document).ready(async function () {
   
     inscripciones.forEach(inscripcion => {
       let inscripcion_row = `<tr class="inscripciones-row">`;
-      const { id, evento, user, estado, created_at} = inscripcion;
-      const td_evento = `<td> ${evento.nombre} </td>`;
-      const td_user = `<td> ${user.name} (${user.email}) </td>`;
-      const td_fecha_evento = `<td> ${evento.fecha_inicio} </td>`;
-      const td_dias_restantes = `<td> ${getDiasRestantes(evento.fecha_inicio)} </td>`;
+      const { id, evento_nombre, evento_fecha_inicio, user_nombre, user_email, estado, created_at} = inscripcion;
+      const td_evento = `<td> ${evento_nombre} </td>`;
+      const td_user = `<td> ${user_nombre} (${user_email}) </td>`;
+      const td_fecha_evento = `<td> ${evento_fecha_inicio} </td>`;
+      const td_dias_restantes = `<td> ${getDiasRestantes(evento_fecha_inicio)} </td>`;
       const td_estado = `<td> ${estado ? ("<span class='activo'> activa </span>") : ("<span class='inactivo'> inactiva </span>")} </td>`;
       const td_created_at = `<td> ${created_at} </td>`;
   
