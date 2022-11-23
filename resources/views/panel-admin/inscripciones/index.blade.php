@@ -8,27 +8,35 @@
                 <div class="inscripciones-table-wrap">
                     <table class="inscripciones-table">
                         <tr>
-                            <th>Actividad
-                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="nombre"
+                            <th>Evento
+                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="evento_nombre"
                                     data-order="asc"></i>
-                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="nombre"
+                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="evento_nombre"
                                     data-order="desc"></i>
 
                             </th>
                             <th>Usuario
-                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="user"
+                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="user_nombre"
                                     data-order="asc"></i>
-                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="user"
+                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="user_nombre"
                                     data-order="desc"></i>
 
                             </th>
                             <th>Fecha del evento
+                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)"
+                                    data-column="evento_fecha_inicio" data-order="asc"></i>
+                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)"
+                                    data-column="evento_fecha_inicio" data-order="desc"></i>
                             </th>
                             <th>Días restantes
                             </th>
                             <th>Estado
                             </th>
                             <th>Fecha de realización
+                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)"
+                                    data-column="evento_fecha_inicio" data-order="asc"></i>
+                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)"
+                                    data-column="evento_fecha_inicio" data-order="desc"></i>
                             </th>
                             <th>Acciones</th>
                         </tr>

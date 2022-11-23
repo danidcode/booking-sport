@@ -4,7 +4,7 @@ $(document).ready(async function () {
     $('#spinner-custom').fadeIn();
     await initTable();
     $('#spinner-custom').fadeOut();
-  
+    url = getJsonInscripciones;
   });
   
   
@@ -67,6 +67,7 @@ $(document).ready(async function () {
   
   
   const setRegistros = (inscripciones) => {
+    console.log(inscripciones);
     $('.inscripciones-row').remove(); //Reiniciamos la tabla
   
     inscripciones.forEach(inscripcion => {

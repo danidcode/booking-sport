@@ -85,20 +85,13 @@ class ReservaController extends Controller
         $column = $request->column;
         $order = $request->order;
         $reservas = Reserva::join('users', 'reservas.user_id', '=', 'users.id')
-        ->join('actividades', 'reservas.actividad_id', '=', 'actividades.id')
-        ->selectRaw('reservas.*, users.name as user_nombre, users.email as user_email, actividades.nombre as actividad_nombre')
-        ->when(isset($order) && isset($column), function ($q) use ($column, $order) {
-            $q->orderBy($column, $order);
-        });
-        
-        try {
-            $reservas = $reservas->paginate(7)->onEachSide(1);
-        } catch (\Throwable $th) {
-            dd($th->getMessage());
-        }
-        
-        
-        // $reservas = $reservas->paginate(7)->onEachSide(1);
+            ->join('actividades', 'reservas.actividad_id', '=', 'actividades.id')
+            ->selectRaw('reservas.*, users.name as user_nombre, users.email as user_email, actividades.nombre as actividad_nombre')
+            ->when(isset($order) && isset($column), function ($q) use ($column, $order) {
+                $q->orderBy($column, $order);
+            });
+
+        $reservas = $reservas->paginate(7)->onEachSide(1);
 
         $reservas->getCollection()->transform(function ($reserva) {
             $reserva->estado = $reserva->fecha_reserva < Carbon::now()->toDateString() ? false : true;

@@ -21,6 +21,7 @@ const sort = (data) => {
       },
     }).done(async (res) => {
       const registros = Object.values(res)[1];
+      console.log(res);
     await initTable(registros);
     }).fail((error) => {
       Swal.fire({
