@@ -9,11 +9,6 @@
                     <table class="inscripciones-table">
                         <tr>
                             <th>Evento
-                                <i class="fa-solid fa-arrow-up-wide-short" onclick="sort(this)" data-column="nombre"
-                                    data-order="asc"></i>
-                                <i class="fa-solid fa-arrow-down-wide-short" onclick="sort(this)" data-column="nombre"
-                                    data-order="desc"></i>
-
                             </th>
                             <th>Fecha del evento
                             </th>
