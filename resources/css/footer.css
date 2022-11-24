@@ -1,0 +1,32 @@
+.footer{
+    width: 100%;
+    margin-top: auto;
+    background-color: rgb(73, 139, 201);
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+}
+
+.footer-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.footer-text{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.footer-icons a{
+    text-decoration: none;
+    color: black!Important;
+}
+
+.footer-icons i{
+    margin-inline: 0.5rem;
+}

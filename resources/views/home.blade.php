@@ -17,7 +17,7 @@
 
 
                 </div>
-                <img src="{{ $evento_principal->imagen }}"> </img>
+                <img src="{{$evento_principal->imagen}}"> </img>
             </div>
         @endif
 

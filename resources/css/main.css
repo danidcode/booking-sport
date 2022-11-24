@@ -1,0 +1,87 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap";
+@import "carrusel.css";
+@import "header/header.css";
+@import "home.css";
+@import "footer.css";
+
+*{
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+  }
+  
+  html {
+    height: 100%;
+    position: relative;
+  }
+  
+  body {
+    height: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  
+  #root {
+    min-height: 100vh;
+  }
+  
+  img,
+  svg {
+    vertical-align: middle;
+  }
+  
+  .main {
+    height: 100%;
+  }
+  
+  ::-webkit-scrollbar-thumb:horizontal {
+    display: none;
+  }
+  
+  
+  .global-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  
+  
+
+  @media (min-width: 768px) and (max-width: 991.9px) {
+    table {
+      display: block;
+      max-width: -moz-fit-content;
+      max-width: fit-content;
+      margin: 0 auto;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
+  
+
+  @media (min-width: 576px) and (max-width: 767.9px) {
+    table {
+      display: block;
+      max-width: -moz-fit-content;
+      max-width: fit-content;
+      margin: 0 auto;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
+  
+  
+  
+
+  @media (max-width: 575.9px) {
+    table {
+      display: block;
+      max-width: -moz-fit-content;
+      max-width: fit-content;
+      margin: 0 auto;
+      overflow-x: auto;
+      white-space: nowrap;
+      
+    }
+  }

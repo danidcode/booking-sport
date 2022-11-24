@@ -1,0 +1,117 @@
+.home-evento-principal {
+    position: relative;
+}
+
+.home-evento-principal img {
+    height: calc(100vh - 100px);
+    width: 100%;
+    object-fit: cover;
+}
+
+.home-actividades-destacadas,
+.home-eventos-destacados {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    width: 100%;
+
+}
+
+.home-actividades-destacadas-text,
+.home-eventos-destacados-text {
+
+    display: flex;
+    justify-content: center;
+}
+
+.home-actividades-destacadas-text span,
+.home-eventos-destacados-text span {
+
+    font-size: 3rem;
+    display: inline;
+    border-bottom: 3px solid rgb(73 139 201);
+
+}
+
+.home-evento-principal .tarjeta-inscripcion {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    height: 100%;
+    width: 30%;
+    background: rgb(0 0 0 / 45%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
+.home-evento-titulo,
+.home-evento-fecha {
+    text-align: center;
+
+}
+
+.home-evento-titulo,
+.home-evento-fecha span {
+    font-size: 2.5rem;
+    color: #FFFFFF;
+}
+
+.tarjeta-inscripcion-button {
+    border-radius: 999px;
+    padding: 0.7rem;
+    background-color: rgb(73 139 201);
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin: 1rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+
+
+@media (min-width: 768px) and (max-width: 991.9px) {
+
+    .home-actividades-destacadas,
+    .home-eventos-destacados {
+        margin-top: 2rem !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.9px) {
+    .tarjeta-inscripcion {
+        width: 100% !important;
+    }
+
+    .home-actividades-destacadas-text span,
+    .home-eventos-destacados-text span {
+        font-size: 1.5rem !important;
+
+    }
+
+    .home-actividades-destacadas,
+    .home-eventos-destacados {
+        margin-top: 2rem !important;
+    }
+}
+
+
+@media (max-width: 575.9px) {
+    .tarjeta-inscripcion {
+        width: 100% !important;
+    }
+
+    .home-actividades-destacadas-text span,
+    .home-eventos-destacados-text span {
+
+        font-size: 1.5rem !important;
+    }
+
+    .home-actividades-destacadas,
+    .home-eventos-destacados {
+        margin-top: 2rem !important;
+    }
+}
