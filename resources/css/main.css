@@ -3,6 +3,10 @@
 @import "header/header.css";
 @import "home.css";
 @import "footer.css";
+@import "login.css";
+@import "web/index.css";
+@import "back-panel/index.css";
+@import "user-panel/index.css";
 
 *{
     font-family: "Poppins", sans-serif;

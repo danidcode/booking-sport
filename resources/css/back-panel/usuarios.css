@@ -1,0 +1,127 @@
+.usuarios-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: self-end;
+    height: 90%;
+    width: 95%;
+    background-color: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 15px;
+  }
+  
+  .usuarios-wrap .usuarios-table {
+    table-layout: fixed;
+  }
+  
+  .usuarios-wrap .usuarios-table-wrap {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .usuarios-wrap .usuarios-table-wrap .usuarios-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .usuarios-wrap .usuarios-table-wrap .usuarios-table .acciones i {
+    cursor: pointer;
+  }
+  
+  .usuarios-wrap .usuarios-table-wrap .usuarios-table .usuarios-row {
+    height: 100px;
+  }
+  
+  .usuarios-wrap .usuarios-table-wrap .usuarios-table td, .usuarios-wrap .usuarios-table-wrap .usuarios-table th {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .usuarios-wrap .usuarios-table-wrap .usuarios-table th {
+    font-size: 0.957rem;
+    background-color: #f3f2f7;
+    border-block: 2px solid #ebe9f1;
+    border-block-width: 2px;
+    border-block-style: solid;
+    border-block-color: #ebe9f1;
+    color: #6e6b7b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+  }
+  
+  .usuarios-wrap .usuarios-table-wrap .usuarios-table th i {
+    cursor: pointer;
+  }
+  
+  .usuarios-wrap .usuarios-table-wrap .usuarios-table td {
+    font-size: 0.857rem;
+    color: #6e6b7b;
+    border-bottom: 3px #f7f7f7 solid;
+    max-height: 100px;
+  }
+  
+  .usuarios-wrap .usuarios-table-wrap .usuarios-table td img {
+    max-height: 100px;
+    width: 100%;
+  }
+  
+  .usuarios-wrap .usuarios-table-wrap .usuarios-table .fa-solid {
+    cursor: pointer;
+  }
+  
+  .usuarios-wrap .usuarios-table-wrap .usuarios-table .activo {
+    border-radius: 9999px;
+    padding: 7px 20px 7px 20px;
+    color: #f7f7f7;
+    background-color: rgb(65 179 65);
+  }
+  
+  .usuarios-wrap .usuarios-table-wrap .usuarios-table .inactivo {
+    border-radius: 9999px;
+    padding: 7px 20px 7px 20px;
+    color: #f7f7f7;
+    background-color: rgb(233 78 78);
+  }
+  
+  .usuarios-wrap .usuarios-pagination-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    width: 100%;
+  }
+  
+  .usuarios-wrap .usuarios-pagination-wrap ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+  }
+  
+  .usuarios-wrap .usuarios-pagination-wrap ul li {
+    display: inline;
+  }
+  
+  .usuarios-wrap .usuarios-pagination-wrap ul li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .usuarios-wrap .usuarios-pagination-wrap ul li a.active {
+    background-color: rgb(73 139 201);
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .usuarios-wrap .usuarios-pagination-wrap ul li a:hover:not(.active) {
+    background-color: #ddd;
+  }
+  
+  .usuarios-wrap .usuarios-pagination-wrap .points {
+    background-color: white !important;
+    cursor: auto !important;
+  }

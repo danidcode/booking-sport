@@ -1,0 +1,8 @@
+.calendario #calendar-reserva {
+    display: flex;
+    flex-direction: column;
+}
+.calendario input {
+    border-radius: 999px;
+    text-align: center;
+}

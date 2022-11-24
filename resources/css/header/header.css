@@ -1,267 +1,207 @@
-@import "dropdown.css";
-
-.header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(73 139 201);
-    padding: 0 25px;
-    transition: 0.3s;
-    height: 100px;
-    z-index: 10000000;
+@import "dropdown";
+ .header {
+	 width: 100%;
+	 display: flex;
+	 justify-content: space-between;
+	 align-items: center;
+	 background-color: rgb(73 139 201);
+	 padding: 0 25px;
+	 transition: 0.3s;
+	 height: 100px;
+	 z-index: 10000000;
 }
-
-.logo a {
-    display: block;
+ .header .logo a {
+	 display: block;
 }
-
-.logo a,
-img {
-    display: block;
-    width: 40%;
+ .header .logo a img {
+	 display: block;
+	 width: 40%;
 }
-
-.navegacion {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-
+ .header .navegacion {
+	 display: flex;
+	 justify-content: space-between;
+	 align-items: center;
+	 height: 100%;
 }
-
-.navegacion .menu {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-    z-index: 1;
-    transition: 0.6s;
-
+ .header .navegacion .menu {
+	 display: flex;
+	 justify-content: center;
+	 flex-direction: row;
+	 align-items: center;
+	 z-index: 1;
+	 transition: 0.6s;
 }
-
-.navegacion .burger {
-    position: relative;
-    width: 35px;
-    display: none;
-    height: 5px;
-    background: #fff;
-    z-index: 2;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: 0.1s;
+ .header .navegacion .menu li {
+	 list-style-type: none;
 }
-
-.navegacion .toggle-menu {
-    display: none;
-    position: absolute;
-    width: 30px;
-    max-height: 100%;
-    z-index: 3;
-    cursor: pointer;
-    opacity: 0;
+ .header .navegacion .menu li a {
+	 color: azure;
+	 text-decoration: none;
+	 display: block;
+	 padding: 40px 25px;
+	 font-size: 18px;
+	 line-height: 1;
+	 transition: 0.3s;
 }
-
-.navegacion input:checked~.burger {
-    background: transparent;
+ .header .navegacion .menu li a:hover {
+	 box-shadow: 0 -6px 0px #fff inset, 500px 0 0 rgba(0, 0, 0, 0.03) inset;
 }
-
-.navegacion input:checked~.burger::before {
-    top: 0;
-    transform: rotate(-45deg);
-    width: 30px;
+ .header .navegacion .menu .for-mobile {
+	 display: none;
 }
-
-.navegacion input:checked~.burger::after {
-    top: 0;
-    transform: rotate(45deg);
-    width: 30px;
+ .header .navegacion .burger {
+	 position: relative;
+	 width: 35px;
+	 display: none;
+	 height: 5px;
+	 background: #fff;
+	 z-index: 2;
+	 cursor: pointer;
+	 border-radius: 10px;
+	 transition: 0.1s;
 }
-
-.navegacion input:checked~.menu {
-    right: 0;
+ .header .navegacion .burger:before, .header .navegacion .burger:after {
+	 position: absolute;
+	 height: 4px;
+	 right: 0;
+	 content: "";
+	 background: #fff;
+	 border-radius: 10px;
+	 transition: 0.2s;
 }
-
-.navegacion .menu li {
-    list-style-type: none;
+ .header .navegacion .burger:before {
+	 top: -10px;
+	 width: 20px;
 }
-
-.navegacion .menu li a {
-    color: azure;
-    text-decoration: none;
-    display: block;
-    padding: 40px 25px;
-    font-size: 18px;
-    line-height: 1;
-    transition: 0.3s;
+ .header .navegacion .burger:after {
+	 top: 10px;
+	 width: 25px;
 }
-
-.navegacion .menu li a:hover {
-    box-shadow: 0 -6px 0px #fff inset,
-        500px 0 0 rgba(0, 0, 0, 0.03) inset;
+ .header .navegacion .toggle-menu {
+	 display: none;
+	 position: absolute;
+	 width: 30px;
+	 max-height: 100%;
+	 z-index: 3;
+	 cursor: pointer;
+	 opacity: 0;
 }
-
-.navegacion .menu .for-mobile {
-    display: none;
+ .header .navegacion input:checked ~ .burger {
+	 background: transparent;
 }
-
-.burger:before,
-.burger:after {
-    position: absolute;
-    height: 4px;
-    right: 0;
-    content: "";
-    background: #fff;
-    border-radius: 10px;
-    transition: 0.2s;
+ .header .navegacion input:checked ~ .burger::before {
+	 top: 0;
+	 transform: rotate(-45deg);
+	 width: 30px;
 }
-
-.burger:before {
-    top: -10px;
-    width: 20px;
+ .header .navegacion input:checked ~ .burger::after {
+	 top: 0;
+	 transform: rotate(45deg);
+	 width: 30px;
 }
-
-.burger:after {
-    top: 10px;
-    width: 25px;
+ .header .navegacion input:checked ~ .menu {
+	 right: 0;
 }
-
-
-
-
-
-@media (min-width: 768px) and (max-width: 991.9px) {
-
-    /* Cuando es aparece el menu desplegable escondo el icono de usuario y muestro los elementos de la lista */
-    .for-mobile {
-        display: block !important;
-    }
-
-    .dropdown {
-        display: none;
-    }
-
-    .burger,
-    .toggle-menu {
-        display: block !important;
-    }
-
-    .header {
-        padding: 10px 20px;
-    }
-
-    .menu {
-        justify-content: start !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        position: fixed;
-        top: 0;
-        right: -300px;
-        background: rgb(73 139 201);
-        width: 300px;
-        height: 100%;
-        padding-top: 65px;
-
-    }
-
-   .menu li {
-        width: 100%;
-    }
-
-    .menu li a {
-        padding: 30px;
-        font-size: 24px;
-        box-shadow: 0 1px 0 rgb(100, 126, 150);
-    }
+ @media (min-width: 768px) and (max-width: 991.9px) {
+	 .for-mobile {
+		 display: block !important;
+	}
+	 .dropdown {
+		 display: none;
+	}
+	 .burger, .toggle-menu {
+		 display: block !important;
+	}
+	 .header {
+		 padding: 10px 20px;
+	}
+	 .menu {
+		 justify-content: start !important;
+		 flex-direction: column !important;
+		 align-items: center !important;
+		 position: fixed;
+		 top: 0;
+		 right: -300px;
+		 background: rgb(73 139 201);
+		 width: 300px;
+		 height: 100%;
+		 padding-top: 65px;
+	}
+	 .menu li {
+		 width: 100%;
+	}
+	 .menu li a {
+		 padding: 30px;
+		 font-size: 24px;
+		 box-shadow: 0 1px 0 #647e96;
+	}
 }
-
-
-@media (min-width:576px) and (max-width: 767.9px) {
-
-   /* Cuando es aparece el menu desplegable escondo el icono de usuario y muestro los elementos de la lista */
-   .for-mobile {
-    display: block !important;
+ @media (min-width: 576px) and (max-width: 767.9px) {
+	 .for-mobile {
+		 display: block !important;
+	}
+	 .dropdown {
+		 display: none;
+	}
+	 .burger, .toggle-menu {
+		 display: block !important;
+	}
+	 .header {
+		 padding: 10px 20px;
+	}
+	 .menu {
+		 justify-content: start !important;
+		 flex-direction: column !important;
+		 align-items: center !important;
+		 position: fixed;
+		 top: 0;
+		 right: -300px;
+		 background: rgb(73 139 201);
+		 width: 300px;
+		 height: 100%;
+		 padding-top: 65px;
+	}
+	 .menu li {
+		 width: 100%;
+	}
+	 .menu li a {
+		 padding: 30px;
+		 font-size: 24px;
+		 box-shadow: 0 1px 0 #647e96;
+	}
 }
-
-.dropdown {
-    display: none;
+ @media (max-width: 575.9px) {
+	 .for-mobile {
+		 display: block !important;
+	}
+	 .dropdown {
+		 display: none;
+	}
+	 .burger, .toggle-menu {
+		 display: block !important;
+	}
+	 .header {
+		 padding: 10px 20px;
+	}
+	 .menu {
+		 justify-content: start !important;
+		 flex-direction: column !important;
+		 align-items: center !important;
+		 position: fixed;
+		 top: 0;
+		 right: -300px;
+		 background: rgb(73 139 201);
+		 width: 300px;
+		 height: 100%;
+		 padding-top: 65px;
+	}
+	 .menu li {
+		 width: 100%;
+	}
+	 .menu li a {
+		 padding: 30px;
+		 font-size: 24px;
+		 box-shadow: 0 1px 0 #647e96;
+	}
 }
-
-.burger,
-.toggle-menu {
-    display: block !important;
-}
-
-.header {
-    padding: 10px 20px;
-}
-
-.menu {
-    justify-content: start !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    position: fixed;
-    top: 0;
-    right: -300px;
-    background: rgb(73 139 201);
-    width: 300px;
-    height: 100%;
-    padding-top: 65px;
-
-}
-
-.menu li {
-    width: 100%;
-}
-
-.menu li a {
-    padding: 30px;
-    font-size: 24px;
-    box-shadow: 0 1px 0 rgb(100, 126, 150);
-}
-}
-
-@media (max-width: 575.9px) {
-
-    /* Cuando es aparece el menu desplegable escondo el icono de usuario y muestro los elementos de la lista */
-    .for-mobile {
-        display: block !important;
-    }
-
-    .dropdown {
-        display: none;
-    }
-
-    .burger,
-    .toggle-menu {
-        display: block !important;
-    }
-
-    .header {
-        padding: 10px 20px;
-    }
-
-    .menu {
-        justify-content: start !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        position: fixed;
-        top: 0;
-        right: -300px;
-        background: rgb(73 139 201);
-        width: 300px;
-        height: 100%;
-        padding-top: 65px;
-
-    }
-
-   .menu li {
-        width: 100%;
-    }
-
-    .menu li a {
-        padding: 30px;
-        font-size: 24px;
-        box-shadow: 0 1px 0 rgb(100, 126, 150);
-    }
-}
+ 

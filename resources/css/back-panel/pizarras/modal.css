@@ -1,0 +1,23 @@
+.actividad-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.form-check-input {
+    cursor: pointer;
+}
+
+.btn-actualizar, .btn-crear{
+    border-radius: 999px;
+    border:none;
+    font-size: 1.2rem;
+    padding: 7px 30px 7px 30px;
+    background-color: rgb(36, 36, 36);
+    color: #eeeeee;
+    cursor: pointer;
+}
+
+.btn-actualizar:hover, .btn-crear:hover {
+    background-color: rgb(73 139 201);
+}

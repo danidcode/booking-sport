@@ -1,0 +1,118 @@
+.inscripciones-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: self-end;
+    height: 90%;
+    width: 95%;
+    background-color: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 15px;
+}
+.inscripciones-wrap .inscripciones-table {
+    table-layout: fixed;
+}
+.inscripciones-wrap .inscripciones-table-wrap {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.inscripciones-wrap .inscripciones-table-wrap .inscripciones-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.inscripciones-wrap .inscripciones-table-wrap .inscripciones-table .acciones i {
+    cursor: pointer;
+}
+.inscripciones-wrap .inscripciones-table-wrap .inscripciones-table .inscripciones-row {
+    height: 100px;
+}
+.inscripciones-wrap .inscripciones-table-wrap .inscripciones-table td, .inscripciones-wrap .inscripciones-table-wrap .inscripciones-table th {
+    text-align: left;
+    padding: 8px;
+}
+.inscripciones-wrap .inscripciones-table-wrap .inscripciones-table th {
+    font-size: 0.957rem;
+    background-color: #f3f2f7;
+    border-block: 2px solid #ebe9f1;
+    border-block-width: 2px;
+    border-block-style: solid;
+    border-block-color: #ebe9f1;
+    color: #6e6b7b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+}
+.inscripciones-wrap .inscripciones-table-wrap .inscripciones-table th i {
+    cursor: pointer;
+}
+.inscripciones-wrap .inscripciones-table-wrap .inscripciones-table td {
+    font-size: 0.857rem;
+    color: #6e6b7b;
+    border-bottom: 3px #f7f7f7 solid;
+    max-height: 100px;
+}
+.inscripciones-wrap .inscripciones-table-wrap .inscripciones-table td img {
+    max-height: 100px;
+    width: 100%;
+}
+.inscripciones-wrap .inscripciones-table-wrap .inscripciones-table .fa-solid {
+    cursor: pointer;
+}
+.inscripciones-wrap .inscripciones-table-wrap .inscripciones-table .activo {
+    border-radius: 9999px;
+    padding: 7px 20px 7px 20px;
+    color: #f7f7f7;
+    background-color: rgb(65 179 65);
+}
+.inscripciones-wrap .inscripciones-table-wrap .inscripciones-table .inactivo {
+    border-radius: 9999px;
+    padding: 7px 20px 7px 20px;
+    color: #f7f7f7;
+    background-color: rgb(233 78 78);
+}
+.inscripciones-wrap .inscripciones-table-wrap .inscripciones-table .cancelar-inscripcion {
+    background-color: #eb2a2a;
+    border-radius: 999px;
+    padding: 2px 13px 2px 13px;
+    color: #f7f7f7;
+    font-size: 0.857rem;
+    border: none;
+}
+.inscripciones-wrap .inscripciones-table-wrap .inscripciones-table .cancelar-inscripcion:hover {
+    background-color: #6e6b7b;
+}
+.inscripciones-wrap .inscripciones-pagination-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    width: 100%;
+}
+.inscripciones-wrap .inscripciones-pagination-wrap ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+.inscripciones-wrap .inscripciones-pagination-wrap ul li {
+    display: inline;
+}
+.inscripciones-wrap .inscripciones-pagination-wrap ul li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.inscripciones-wrap .inscripciones-pagination-wrap ul li a.active {
+    background-color: rgb(73 139 201);
+    color: white;
+    border-radius: 5px;
+}
+.inscripciones-wrap .inscripciones-pagination-wrap ul li a:hover:not(.active) {
+    background-color: #ddd;
+}
+.inscripciones-wrap .inscripciones-pagination-wrap .points {
+    background-color: white !important;
+    cursor: auto !important;
+}

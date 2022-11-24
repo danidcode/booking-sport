@@ -14,7 +14,7 @@
     <title>Booking Sport</title>
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/scss/main.scss', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/css/main.css', 'resources/js/app.js'])
 </head>
 
 <body>

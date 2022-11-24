@@ -1,0 +1,200 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+  height: 60vh;
+}
+.layout-login {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 5rem;
+}
+.layout-login .login {
+  width: 70%;
+  box-shadow: 0 0 1.1rem rgba(2, 20, 27, 0.863);
+  display: flex;
+  flex-direction: row;
+}
+.layout-login .login-image {
+  width: 50%;
+}
+.layout-login .login-image img {
+  width: 100%;
+  height: 100%;
+}
+.layout-login .login-content {
+  width: 60%;
+  height: 100%;
+}
+.layout-login .login-content-form {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.layout-login .login-content-form-group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 70%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.layout-login .login-content-form input {
+  position: relative;
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 1.3rem;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+.layout-login .login-content-form input::placeholder {
+  color: transparent;
+}
+.layout-login .login-content-form input:placeholder-shown ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+.layout-login .login-content-form label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+}
+.layout-login .login-content-form input:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #498bc9, #bdd5db);
+  border-image-slice: 1;
+}
+.layout-login .login-content-form input:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #498bc9;
+  font-weight: 700;
+}
+.layout-login .login-content-form input:required, .layout-login .login-content-form input:invalid {
+  box-shadow: none;
+}
+.layout-login .login-content-form-button {
+  margin-top: 1rem;
+}
+.layout-login .login-content-form-button-sign {
+  border-radius: 999px;
+  font-size: 1.2rem;
+  padding: 7px 30px 7px 30px;
+  background-color: white;
+}
+.layout-login .login-content-form-button-sign:hover {
+  cursor: pointer;
+  background-color: #242424;
+  color: #eee;
+  border-color: #eee;
+  border-style: double;
+}
+.orSignUp {
+  margin-top: 2rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+}
+.orSignUp a {
+  text-decoration: none;
+  color: #242424;
+}
+.forgotPassword {
+  display: flex;
+  justify-content: end;
+  width: 70%;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+}
+.forgotPassword a {
+  text-decoration: none;
+  color: #498bc9;
+}
+@media (min-width: 992px) and (max-width: 1199.9px) {
+  .login-container {
+    height: auto !important;
+ }
+}
+@media (min-width: 768px) and (max-width: 991.9px) {
+  .login-container {
+    height: auto !important;
+ }
+}
+@media (min-width: 576px) and (max-width: 767.9px) {
+  .orSignUp {
+    margin-bottom: 1rem;
+ }
+  .login-container {
+    height: auto !important;
+ }
+  .login {
+    flex-direction: column !important;
+ }
+  .login-image {
+    width: 100% !important;
+ }
+  .login-content {
+    width: 100% !important;
+ }
+  .login .login-content-form-button {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+ }
+}
+@media (max-width: 575.9px) {
+  .orSignUp {
+    margin-bottom: 1rem;
+ }
+  .login-container {
+    height: auto !important;
+ }
+  .login {
+    flex-direction: column !important;
+ }
+  .login-image {
+    width: 100% !important;
+ }
+  .login-content {
+    width: 100% !important;
+ }
+  .login .login-content-form-button {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+ }
+}
+@media (max-width: 991.9px) {
+  .orSignUp {
+    margin-bottom: 1rem;
+ }
+  .login-container {
+    height: auto !important;
+ }
+  .login {
+    flex-direction: column !important;
+ }
+  .login-image {
+    width: 100% !important;
+ }
+  .login-content {
+    width: 100% !important;
+ }
+  .login .login-content-form-button {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+ }
+}
