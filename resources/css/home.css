@@ -72,7 +72,7 @@
 }
 
 
-@media (orientation: landscape) {
+@media (orientation: landscape) and (max-width: 991.9px) {
     .tarjeta-inscripcion {
         width: 100% !important;
     }

@@ -52,7 +52,7 @@
   
   
   
-  @media (orientation: landscape) {
+  @media (orientation: landscape) and (max-width: 1179.9px) {
     table {
       display: block;
       max-width: -moz-fit-content;
