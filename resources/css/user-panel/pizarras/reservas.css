@@ -71,7 +71,7 @@
     color: #f7f7f7;
     background-color: rgb(233 78 78);
 }
-.reservas-wrap .reservas-table-wrap .reservas-table .cancelar-inscripcion {
+.reservas-wrap .reservas-table-wrap .reservas-table .cancelar-reserva {
     background-color: #eb2a2a;
     border-radius: 999px;
     padding: 2px 13px 2px 13px;
@@ -79,7 +79,7 @@
     font-size: 0.857rem;
     border: none;
 }
-.reservas-wrap .reservas-table-wrap .reservas-table .cancelar-inscripcion:hover {
+.reservas-wrap .reservas-table-wrap .reservas-table .cancelar-reserva:hover {
     background-color: #6e6b7b;
 }
 .reservas-wrap .reservas-pagination-wrap {
