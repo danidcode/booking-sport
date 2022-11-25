@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('content')
     <div class="home">
+    
         @if (isset($evento_principal))
             <div class="home-evento-principal">
                 <div class="tarjeta-inscripcion">

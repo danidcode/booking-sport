@@ -107,7 +107,7 @@
     border-radius: 5px;
 }
 .actividades-wrap .actividades-pagination-wrap ul li a.active {
-    background-color: #000;
+    background-color: rgb(73 139 201);
     color: white;
     border-radius: 5px;
 }
