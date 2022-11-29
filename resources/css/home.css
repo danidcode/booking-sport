@@ -59,7 +59,7 @@
     color: #FFFFFF;
 }
 
-.tarjeta-inscripcion-button {
+.tarjeta-inscripcion-button, .tarjeta-inscripcion-button:hover {
     border-radius: 999px;
     padding: 0.7rem;
     background-color: rgb(73 139 201);
